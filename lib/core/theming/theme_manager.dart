@@ -44,8 +44,8 @@ ThemeData getApplicationTheme() {
             color: ColorManager.black, fontSize: FontSize.s16),
         titleMedium: getMediumStyle(
             color: ColorManager.black, fontSize: FontSize.s18),
-        bodyLarge: getRegularStyle(color: ColorManager.black),
-        bodySmall: getRegularStyle(color: ColorManager.black)),
+        bodyLarge: getRegularStyle(color: ColorManager.black, fontSize: FontSize.s22),
+        bodySmall: getRegularStyle(color: ColorManager.black, fontSize:FontSize.s16)),
     // input decoration theme (text form field)
      inputDecorationTheme: InputDecorationTheme(
         // content padding
@@ -55,7 +55,7 @@ ThemeData getApplicationTheme() {
             getRegularStyle(color: ColorManager.grey, fontSize: FontSize.s14),
         labelStyle:
             getMediumStyle(color: ColorManager.black, fontSize: FontSize.s14),
-        errorStyle: getRegularStyle(color: ColorManager.error),
+        errorStyle: getRegularStyle(color: ColorManager.error, fontSize: FontSize.s16),
 
         // enabled border style
         enabledBorder: OutlineInputBorder(

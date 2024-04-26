@@ -9,4 +9,5 @@ class ColorManager {
   static Color grey2 = const Color(0xffA1A8B0);
   static Color grey3 = const Color(0xffE5E7EB);
   static Color white = const Color.fromRGBO(255, 255, 255, 1);
+  //static Color green = const Color(0xffE5E7EB);
 }

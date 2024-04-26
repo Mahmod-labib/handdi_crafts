@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/featurae/onboarding/splash/ui/splash.dart';
+import 'package:flutter_application_1/featurae/landing.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../core/theming/theme_manager.dart';
+import '../featurae/intro_screens/ui/splash.dart';
 
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
@@ -14,10 +16,18 @@ class _MyAppState extends State<MyApp> {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: getApplicationTheme(),
-      home: SplashScreen(),
+    return ScreenUtilInit(
+      designSize:const Size(375, 612) ,
+      builder: (context, child) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          theme: getApplicationTheme(),
+          home: const SplashScreen(),
+        );
+      },
     );
   }
 }
+   /*
+   
+   */
