@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/featurae/landing.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../core/theming/theme_manager.dart';
