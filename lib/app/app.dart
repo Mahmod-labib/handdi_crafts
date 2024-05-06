@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../core/theming/theme_manager.dart';
-import '../featurae/intro_screens/ui/splash.dart';
+import '../features/on_boarding/ui/splash.dart';
 
 class MyApp extends StatefulWidget {
   const MyApp({super.key});

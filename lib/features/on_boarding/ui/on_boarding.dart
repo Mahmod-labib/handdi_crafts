@@ -2,13 +2,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/core/theming/color_manager.dart';
 import 'package:flutter_application_1/core/theming/font_manager.dart';
-import 'package:flutter_application_1/featurae/intro_screens/ui/intro_page_1.dart';
-import 'package:flutter_application_1/featurae/intro_screens/ui/intro_page_2.dart';
-import 'package:flutter_application_1/featurae/intro_screens/ui/intro_page_3.dart';
-import 'package:flutter_application_1/featurae/intro_screens/ui/intro_page_4.dart';
-import 'package:flutter_application_1/featurae/intro_screens/ui/intro_page_5.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+
+import 'intro_page_1.dart';
+import 'intro_page_2.dart';
+import 'intro_page_3.dart';
+import 'intro_page_4.dart';
+import 'intro_page_5.dart';
 
 class OnBoarding extends StatefulWidget {
   const OnBoarding({super.key});

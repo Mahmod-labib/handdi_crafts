@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/core/theming/font_manager.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomCheckbox extends StatefulWidget {
   final bool isChecked;
@@ -13,10 +15,10 @@ class CustomCheckbox extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _CustomCheckboxState createState() => _CustomCheckboxState();
+  CustomCheckboxState createState() => CustomCheckboxState();
 }
 
-class _CustomCheckboxState extends State<CustomCheckbox> {
+class CustomCheckboxState extends State<CustomCheckbox> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -32,14 +34,14 @@ class _CustomCheckboxState extends State<CustomCheckbox> {
             color: widget.borderColor ?? Colors.black, // Access borderColor using widget
           ),
         ),
-        width: 24,
-        height: 24,
+        width: 24.w,
+        height: 24.h,
         child: widget.isChecked
-            ? Center(
+            ?  Center(
           child: Text(
             '✓',
             style: TextStyle(
-              fontSize: 14,
+              fontSize: FontSize.s14,
               fontWeight: FontWeight.bold,
               color: Colors.green,
             ),
