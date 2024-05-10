@@ -25,10 +25,9 @@ class _SplashScreenState extends State<SplashScreen>
     // Wrap the navigation logic inside a Future.delayed
     Future.delayed(const Duration(seconds: AppConstants.splashDelay), () {
       // Access the navigator using Navigator.of(context)
-      Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => const OnBoarding()));
 
-     // context.pushReplacement(AppRouter.loginPath);
+
+      context.push(AppRouter.onboardingPath);
     });
   }
 

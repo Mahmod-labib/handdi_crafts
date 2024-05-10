@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/core/theming/color_manager.dart';
 import 'package:flutter_application_1/core/theming/font_manager.dart';
+import 'package:flutter_application_1/core/theming/routes_manager.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 
-import 'intro_page_6.dart';
 
 class IntroPage5 extends StatefulWidget {
   const IntroPage5({super.key});
@@ -30,11 +31,11 @@ class _IntroPage5State extends State<IntroPage5> {
 
             child: MaterialButton(
               onPressed: () {
-                Navigator.pushReplacement(context,
+               /* Navigator.pushReplacement(context,
                     MaterialPageRoute(builder: (context) => const IntroPage6()));
-
+*/
                 
-                ;
+                context.pushReplacement(AppRouter.introPage6Path);
               },
               child: Text("Get Started",
                   style: TextStyle(

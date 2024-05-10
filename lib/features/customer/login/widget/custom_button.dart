@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/core/theming/color_manager.dart';
 import 'package:flutter_application_1/core/theming/font_manager.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 class CustomButtonOutlined extends StatelessWidget {
@@ -15,10 +14,10 @@ class CustomButtonOutlined extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return  Container(
-      height: 46.h,
+      height: 56.h,
       width: 327.w,
       decoration: BoxDecoration(
-          color:  ColorManager.white2,
+          color: const Color(0xffE5E7EB),
           borderRadius: BorderRadius.circular(24.r),
           boxShadow: [
             BoxShadow(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/core/theming/color_manager.dart';
+import 'package:flutter_application_1/core/theming/font_manager.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomTextFormField extends StatelessWidget {
@@ -107,7 +108,7 @@ class CustomTextFormField extends StatelessWidget {
   );
   InputDecoration get decoration => InputDecoration(
     hintText: hintText ?? "",
-    hintStyle: hintStyle?? const TextStyle(fontSize: 16 , fontWeight: FontWeight.w500 , color: Color(0xff101623)) ,
+    hintStyle: hintStyle??  TextStyle(fontSize: FontSize.s16 , fontWeight: FontWeightManager.regular , color:ColorManager.grey2) ,
     prefixIcon: prefixIcon,
     prefixIconConstraints: prefixConstraints,
     suffixIcon: suffixIcon,
@@ -123,7 +124,7 @@ class CustomTextFormField extends StatelessWidget {
     filled: filled,
     border: borderDecoration ??
         OutlineInputBorder(
-          borderRadius: BorderRadius.circular(24),
+          borderRadius: BorderRadius.circular(24.r),
           borderSide:  BorderSide(
             color: ColorManager.white,
             width: 1,
@@ -131,7 +132,7 @@ class CustomTextFormField extends StatelessWidget {
         ),
     enabledBorder: borderDecoration ??
         OutlineInputBorder(
-          borderRadius: BorderRadius.circular(24),
+          borderRadius: BorderRadius.circular(24.r),
           borderSide: BorderSide(
             color: ColorManager.white,
             width: 1,
@@ -139,9 +140,9 @@ class CustomTextFormField extends StatelessWidget {
         ),
     focusedBorder: borderDecoration ??
         OutlineInputBorder(
-          borderRadius: BorderRadius.circular(24),
+          borderRadius: BorderRadius.circular(24.r),
           borderSide:  BorderSide(
-            color: ColorManager.white,
+            color: ColorManager.grey4,
             width: 1,
           ),
         ),

@@ -2,8 +2,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/core/theming/color_manager.dart';
 import 'package:flutter_application_1/core/theming/font_manager.dart';
+import 'package:flutter_application_1/core/theming/routes_manager.dart';
 import 'package:flutter_application_1/core/theming/values_manager.dart';
+import 'package:flutter_application_1/features/crafter/Intro/ui/intro.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 import '../widget/custom_checkbox.dart';
 import 'intro_page_7.dart';
@@ -38,7 +41,7 @@ class _IntroPage6State extends State<IntroPage6> {
                   Text("Welcome to our ",
                       style: TextStyle(
                           color: ColorManager.white,
-                          fontSize: 20,
+                          fontSize: FontSize.s20,
                           fontWeight: FontWeightManager.medium)),
                   Text("Handicrafts Community!",
                       style: TextStyle(
@@ -68,9 +71,9 @@ class _IntroPage6State extends State<IntroPage6> {
                       onChanged: (value) {
                         setState(() {
                           customer = value;
-                     Navigator.pushReplacement(context,
-                    MaterialPageRoute(builder: (context) => IntroPage7()));       
-                                     });
+                          context.pushReplacement(AppRouter.introPage7Path);
+
+                        });
                       },
                     ),
                      SizedBox(width: 10.w),
@@ -89,8 +92,7 @@ class _IntroPage6State extends State<IntroPage6> {
                       onChanged: (value) {
                         setState(() {
                           Crafter = value;
-                         Navigator.pushReplacement(context,
-                    MaterialPageRoute(builder: (context) => IntroPage7())); 
+                        context.pushReplacement(AppRouter.crafterintropagepath);
                         });
                       },
                     ),

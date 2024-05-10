@@ -5,14 +5,14 @@ import 'package:flutter_application_1/core/theming/routes_manager.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
-class IntroPage7 extends StatefulWidget {
-  const IntroPage7({super.key});
+class CrafterIntroPage extends StatefulWidget {
+  const CrafterIntroPage({super.key});
 
   @override
-  State<IntroPage7> createState() => _IntroPage7State();
+  State<CrafterIntroPage> createState() => _CrafterIntroPageState();
 }
 
-class _IntroPage7State extends State<IntroPage7> {
+class _CrafterIntroPageState extends State<CrafterIntroPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,33 +26,33 @@ class _IntroPage7State extends State<IntroPage7> {
                 width: 102.84.w,
                 height: 157.36.h,
               )),
-           SizedBox(
+          SizedBox(
             height: 10.h,
           ),
-           Center(
+          Center(
               child: Text(
-            "Let’s get started!",
-            style: TextStyle(
-                fontSize: FontSize.s22, fontWeight: FontWeightManager.medium, color: ColorManager.black),
-          )),
-           SizedBox(
+                "Let’s get started!",
+                style: TextStyle(
+                    fontSize: FontSize.s22, fontWeight: FontWeightManager.medium, color: ColorManager.black),
+              )),
+          SizedBox(
             height: 5.h,
           ),
-           Text(
+          Text(
             "Login to enjoy the features we’ve ",
             style: TextStyle(
                 fontSize: FontSize.s15,
                 fontWeight: FontWeightManager.thin,
                 color: ColorManager.grey2),
           ),
-           Text(
+          Text(
             "provided",
             style: TextStyle(
                 fontSize:FontSize.s15 ,
                 fontWeight:FontWeightManager.thin,
                 color:ColorManager.grey2),
           ),
-           SizedBox(
+          SizedBox(
             height: 25.h,
           ),
           Container(
@@ -65,13 +65,13 @@ class _IntroPage7State extends State<IntroPage7> {
 
             child: MaterialButton(
               onPressed: () {
-                context.pushReplacement(AppRouter.customerloginPath);
+                context.pushReplacement(AppRouter.crafterloginPath);
               },
               child:  Text("Login",
                   style: TextStyle(fontSize: FontSize.s16, color: ColorManager.white,fontWeight: FontWeightManager.medium)),
             ),
           ),
-           SizedBox(height: 15.h,),
+          SizedBox(height: 15.h,),
           Container(
             decoration: BoxDecoration(
               color: ColorManager.white,
@@ -82,7 +82,7 @@ class _IntroPage7State extends State<IntroPage7> {
             height: 56.h,
             child: MaterialButton(
               onPressed: () {
-                context.pushReplacement(AppRouter.customersignupPath);
+                context.pushReplacement(AppRouter.craftersignupPath);
               },
               child:  Text(
                 "Sign Up",
