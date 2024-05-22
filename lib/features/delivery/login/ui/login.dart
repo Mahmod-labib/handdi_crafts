@@ -9,16 +9,16 @@ import '../../../../core/theming/font_manager.dart';
 import '../../../../widgets/custom_button.dart';
 import '../../../../widgets/custom_text_field.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class DeliveryLoginScreen extends StatefulWidget {
+  const DeliveryLoginScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<DeliveryLoginScreen> createState() => _DeliveryLoginScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _DeliveryLoginScreenState extends State<DeliveryLoginScreen> {
+   final _formKey =GlobalKey<FormState>();
 
-  final _formKey=GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,7 +30,7 @@ class _LoginScreenState extends State<LoginScreen> {
             color: ColorManager.black2,
           ),
           onPressed: () {
-            context.pushReplacement(AppRouter.introPage7Path);
+            context.pushReplacement(AppRouter.deliveryintropagepath);
           },
         ),
         backgroundColor: Colors.white,
@@ -54,7 +54,7 @@ class _LoginScreenState extends State<LoginScreen> {
               CustomTextFormField(
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Please enter valid Email';
+                    return 'Please enter valid email';
                   }
                   return null;
                 },
@@ -118,7 +118,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(content: Text('Processing Data')),
                       );
-                      context.pushReplacement(AppRouter.customerloginPath);
+                      context.pushReplacement(AppRouter.deliveryloginPath);
 
                     }
 
@@ -220,7 +220,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   InkWell(
                     onTap: () {
-                      context.pushReplacement(AppRouter.customersignupPath);
+                      context.pushReplacement(AppRouter.deliverysignupPath);
                     },
                     child: Text(
                       "SignUp",

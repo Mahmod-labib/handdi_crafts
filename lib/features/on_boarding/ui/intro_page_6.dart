@@ -110,8 +110,8 @@ class _IntroPage6State extends State<IntroPage6> {
                       onChanged: (value) {
                         setState(() {
                           Delivery = value;
-                        Navigator.pushReplacement(context,
-                    MaterialPageRoute(builder: (context) => IntroPage7())); 
+                          context.pushReplacement(AppRouter.deliveryintropagepath);
+
                         });
                       },
                     ),

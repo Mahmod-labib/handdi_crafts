@@ -9,8 +9,17 @@ import '../../../../core/theming/font_manager.dart';
 import '../../../../widgets/custom_button.dart';
 import '../../../../widgets/custom_text_field.dart';
 
-class CrafterLoginScreen extends StatelessWidget {
+class CrafterLoginScreen extends StatefulWidget {
   const CrafterLoginScreen({super.key});
+
+  @override
+  State<CrafterLoginScreen> createState() => _CrafterLoginScreenState();
+}
+
+class _CrafterLoginScreenState extends State<CrafterLoginScreen> {
+
+  final _formKey = GlobalKey<FormState>();
+
 
   @override
   Widget build(BuildContext context) {
@@ -40,201 +49,222 @@ class CrafterLoginScreen extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(18.0),
-        child: Column(
-          children: [
-            CustomTextFormField(
-              prefixIcon: Icon(
-                Icons.email,
-                color: ColorManager.grey2,
-              ),
-              controller: TextEditingController(),
-              hintText: '  Enter Your Email ',
-              obscureText: false,
-              textInputType: TextInputType.emailAddress,
-            ),
-            SizedBox(
-              height: 16.h,
-            ),
-            CustomTextFormField(
-              prefixIcon: Icon(Icons.lock, color: ColorManager.grey2),
-              suffixIcon: Icon(Icons.visibility, color: ColorManager.grey2),
-              controller: TextEditingController(),
-              hintText: '  Enter Your Password ',
-              obscureText: true,
-              textInputAction: TextInputAction.done,
-              textInputType: TextInputType.visiblePassword,
-            ),
-            SizedBox(
-              height: 8.h,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Text(
-                  "Forgot Password?",
-                  style: TextStyle(
-                    fontWeight: FontWeightManager.thin,
-                    fontSize: FontSize.s14,
-                    color: ColorManager.olive2,
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(
-              height: 14.h,
-            ),
-            Container(
-              // alignment: Alignment.bottomCenter,
-              decoration: BoxDecoration(
-                  color:  ColorManager.olive2,
-                  borderRadius: BorderRadiusDirectional.circular(32.r)),
-              width: 327.w,
-              height: 56.h,
-
-              child: MaterialButton(
-                onPressed: () {
-                  context.pushReplacement(AppRouter.crafterloginPath);
+        child: Form(
+          key: _formKey,
+          child: Column(
+            children: [
+              CustomTextFormField(
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please Enter  Valid Name';
+                  }
+                  return null;
                 },
-                child:  Text("Login",
-                    style: TextStyle(fontSize: FontSize.s16, color: ColorManager.white,fontWeight: FontWeightManager.medium)),
+                prefixIcon: Icon(
+                  Icons.email,
+                  color: ColorManager.grey2,
+                ),
+                controller: TextEditingController(),
+                hintText: '  Enter Your Email ',
+                obscureText: false,
+                textInputType: TextInputType.emailAddress,
               ),
-            ),
-
-            // CustomButton(text: "login", onPressed: (){}, width: 100, height: 10),
-           /* CustomButton(
-              text: 'Login',
-              width: 327.w,
-              height: 56.h,
-              onPressed: () => showDialog(
-                context: context,
-                builder: (BuildContext context) => Container(
-                  width: 327.h,
-                  height: 401.w,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      AlertDialog(
-                        title: Container(
-                            width: 60.w,
-                            height: 60.h,
-                            decoration: BoxDecoration(
-                                color: ColorManager.white3,
-                                shape: BoxShape.circle),
-                            child: Image.asset(
-                                "assets/images/img_icoutlinecheck.png")),
-                        content: Column(
-                          children: [
-                            SizedBox(
-                              height: 10.h,
-                            ),
-                            Text(
-                              "Welcome Back",
-                              style: TextStyle(
-                                  fontSize: FontSize.s20,
-                                  fontWeight: FontWeightManager.bold,
-                                  color: ColorManager.black),
-                            ),
-                            SizedBox(
-                              height: 10.h,
-                            ),
-                            Text(
-                              "you login successfully",
-                              style: TextStyle(
-                                fontSize: FontSize.s16,
-                                color: ColorManager.grey2,
-                                fontWeight: FontWeightManager.thin,
-                              ),
-                            ),
-                            Text(
-                              "into Handicrafts app",
-                              style: TextStyle(
-                                fontSize: 16,
-                                color: ColorManager.grey2,
-                                fontWeight: FontWeightManager.thin,
-                              ),
-                            ),
-                            SizedBox(
-                              height: 10.h,
-                            ),
-                            CustomButton(
-                              text: ("Go to home"),
-                              onPressed: () {
-                                //todo while navigate to home
-                                context.pushReplacement("/landing");
-                              },
-                              width: 183.w,
-                              height: 56.h,
-                            ),
-                            SizedBox(
-                              height: 10.h,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
+              SizedBox(
+                height: 16.h,
+              ),
+              CustomTextFormField(
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please Enter Valid Password';
+                  }
+                  return null;
+                },
+                prefixIcon: Icon(Icons.lock, color: ColorManager.grey2),
+                suffixIcon: Icon(Icons.visibility, color: ColorManager.grey2),
+                controller: TextEditingController(),
+                hintText: '  Enter Your Password ',
+                obscureText: true,
+                textInputAction: TextInputAction.done,
+                textInputType: TextInputType.visiblePassword,
+              ),
+              SizedBox(
+                height: 8.h,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Text(
+                    "Forgot Password?",
+                    style: TextStyle(
+                      fontWeight: FontWeightManager.thin,
+                      fontSize: FontSize.s14,
+                      color: ColorManager.olive2,
+                    ),
                   ),
+                ],
+              ),
+              SizedBox(
+                height: 14.h,
+              ),
+              Container(
+                // alignment: Alignment.bottomCenter,
+                decoration: BoxDecoration(
+                    color:  ColorManager.olive2,
+                    borderRadius: BorderRadiusDirectional.circular(32.r)),
+                width: 327.w,
+                height: 56.h,
+
+                child: MaterialButton(
+                  onPressed: () {
+                    if(_formKey.currentState!.validate()){
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text('Processing Data')),
+                      );
+                      context.pushReplacement(AppRouter.crafterloginPath);
+
+                    }
+                  },
+                  child:  Text("Login",
+                      style: TextStyle(fontSize: FontSize.s16, color: ColorManager.white,fontWeight: FontWeightManager.medium)),
                 ),
               ),
-            ),*/
-            SizedBox(
-              height: 24.h,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
+
+              // CustomButton(text: "login", onPressed: (){}, width: 100, height: 10),
+             /* CustomButton(
+                text: 'Login',
+                width: 327.w,
+                height: 56.h,
+                onPressed: () => showDialog(
+                  context: context,
+                  builder: (BuildContext context) => Container(
+                    width: 327.h,
+                    height: 401.w,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        AlertDialog(
+                          title: Container(
+                              width: 60.w,
+                              height: 60.h,
+                              decoration: BoxDecoration(
+                                  color: ColorManager.white3,
+                                  shape: BoxShape.circle),
+                              child: Image.asset(
+                                  "assets/images/img_icoutlinecheck.png")),
+                          content: Column(
+                            children: [
+                              SizedBox(
+                                height: 10.h,
+                              ),
+                              Text(
+                                "Welcome Back",
+                                style: TextStyle(
+                                    fontSize: FontSize.s20,
+                                    fontWeight: FontWeightManager.bold,
+                                    color: ColorManager.black),
+                              ),
+                              SizedBox(
+                                height: 10.h,
+                              ),
+                              Text(
+                                "you login successfully",
+                                style: TextStyle(
+                                  fontSize: FontSize.s16,
+                                  color: ColorManager.grey2,
+                                  fontWeight: FontWeightManager.thin,
+                                ),
+                              ),
+                              Text(
+                                "into Handicrafts app",
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  color: ColorManager.grey2,
+                                  fontWeight: FontWeightManager.thin,
+                                ),
+                              ),
+                              SizedBox(
+                                height: 10.h,
+                              ),
+                              CustomButton(
+                                text: ("Go to home"),
+                                onPressed: () {
+                                  //todo while navigate to home
+                                  context.pushReplacement("/landing");
+                                },
+                                width: 183.w,
+                                height: 56.h,
+                              ),
+                              SizedBox(
+                                height: 10.h,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),*/
+              SizedBox(
+                height: 24.h,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Don't have an Account ?  ",
+                    style: TextStyle(
+                      fontWeight: FontWeightManager.thin,
+                      fontSize: FontSize.s15,
+                      color: ColorManager.grey4,
+                    ),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      context.pushReplacement(AppRouter.craftersignupPath);
+                    },
+                    child: Text(
+                      "SignUp",
+                      style: TextStyle(
+                          fontWeight: FontWeightManager.thin,
+                          fontSize: FontSize.s15,
+                          color: ColorManager.olive2),
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 15.h,
+              ),
+              Row(children: <Widget>[
+                const Expanded(child: Divider()),
                 Text(
-                  "Don't have an Account ?  ",
+                  "  OR  ",
                   style: TextStyle(
-                    fontWeight: FontWeightManager.thin,
-                    fontSize: FontSize.s15,
+                    fontWeight: FontWeightManager.regular,
+                    fontSize: FontSize.s16,
                     color: ColorManager.grey4,
                   ),
                 ),
-                InkWell(
-                  onTap: () {
-                    context.pushReplacement(AppRouter.craftersignupPath);
-                  },
-                  child: Text(
-                    "SignUp",
-                    style: TextStyle(
-                        fontWeight: FontWeightManager.thin,
-                        fontSize: FontSize.s15,
-                        color: ColorManager.olive2),
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(
-              height: 15.h,
-            ),
-            Row(children: <Widget>[
-              const Expanded(child: Divider()),
-              Text(
-                "  OR  ",
-                style: TextStyle(
-                  fontWeight: FontWeightManager.regular,
-                  fontSize: FontSize.s16,
-                  color: ColorManager.grey4,
-                ),
+                const Expanded(child: Divider()),
+              ]),
+              SizedBox(
+                height: 15.h,
               ),
-              const Expanded(child: Divider()),
-            ]),
-            SizedBox(
-              height: 15.h,
-            ),
-            CustomButtonOutlined(
-              label: "Sign in with Google ",
-              leftIcon: SvgPicture.asset('assets/images/img_google.svg'),
-            ),
-            CustomButtonOutlined(
-              label: " Sign in with Facebook ",
-              leftIcon: SvgPicture.asset('assets/images/img_facebook.svg'),
-            ),
-            CustomButtonOutlined(
-              label: "Sign in with Apple",
-              leftIcon: SvgPicture.asset("assets/images/img_user.svg"),
-            ),
-          ],
+              CustomButtonOutlined(
+                label: "Sign in with Google ",
+                leftIcon: SvgPicture.asset('assets/images/img_google.svg'),
+              ),
+              CustomButtonOutlined(
+                label: " Sign in with Facebook ",
+                leftIcon: SvgPicture.asset('assets/images/img_facebook.svg'),
+              ),
+              CustomButtonOutlined(
+                label: "Sign in with Apple",
+                leftIcon: SvgPicture.asset("assets/images/img_user.svg"),
+              ),
+            ],
+          ),
         ),
       ),
     );

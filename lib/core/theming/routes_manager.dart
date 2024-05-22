@@ -2,6 +2,9 @@ import 'package:flutter_application_1/features/crafter/Intro/ui/intro.dart';
 import 'package:flutter_application_1/features/crafter/login/ui/login.dart';
 import 'package:flutter_application_1/features/crafter/signup/ui/signup.dart';
 import 'package:flutter_application_1/features/customer/signup/ui/signup.dart';
+import 'package:flutter_application_1/features/delivery/Intro/ui/intro.dart';
+import 'package:flutter_application_1/features/delivery/login/ui/login.dart';
+import 'package:flutter_application_1/features/delivery/signup/ui/signup.dart';
 import 'package:flutter_application_1/features/on_boarding/ui/intro_page_1.dart';
 import 'package:flutter_application_1/features/on_boarding/ui/intro_page_3.dart';
 import 'package:go_router/go_router.dart';
@@ -31,6 +34,9 @@ class AppRouter {
   static const crafterintropagepath = "/crafterintropage";
   static const crafterloginPath = "/crafterlogin";
   static const craftersignupPath="/craftersignup";
+  static const deliveryintropagepath = "/deliveryintropage";
+  static const deliveryloginPath = "/deliveryrlogin";
+  static const deliverysignupPath="/deliverysignup";
 
 }
 
@@ -50,6 +56,10 @@ GoRouter router(){
     GoRoute(path: AppRouter.crafterloginPath ,  builder:((context , state)=>const CrafterLoginScreen()) ),
     GoRoute(path: AppRouter.customersignupPath ,  builder:((context , state)=>const CustomerSignUp()) ),
     GoRoute(path: AppRouter.craftersignupPath ,  builder:((context , state)=>const CrafterSignUp()) ),
+    GoRoute(path: AppRouter.deliverysignupPath ,  builder:((context , state)=>const DeliverySignUp()) ),
+    GoRoute(path: AppRouter.deliveryloginPath ,  builder:((context , state)=>const DeliveryLoginScreen()) ),
+    GoRoute(path: AppRouter.deliveryintropagepath ,  builder:((context , state)=>const DeliveryIntroPage()) ),
+
 
     // GoRoute(path: '/signUpDelivery' ,  builder:((context , state)=> SignUpDelivery()) ),
     //GoRoute(path: '/signUpCrafter' ,  builder:((context , state)=> SignUpCrafter()) ),

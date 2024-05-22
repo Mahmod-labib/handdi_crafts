@@ -21,7 +21,7 @@ class CustomerSignUp extends StatefulWidget {
 
 class _CustomerSignUpState extends State<CustomerSignUp> {
   bool isChecked=false;
-
+  final _formKey=GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     bool value = false;
@@ -48,218 +48,270 @@ class _CustomerSignUpState extends State<CustomerSignUp> {
         body: ListView(
           children:[ Padding(
             padding:  EdgeInsets.all(15.r),
-            child: Column(
-              children: [
+            child: Form(
+              key: _formKey,
+              child: Column(
+                children: [
 
-                CustomTextFormField(
-                  prefixIcon:  Icon(
-                    Icons.person,
-                    color:ColorManager.grey2              ),
-                  controller: TextEditingController(),
-                  hintText: '  Enter your first name ',
-                  obscureText: false,
-                  textInputType: TextInputType.name,
-                ),
-                SizedBox(height: 16.h,),
-                CustomTextFormField(
-                  prefixIcon:  Icon(
+                  CustomTextFormField(
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter valid Name';
+                      }
+                      return null;
+                    },
+                    prefixIcon:  Icon(
                       Icons.person,
                       color:ColorManager.grey2              ),
-                  controller: TextEditingController(),
-                  hintText: '  Enter your second name ',
-                  obscureText: false,
-                  textInputType: TextInputType.name,
-                ),
-                SizedBox(height: 16.h,),
-
-                SizedBox(
-                  height: 56.h,
-                  width: 327.w,
-                  // Set the desired height here
-                  child: IntlPhoneField(
-
-                    initialCountryCode: "EG",
-                    cursorColor: ColorManager.grey2,
-                    keyboardType: TextInputType.phone,
-                    decoration: InputDecoration(
-                      filled: true,
-                      contentPadding:  EdgeInsets.only(top: 16.r , bottom:16.r , right: 16.r ),
-                      fillColor: ColorManager.white,
-                      hintText: "Enter your number",
-                      hintStyle:  TextStyle(
-                        fontSize: FontSize.s16,
-                        fontWeight: FontWeightManager.regular,
-                        color: ColorManager.grey2,
-                      ),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(24.r),
-                        borderSide:  BorderSide(
-                          color: ColorManager.black2,
-                          width: 1.r,
-                        ),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(24.r),
-                        borderSide:  BorderSide(
-                          color: ColorManager.white,
-                          width: 1.r,
-                        ),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(24.r),
-                        borderSide:  BorderSide(
-                          color: ColorManager.grey4,
-                          width: 1,
-                        ),
-                      ),
-                      // Remove the counterText
-                      counterText: "",
-                    ),
+                    controller: TextEditingController(),
+                    hintText: '  Enter your first name ',
+                    obscureText: false,
+                    textInputType: TextInputType.name,
                   ),
-                ),
-                SizedBox(height: 16.h,),
-
-                CustomTextFormField(
-                  prefixIcon:  Icon(
-                      Icons.email,
-                      color:ColorManager.grey2      ),
-                  controller: TextEditingController(),
-                  hintText: '  Enter your email ',
-                  obscureText: false,
-                  textInputType: TextInputType.emailAddress,
-                ),
-                SizedBox(height: 16.h,),
-
-                CustomTextFormField(
-                  prefixIcon: Icon(Icons.lock, color: ColorManager.grey2),
-                  suffixIcon: Icon(Icons.visibility, color: ColorManager.grey2),
-                  controller: TextEditingController(),
-                  hintText: '  Enter Your Password ',
-                  obscureText: true,
-                  textInputAction: TextInputAction.done,
-                  textInputType: TextInputType.visiblePassword,
-                ),
-                SizedBox(height: 16.h,),
-
-                CustomTextFormField(
-                  prefixIcon: Icon(Icons.lock, color: ColorManager.grey2),
-                  suffixIcon: Icon(Icons.visibility, color: ColorManager.grey2),
-                  controller: TextEditingController(),
-                  hintText: '  Confirm Your Password ',
-                  obscureText: true,
-                  textInputAction: TextInputAction.done,
-                  textInputType: TextInputType.visiblePassword,
-                ),
-                SizedBox(height: 16.h,),
-
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    CustomCheckbox(isChecked: isChecked, onChanged: (value) {
-                      setState(() {
-                        isChecked=value;
-                      });
-                    },borderColor: ColorManager.grey3),
-                     SizedBox(width: 7.w),
-                     Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        SizedBox(
-                          height: 10.h,
-                        ),
-                        Row(
-                          children: [
-                            Text(
-                              "I agree to the Handicrafts ",
-                              style: TextStyle(
-                                color: ColorManager.black2,
-                                fontSize: FontSize.s13,
-                                fontWeight: FontWeightManager.thin,
-                              ),
-                            ),
-                            Text(
-                              "Terms of Service",
-                              style: TextStyle(
-                                color: ColorManager.olive2,
-                                fontSize: FontSize.s13,
-                                fontWeight: FontWeightManager.thin,
-                              ),
-                            )
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            Text(
-                              "and",
-                              style: TextStyle(
-                                color: ColorManager.black2,
-                                fontSize: 13,
-                                fontWeight: FontWeight.w400,
-                              ),
-                            ),
-                            Text(
-                              " Privacy Policy",
-                              style: TextStyle(
-                                color: ColorManager.olive2,
-                                fontSize: FontSize.s13,
-                                fontWeight: FontWeightManager.thin,
-                              ),
-                            )
-                          ],
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-                SizedBox(height: 36.h,),
-
-                Container(
-                  // alignment: Alignment.bottomCenter,
-                  decoration: BoxDecoration(
-                      color:  ColorManager.olive2,
-                      borderRadius: BorderRadiusDirectional.circular(32.r)),
-                  width: 327.w,
-                  height: 56.h,
-
-                  child: MaterialButton(
-                    onPressed: () {
-                      //todo while navigate
-                      context.pushReplacement("/verify");
+                  SizedBox(height: 16.h,),
+                  CustomTextFormField(
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter valid Name';
+                      }
+                      return null;
                     },
-                    child:  Text("SignUp",
-                        style: TextStyle(fontSize: FontSize.s16, color: ColorManager.white,fontWeight: FontWeightManager.medium)),
+                    prefixIcon:  Icon(
+                        Icons.person,
+                        color:ColorManager.grey2              ),
+                    controller: TextEditingController(),
+                    hintText: '  Enter your second name ',
+                    obscureText: false,
+                    textInputType: TextInputType.name,
                   ),
-                ),
-                SizedBox(height: 24.h,),
+                  SizedBox(height: 16.h,),
 
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                     Text(
-                      "Already have an account ?",
-                      style: TextStyle(
-                        color: ColorManager.black2,
-                        fontSize: FontSize.s14,
+                  SizedBox(
+                    height: 56.h,
+                    width: 327.w,
+                    // Set the desired height here
+                    child: IntlPhoneField(
+                      validator: (value) {
+                        if (value == null  ) {
+                          return 'Please enter valid Number';
+                        }
+                        return null;
+                      },
+                      initialCountryCode: "EG",
+                      cursorColor: ColorManager.grey2,
+                      keyboardType: TextInputType.phone,
+                      decoration: InputDecoration(
+                        filled: true,
+                        contentPadding:  EdgeInsets.only(top: 16.r , bottom:16.r , right: 16.r ),
+                        fillColor: ColorManager.white,
+                        hintText: "Enter your number",
+                        hintStyle:  TextStyle(
+                          fontSize: FontSize.s16,
+                          fontWeight: FontWeightManager.regular,
+                          color: ColorManager.grey2,
+                        ),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(24.r),
+                          borderSide:  BorderSide(
+                            color: ColorManager.black2,
+                            width: 1.r,
+                          ),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(24.r),
+                          borderSide:  BorderSide(
+                            color: ColorManager.white,
+                            width: 1.r,
+                          ),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(24.r),
+                          borderSide:  BorderSide(
+                            color: ColorManager.grey4,
+                            width: 1,
+                          ),
+                        ),
+                        // Remove the counterText
+                        counterText: "",
                       ),
                     ),
-                     SizedBox(
-                      width: 5.w,
-                    ),
-                    InkWell(
-                      onTap: () {
-                        context.pushReplacement(AppRouter.customerloginPath);
+                  ),
+                  SizedBox(height: 16.h,),
+
+                  CustomTextFormField(
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter valid Email';
+                      }
+                      return null;
+                    },
+                    prefixIcon:  Icon(
+                        Icons.email,
+                        color:ColorManager.grey2      ),
+                    controller: TextEditingController(),
+                    hintText: '  Enter your email ',
+                    obscureText: false,
+                    textInputType: TextInputType.emailAddress,
+                  ),
+                  SizedBox(height: 16.h,),
+
+                  CustomTextFormField(
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter valid Password';
+                      }
+                      return null;
+                    },
+                    prefixIcon: Icon(Icons.lock, color: ColorManager.grey2),
+                    suffixIcon: Icon(Icons.visibility, color: ColorManager.grey2),
+                    controller: TextEditingController(),
+                    hintText: '  Enter Your Password ',
+                    obscureText: true,
+                    textInputAction: TextInputAction.done,
+                    textInputType: TextInputType.visiblePassword,
+                  ),
+                  SizedBox(height: 16.h,),
+
+                  CustomTextFormField(
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter valid Password';
+                      }
+                      return null;
+                    },
+                    prefixIcon: Icon(Icons.lock, color: ColorManager.grey2),
+                    suffixIcon: Icon(Icons.visibility, color: ColorManager.grey2),
+                    controller: TextEditingController(),
+                    hintText: '  Confirm Your Password ',
+                    obscureText: true,
+                    textInputAction: TextInputAction.done,
+                    textInputType: TextInputType.visiblePassword,
+                  ),
+                  SizedBox(height: 16.h,),
+
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      CustomCheckbox(isChecked: isChecked, onChanged: (value) {
+                        setState(() {
+                          isChecked=value;
+                        });
+                      },borderColor: ColorManager.grey3),
+                       SizedBox(width: 7.w),
+                       Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          SizedBox(
+                            height: 10.h,
+                          ),
+                          Row(
+                            children: [
+                              Text(
+                                "I agree to the Handicrafts ",
+                                style: TextStyle(
+                                  color: ColorManager.black2,
+                                  fontSize: FontSize.s13,
+                                  fontWeight: FontWeightManager.thin,
+                                ),
+                              ),
+                              Text(
+                                "Terms of Service",
+                                style: TextStyle(
+                                  color: ColorManager.olive2,
+                                  fontSize: FontSize.s13,
+                                  fontWeight: FontWeightManager.thin,
+                                ),
+                              )
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Text(
+                                "and",
+                                style: TextStyle(
+                                  color: ColorManager.black2,
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                              Text(
+                                " Privacy Policy",
+                                style: TextStyle(
+                                  color: ColorManager.olive2,
+                                  fontSize: FontSize.s13,
+                                  fontWeight: FontWeightManager.thin,
+                                ),
+                              )
+                            ],
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 36.h,),
+
+                  Container(
+                    // alignment: Alignment.bottomCenter,
+                    decoration: BoxDecoration(
+                        color:  ColorManager.olive2,
+                        borderRadius: BorderRadiusDirectional.circular(32.r)),
+                    width: 327.w,
+                    height: 56.h,
+
+                    child: MaterialButton(
+                      onPressed: () {
+                        if(_formKey.currentState!.validate()){
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(content: Text('Processing Data')),
+                          );
+                          //todo while navigate
+                          context.pushReplacement("/verify");
+
+                        }
+
                       },
-                      child:  Text(
-                        "Sign in",
+                      child:  Text("SignUp",
+                          style: TextStyle(fontSize: FontSize.s16, color: ColorManager.white,fontWeight: FontWeightManager.medium)),
+                    ),
+                  ),
+                  SizedBox(height: 24.h,),
+
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                       Text(
+                        "Already have an account ?",
                         style: TextStyle(
-                          color: ColorManager.olive2,
+                          color: ColorManager.black2,
                           fontSize: FontSize.s14,
                         ),
                       ),
-                    )
-                  ],
-                )
-              ],
+                       SizedBox(
+                        width: 5.w,
+                      ),
+                      InkWell(
+                        onTap: () {
+                          if(_formKey.currentState!.validate()){
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(content: Text('Processing Data')),
+                            );
+                            context.pushReplacement(AppRouter.customerloginPath);
+
+                          }
+
+                        },
+                        child:  Text(
+                          "Sign in",
+                          style: TextStyle(
+                            color: ColorManager.olive2,
+                            fontSize: FontSize.s14,
+                          ),
+                        ),
+                      )
+                    ],
+                  )
+                ],
+              ),
             ),
           ),
         ]));

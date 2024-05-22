@@ -9,17 +9,16 @@ import '../../../../core/theming/routes_manager.dart';
 import '../../../../widgets/custom_checkbox.dart';
 import '../../../../widgets/custom_text_field.dart';
 
-class CrafterSignUp extends StatefulWidget {
-  const CrafterSignUp({super.key});
+class DeliverySignUp extends StatefulWidget {
+  const DeliverySignUp({super.key});
 
   @override
-  State<CrafterSignUp> createState() => _CustomerSignUpState();
+  State<DeliverySignUp> createState() => _CustomerSignUpState();
 }
 
-class _CustomerSignUpState extends State<CrafterSignUp> {
+class _CustomerSignUpState extends State<DeliverySignUp> {
   bool isChecked=false;
-  final _formKey = GlobalKey<FormState>();
-
+  final _formKey=GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     bool value = false;
@@ -28,7 +27,7 @@ class _CustomerSignUpState extends State<CrafterSignUp> {
         appBar: AppBar(
           leading: IconButton(
             icon:  Icon(Icons.arrow_back_ios , color: ColorManager.black2,), onPressed: () {
-            context.pushReplacement(AppRouter.customerloginPath);
+            context.pushReplacement(AppRouter.deliveryloginPath);
           },
           ),
           backgroundColor: Colors.white,
@@ -54,7 +53,7 @@ class _CustomerSignUpState extends State<CrafterSignUp> {
                     CustomTextFormField(
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'Please enter your name';
+                          return 'Please enter valid name';
                         }
                         return null;
                       },
@@ -70,7 +69,7 @@ class _CustomerSignUpState extends State<CrafterSignUp> {
                     CustomTextFormField(
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'Please enter your name';
+                          return 'Please enter valid name';
                         }
                         return null;
                       },
@@ -83,40 +82,7 @@ class _CustomerSignUpState extends State<CrafterSignUp> {
                       textInputType: TextInputType.name,
                     ),
                     SizedBox(height: 16.h,),
-                    CustomTextFormField(
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Please select your handicraft';
-                        }
-                        return null;
-                      },
-                      suffixIcon: Icon(
-                          Icons.arrow_drop_down,
-                          color:ColorManager.grey2
-                      ),
-                      prefixIcon:  Icon(
-                          Icons.credit_score_rounded,
-                          color:ColorManager.grey2      ),
-                      controller: TextEditingController(),
-                      hintText: '  Enter your handicraft ',
-                      textInputType: TextInputType.text,
-                    ),
-                    SizedBox(height: 16.h,),
-                    CustomTextFormField(
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Please enter valid year';
-                        }
-                        return null;
-                      },
-                      prefixIcon:  Icon(
-                          Icons.safety_check_outlined,
-                          color:ColorManager.grey2      ),
-                      controller: TextEditingController(),
-                      hintText: '  Enter your Experience year ',
-                      textInputType: TextInputType.text,
-                    ),
-                    SizedBox(height: 16.h,),
+
                     SizedBox(
                       height: 56.h,
                       width: 327.w,
@@ -168,11 +134,40 @@ class _CustomerSignUpState extends State<CrafterSignUp> {
                       ),
                     ),
                     SizedBox(height: 16.h,),
-
                     CustomTextFormField(
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'Please enter your valid Email';
+                          return 'Please enter valid value';
+                        }
+                        return null;
+                      },
+                      prefixIcon:  Icon(
+                          Icons.car_rental,
+                          color:ColorManager.grey2      ),
+                      controller: TextEditingController(),
+                      hintText: '  Enter your car model ',
+                      textInputType: TextInputType.text,
+                    ),
+                    SizedBox(height: 16.h,),
+                    CustomTextFormField(
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Please enter valid value';
+                        }
+                        return null;
+                      },
+                      prefixIcon:  Icon(
+                          Icons.numbers_rounded,
+                          color:ColorManager.grey2      ),
+                      controller: TextEditingController(),
+                      hintText: '  Enter your plate number ',
+                      textInputType: TextInputType.text,
+                    ),
+                    SizedBox(height: 16.h,),
+                    CustomTextFormField(
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Please enter valid Email';
                         }
                         return null;
                       },
@@ -189,14 +184,14 @@ class _CustomerSignUpState extends State<CrafterSignUp> {
                     CustomTextFormField(
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'Please enter your password';
+                          return 'Please enter valid password';
                         }
                         return null;
                       },
                       prefixIcon: Icon(Icons.lock, color: ColorManager.grey2),
                       suffixIcon: Icon(Icons.visibility, color: ColorManager.grey2),
                       controller: TextEditingController(),
-                      hintText: '  Enter valid password ',
+                      hintText: '  Enter Your Password ',
                       obscureText: true,
                       textInputAction: TextInputAction.done,
                       textInputType: TextInputType.visiblePassword,
@@ -206,7 +201,7 @@ class _CustomerSignUpState extends State<CrafterSignUp> {
                     CustomTextFormField(
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'Please enter matched password value';
+                          return 'Please enter valid password';
                         }
                         return null;
                       },
@@ -292,7 +287,7 @@ class _CustomerSignUpState extends State<CrafterSignUp> {
                       child: MaterialButton(
                         onPressed: () {
                           //todo while navigate
-                         // context.pushReplacement("/verify");
+                          // context.pushReplacement("/verify");
                           if (_formKey.currentState!.validate()) {
                             ScaffoldMessenger.of(context).showSnackBar(
                               const SnackBar(content: Text('Processing Data')),
@@ -324,8 +319,7 @@ class _CustomerSignUpState extends State<CrafterSignUp> {
                         InkWell(
                           onTap: () {
 
-                              context.pushReplacement(AppRouter.crafterloginPath);
-
+                              context.pushReplacement(AppRouter.deliveryloginPath);
 
 
                           },
