@@ -93,12 +93,17 @@ class _CrafterLoginScreenState extends State<CrafterLoginScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(
-                    "Forgot Password?",
-                    style: TextStyle(
-                      fontWeight: FontWeightManager.thin,
-                      fontSize: FontSize.s14,
-                      color: ColorManager.olive2,
+                  InkWell(
+                    onTap: (){
+                      context.pushReplacement(AppRouter.crafterforgotpasswordpath);
+                    },
+                    child: Text(
+                      "Forgot Password?",
+                      style: TextStyle(
+                        fontWeight: FontWeightManager.thin,
+                        fontSize: FontSize.s14,
+                        color: ColorManager.olive2,
+                      ),
                     ),
                   ),
                 ],
@@ -120,7 +125,8 @@ class _CrafterLoginScreenState extends State<CrafterLoginScreen> {
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(content: Text('Processing Data')),
                       );
-                      context.pushReplacement(AppRouter.crafterloginPath);
+
+                      // context.pushReplacement(AppRouter.crafterloginPath);
 
                     }
                   },

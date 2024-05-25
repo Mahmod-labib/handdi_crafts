@@ -265,7 +265,7 @@ class _CustomerSignUpState extends State<CustomerSignUp> {
                             const SnackBar(content: Text('Processing Data')),
                           );
                           //todo while navigate
-                          context.pushReplacement("/verify");
+                          context.pushReplacement(AppRouter.customerverifiyemailsignuppath);
 
                         }
 

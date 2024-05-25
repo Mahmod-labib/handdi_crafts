@@ -293,7 +293,7 @@ class _CustomerSignUpState extends State<DeliverySignUp> {
                               const SnackBar(content: Text('Processing Data')),
 
                             );
-                            context.pushReplacement("/verify");
+                            context.pushReplacement(AppRouter.customerverifiyemailsignuppath);
 
                           }
                         },

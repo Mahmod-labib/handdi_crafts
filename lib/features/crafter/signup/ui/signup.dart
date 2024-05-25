@@ -298,7 +298,7 @@ class _CustomerSignUpState extends State<CrafterSignUp> {
                               const SnackBar(content: Text('Processing Data')),
 
                             );
-                            context.pushReplacement("/verify");
+                            context.pushReplacement(AppRouter.crafterverifiyemailsignuppath);
 
                           }
                         },

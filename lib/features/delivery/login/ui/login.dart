@@ -91,12 +91,15 @@ class _DeliveryLoginScreenState extends State<DeliveryLoginScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(
-                    "Forgot Password?",
-                    style: TextStyle(
-                      fontWeight: FontWeightManager.thin,
-                      fontSize: FontSize.s14,
-                      color: ColorManager.olive2,
+                  InkWell(
+                    onTap: ()=>context.pushReplacement(AppRouter.deliveryforgotpasswordpath),
+                    child: Text(
+                      "Forgot Password?",
+                      style: TextStyle(
+                        fontWeight: FontWeightManager.thin,
+                        fontSize: FontSize.s14,
+                        color: ColorManager.olive2,
+                      ),
                     ),
                   ),
                 ],

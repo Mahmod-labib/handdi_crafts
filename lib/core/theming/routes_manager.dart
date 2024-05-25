@@ -1,7 +1,10 @@
 import 'package:flutter_application_1/features/crafter/Intro/ui/intro.dart';
+import 'package:flutter_application_1/features/crafter/login/ui/forgot_password.dart';
 import 'package:flutter_application_1/features/crafter/login/ui/login.dart';
+import 'package:flutter_application_1/features/crafter/login/ui/reset_password.dart';
 import 'package:flutter_application_1/features/crafter/signup/ui/signup.dart';
 import 'package:flutter_application_1/features/customer/signup/ui/signup.dart';
+import 'package:flutter_application_1/features/customer/signup/ui/verify_email_sign_up.dart';
 import 'package:flutter_application_1/features/delivery/Intro/ui/intro.dart';
 import 'package:flutter_application_1/features/delivery/login/ui/login.dart';
 import 'package:flutter_application_1/features/delivery/signup/ui/signup.dart';
@@ -9,7 +12,16 @@ import 'package:flutter_application_1/features/on_boarding/ui/intro_page_1.dart'
 import 'package:flutter_application_1/features/on_boarding/ui/intro_page_3.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../features/crafter/login/ui/verify_email_forgot_password.dart';
+import '../../features/crafter/signup/ui/verify_email_sign_up.dart';
+import '../../features/customer/login/ui/forgot_password.dart';
 import '../../features/customer/login/ui/login.dart';
+import '../../features/customer/login/ui/reset_password.dart';
+import '../../features/customer/login/ui/verify_email_forgot_password.dart';
+import '../../features/delivery/login/ui/forgot_password.dart';
+import '../../features/delivery/login/ui/reset_password.dart';
+import '../../features/delivery/login/ui/verify_email_forgot_password.dart';
+import '../../features/delivery/signup/ui/verify_email_sign_up.dart';
 import '../../features/on_boarding/ui/intro_page_2.dart';
 import '../../features/on_boarding/ui/intro_page_4.dart';
 import '../../features/on_boarding/ui/intro_page_5.dart';
@@ -37,8 +49,20 @@ class AppRouter {
   static const deliveryintropagepath = "/deliveryintropage";
   static const deliveryloginPath = "/deliveryrlogin";
   static const deliverysignupPath="/deliverysignup";
-
+  static const deliveryforgotpasswordpath="/deliveryforgotpasswordpath";
+  static const crafterforgotpasswordpath="/crafterforgotpasswordpath";
+  static const customerforgotpasswordpath="/customerforgotpasswordpath";
+  static const crafterverifiyemailforgotpasswordpath="/crafterverifiyemailforgotpasswordpath";
+  static const customerverifiyemailforgotpasswordpath="/customerverifiyemailforgotpasswordpath";
+  static const deliveryverifiyemailforgotpasswordpath="/deliveryverifiyemailforgotpasswordpath";
+  static const crafterresetpasswordpath="/crafterresetpasswordpath";
+  static const customerresetpasswordpath="/customerresetpasswordpath";
+  static const deliveryresetpasswordpath="/deliveryresetpasswordpath";
+  static const crafterverifiyemailsignuppath="/crafterverifiyemailsignuppath";
+  static const customerverifiyemailsignuppath="/customerverifiyemailsignuppath";
+  static const deliveryverifiyemailsignuppath='/deliveryverifiyemailsignuppath';
 }
+
 
 GoRouter router(){
   return GoRouter(routes: [
@@ -59,7 +83,18 @@ GoRouter router(){
     GoRoute(path: AppRouter.deliverysignupPath ,  builder:((context , state)=>const DeliverySignUp()) ),
     GoRoute(path: AppRouter.deliveryloginPath ,  builder:((context , state)=>const DeliveryLoginScreen()) ),
     GoRoute(path: AppRouter.deliveryintropagepath ,  builder:((context , state)=>const DeliveryIntroPage()) ),
-
+    GoRoute(path: AppRouter.crafterforgotpasswordpath ,  builder:((context , state)=>const CrafterForgotPassword()) ),
+    GoRoute(path: AppRouter.crafterverifiyemailforgotpasswordpath ,  builder:((context , state)=> const CrafterVerifiyEmailForgotPassword()) ),
+    GoRoute(path: AppRouter.crafterverifiyemailsignuppath ,  builder:((context , state)=> const CrafterVerifiyEmailSignUp()) ),
+    GoRoute(path: AppRouter.crafterresetpasswordpath ,  builder:((context , state)=>const CrafterResetPassword()) ),
+    GoRoute(path: AppRouter.customerverifiyemailsignuppath ,  builder:((context , state)=> const CustomerVerifiyEmailSignUp()) ),
+    GoRoute(path: AppRouter.customerforgotpasswordpath ,  builder:((context , state)=>const CustomerForgotPassword()) ),
+    GoRoute(path: AppRouter.customerverifiyemailforgotpasswordpath ,  builder:((context , state)=> const CustomerVerifiyEmailForgotPassword()) ),
+    GoRoute(path: AppRouter.customerresetpasswordpath ,  builder:((context , state)=>const CustomerResetPassword()) ),
+    GoRoute(path: AppRouter.deliveryverifiyemailsignuppath ,  builder:((context , state)=> const DeliveryVerifiyEmailSignUp()) ),
+    GoRoute(path: AppRouter.deliveryforgotpasswordpath ,  builder:((context , state)=>const DeliveryForgotPassword()) ),
+    GoRoute(path: AppRouter.deliveryverifiyemailforgotpasswordpath ,  builder:((context , state)=> const DeliveryVerifiyEmailForgotPassword()) ),
+    GoRoute(path: AppRouter.deliveryresetpasswordpath ,  builder:((context , state)=>const DeliveryResetPassword()) ),
 
     // GoRoute(path: '/signUpDelivery' ,  builder:((context , state)=> SignUpDelivery()) ),
     //GoRoute(path: '/signUpCrafter' ,  builder:((context , state)=> SignUpCrafter()) ),
