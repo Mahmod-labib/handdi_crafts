@@ -35,7 +35,7 @@ class _SplashScreenState extends State<SplashScreen>
       // Check if the widget is still mounted before navigating
       if (mounted) {
         // Access the navigator using GoRouter
-        context.pushReplacement(AppRouter.onboardingPath);
+        context.pushReplacement(AppRouter.customerhomepath);
 //context.pushReplacement(AppRouter.crafterresetpasswordpath);
 
       }
