@@ -123,7 +123,7 @@ class _CourseLessonsState extends State<CourseLessons> {
                 ),
                 itemCount: 20,
               ),
-            )
+            ),
           ],
         ),
       ),

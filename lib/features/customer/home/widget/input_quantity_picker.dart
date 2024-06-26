@@ -34,8 +34,7 @@ class _InputQuantityState extends State<InputQuantity> {
         ElevatedButton(
           onPressed: _decrementQuantity,
           style: ElevatedButton.styleFrom(
-            primary: ColorManager.white, // Background color
-            onPrimary: ColorManager.black, // Text color
+            foregroundColor: ColorManager.black, backgroundColor: ColorManager.white, // Text color
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.only(topLeft: Radius.circular(30.r), bottomLeft: Radius.circular(30.r)),
             ),
@@ -69,8 +68,7 @@ class _InputQuantityState extends State<InputQuantity> {
         ElevatedButton(
           onPressed: _incrementQuantity,
           style: ElevatedButton.styleFrom(
-            primary: ColorManager.white, // Background color
-            onPrimary: ColorManager.black, // Text color
+            foregroundColor: ColorManager.black, backgroundColor: ColorManager.white, // Text color
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.only(topRight: Radius.circular(30.r), bottomRight: Radius.circular(30.r)),
             ),

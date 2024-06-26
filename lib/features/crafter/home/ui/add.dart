@@ -11,40 +11,91 @@ class Add extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(body: Column(
-      children: [
-        Container(
-          height: 170.h,
-          width: 200.w,
-          decoration: BoxDecoration(
-            color: Colors.white,
-            boxShadow: [
-              BoxShadow(
-                color: Colors.grey.withOpacity(0.5),
-                spreadRadius: 0,
-                blurRadius: 4,
-                offset: const Offset(0, 4),
-              ),
-            ],
-            borderRadius: BorderRadius.all(Radius.circular(10.r)),
+    return  Scaffold(
+       backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        leading: IconButton(
+          icon: Icon(
+            Icons.arrow_back_ios,
+            color: ColorManager.black2,
+            size: 24.r,
           ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              SvgPicture.asset("assets/images/Edit Square.svg" ,width:56.w ,height: 56.h,),
-
-              Text(
-                "Publish Course",
-                style: TextStyle(
-                  fontSize: FontSize.s18,
-                  color: ColorManager.black,
-                  fontWeight: FontWeightManager.medium,
-                ),
-              ),
-            ],
-          ),
+          onPressed: () {},
         ),
-      ],
+
+
+      ),
+      body: Center(
+      child: Column(
+         mainAxisAlignment: MainAxisAlignment.center,
+        // crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Container(
+            height: 170.h,
+            width: 200.w,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.5),
+                  spreadRadius: 0,
+                  blurRadius: 4,
+                  offset: const Offset(0, 4),
+                ),
+              ],
+              borderRadius: BorderRadius.all(Radius.circular(10.r)),
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                SvgPicture.asset("assets/images/Edit Square.svg" ,width:56.w ,height: 56.h,),
+      SizedBox(height: 16.h,),
+                Text(
+                  "Publish Course",
+                  style: TextStyle(
+                    fontSize: FontSize.s18,
+                    color: ColorManager.black,
+                    fontWeight: FontWeightManager.medium,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          SizedBox(height: 60.h,),
+          Container(
+            height: 170.h,
+            width: 200.w,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.5),
+                  spreadRadius: 0,
+                  blurRadius: 4,
+                  offset: const Offset(0, 4),
+                ),
+              ],
+              borderRadius: BorderRadius.all(Radius.circular(10.r)),
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                SvgPicture.asset("assets/images/fluent_video-add-20-regular.svg" ,width:56.w ,height: 56.h,),
+      SizedBox(height: 16.h,),
+                Text(
+                  "Upload Lectures",
+                  style: TextStyle(
+                    fontSize: FontSize.s18,
+                    color: ColorManager.black,
+                    fontWeight: FontWeightManager.medium,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
     ),);
   }
 }

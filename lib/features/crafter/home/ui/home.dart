@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/core/theming/color_manager.dart';
 import 'package:flutter_application_1/core/theming/font_manager.dart';
+import 'package:flutter_application_1/core/theming/routes_manager.dart';
 import 'package:flutter_application_1/features/crafter/home/widget/custom_made_by_section.dart';
 import 'package:flutter_application_1/features/crafter/home/widget/custom_for_you_section.dart';
 import 'package:flutter_application_1/features/crafter/home/widget/custom_scroll_cat.dart';
@@ -8,6 +9,7 @@ import 'package:flutter_application_1/features/crafter/home/widget/custom_scroll
 import 'package:flutter_application_1/features/crafter//home/widget/custom_trending_crafts.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 
 class CrafterHome extends StatefulWidget {
   const CrafterHome({super.key});
@@ -88,8 +90,12 @@ class _CrafterHomeState extends State<CrafterHome> {
                         SizedBox(
                           width: 15.w,
                         ),
-                        SvgPicture.asset(
-                          "assets/images/heart.svg",
+                        InkWell(onTap: () {
+                          context.pushReplacement(AppRouter.craftersearchpath);
+                        },
+                          child: SvgPicture.asset(
+                            "assets/images/Search.svg",
+                          ),
                         ),
                         SizedBox(
                           width: 15.w,

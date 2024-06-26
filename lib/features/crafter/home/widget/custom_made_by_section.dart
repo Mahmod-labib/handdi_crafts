@@ -90,6 +90,7 @@ class CustomMadeByContainer extends StatelessWidget {
             height: 36.h,
             fontSize: 10,
             fontWeight: FontWeightManager.regular),
+
       ],
     );
   }
