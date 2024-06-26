@@ -46,7 +46,7 @@ class CustomShopContainer extends StatelessWidget {
                         fontSize: FontSize.s13,
                         fontWeight: FontWeightManager.thin,
                       ),),
-                      CustomButton(text: "Book Now", fun: (){}, width: 86.w, height: 28.h),
+                      CustomButton(text: "Book Now", fun: (){}, width: 86.w, height: 28.h, btncolor: ColorManager.olive2, textcolor: ColorManager.white2,),
                     ],
                   )
                 ],

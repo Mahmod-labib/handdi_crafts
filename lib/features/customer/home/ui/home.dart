@@ -14,6 +14,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../../core/theming/routes_manager.dart';
 import '../../../../widgets/custom_container_category_home1.dart';
 import '../../../../widgets/custom_text_field.dart';
 
@@ -28,13 +29,14 @@ class _CustomerHomeState extends State<CustomerHome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      //bottomNavigationBar:  BottomNavBar(),
       backgroundColor: ColorManager.white2,
       body: ListView(
-        children:  [
+        children: [
           Column(
             children: [
               Padding(
-                padding: EdgeInsets.only(top: 25.h , left: 20.w , bottom: 11.h),
+                padding: EdgeInsets.only(top: 25.h, left: 20.w, bottom: 11.h),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -42,23 +44,61 @@ class _CustomerHomeState extends State<CustomerHome> {
                       children: [
                         Row(
                           children: [
-                            Text("Good Morning "  , style: TextStyle(fontSize:FontSize.s14 ,
-                                color: ColorManager.grey5,fontWeight: FontWeightManager.regular ),),
-                            Text("👋",style: TextStyle(fontSize:FontSize.s14 ,color: Colors.amber,fontWeight: FontWeightManager.regular ),)
+                            Text(
+                              "Good Morning ",
+                              style: TextStyle(
+                                  fontSize: FontSize.s14,
+                                  color: ColorManager.grey5,
+                                  fontWeight: FontWeightManager.regular),
+                            ),
+                            Text(
+                              "👋",
+                              style: TextStyle(
+                                  fontSize: FontSize.s14,
+                                  color: Colors.amber,
+                                  fontWeight: FontWeightManager.regular),
+                            )
                           ],
                         ),
-                        Text("Nada"  , style: TextStyle(fontSize:FontSize.s24 , color:ColorManager.grey5 , fontWeight: FontWeightManager.bold),),
+                        Text(
+                          "Nada",
+                          style: TextStyle(
+                              fontSize: FontSize.s24,
+                              color: ColorManager.grey5,
+                              fontWeight: FontWeightManager.bold),
+                        ),
                       ],
                     ),
                     Row(
                       children: [
-                        SvgPicture.asset("assets/images/notification.svg" ,),
-                        SizedBox(width: 15.w,),
-                        SvgPicture.asset("assets/images/heart.svg" ,),
-                        SizedBox(width: 15.w,),
-                        SvgPicture.asset("assets/images/Bag.svg" ,),
-                        SizedBox(width: 18.w,),
-
+                        SvgPicture.asset(
+                          "assets/images/notification.svg",
+                        ),
+                        SizedBox(
+                          width: 15.w,
+                        ),
+                        InkWell(
+                          onTap: (){
+                            context.pushReplacement(AppRouter.emptywishlistpath);
+                          },
+                          child: SvgPicture.asset(
+                            "assets/images/heart.svg",
+                          ),
+                        ),
+                        SizedBox(
+                          width: 15.w,
+                        ),
+                        InkWell(
+                          onTap: (){
+                            context.pushReplacement(AppRouter.emptycartpath);
+                          },
+                          child: SvgPicture.asset(
+                            "assets/images/Bag.svg",
+                          ),
+                        ),
+                        SizedBox(
+                          width: 18.w,
+                        ),
                       ],
                     )
                   ],
@@ -66,7 +106,7 @@ class _CustomerHomeState extends State<CustomerHome> {
               ),
               const CustomSearchField(),
               const CustomCategory(),
-             const CustomContainer2(),
+              const CustomContainer2(),
               const CustomForYouSection(),
               const CustomTrendingCrafters(),
               const CustomExploreContainer(),

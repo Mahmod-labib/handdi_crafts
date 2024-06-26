@@ -16,7 +16,6 @@ class Material extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
-
         leading: IconButton(
           icon: Icon(
             Icons.arrow_back_ios,
@@ -27,26 +26,43 @@ class Material extends StatelessWidget {
             context.pushReplacement(AppRouter.customerhomepath);
           },
         ),
-        title: Text("Category" , style: TextStyle(
-          fontSize: FontSize.s18,
-          color: ColorManager.black,
-          fontWeight: FontWeightManager.medium , ),),
+        title: Text(
+          "Materials",
+          style: TextStyle(
+            fontSize: FontSize.s18,
+            color: ColorManager.black,
+            fontWeight: FontWeightManager.medium,
+          ),
+        ),
         actions: [
-          SvgPicture.asset("assets/images/heart.svg" ,),
-          SizedBox(width: 15.w,),
-          SvgPicture.asset("assets/images/Bag.svg" ,),
-          SizedBox(width: 18.w,),
+          SvgPicture.asset(
+            "assets/images/heart.svg",
+          ),
+          SizedBox(
+            width: 15.w,
+          ),
+          SvgPicture.asset(
+            "assets/images/Bag.svg",
+          ),
+          SizedBox(
+            width: 18.w,
+          ),
         ],
       ),
-      body: ListView.builder(
-          itemCount: 8,
-          itemBuilder:(context , index){
-            return SizedBox(
-                height: 262.h,
-                width: 156.w,
-                child: CustomCategoryCard(cardName: "Sewing Machines", imgPath: "assets/images/Rectangle00.png"));
-
-          } ),
+      body: GridView.builder(
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          crossAxisSpacing: 10.0.r,
+          mainAxisSpacing: 10.0.r,
+          childAspectRatio: 0.65,
+        ),
+        itemBuilder: (context, index) {
+          return CustomCategoryCard(
+              cardName: "Sewing Machines",
+              imgPath: "assets/images/Rectangle00.png");
+        },
+        itemCount: 10, // specify the number of items
+      ),
     );
   }
 }

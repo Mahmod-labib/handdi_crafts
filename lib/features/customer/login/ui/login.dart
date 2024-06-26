@@ -17,8 +17,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-
-  final _formKey=GlobalKey<FormState>();
+  final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -92,7 +91,8 @@ class _LoginScreenState extends State<LoginScreen> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   InkWell(
-                    onTap: ()=>context.pushReplacement(AppRouter.customerforgotpasswordpath),
+                    onTap: () => context
+                        .pushReplacement(AppRouter.customerforgotpasswordpath),
                     child: Text(
                       "Forgot Password?",
                       style: TextStyle(
@@ -110,103 +110,27 @@ class _LoginScreenState extends State<LoginScreen> {
               Container(
                 // alignment: Alignment.bottomCenter,
                 decoration: BoxDecoration(
-                    color:  ColorManager.olive2,
+                    color: ColorManager.olive2,
                     borderRadius: BorderRadiusDirectional.circular(32.r)),
                 width: 327.w,
                 height: 56.h,
 
                 child: MaterialButton(
                   onPressed: () {
-                    if(_formKey.currentState!.validate()){
+                    if (_formKey.currentState!.validate()) {
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(content: Text('Processing Data')),
                       );
                       context.pushReplacement(AppRouter.customerloginPath);
-
                     }
-
                   },
-                  child:  Text("Login",
-                      style: TextStyle(fontSize: FontSize.s16, color: ColorManager.white,fontWeight: FontWeightManager.medium)),
+                  child: Text("Login",
+                      style: TextStyle(
+                          fontSize: FontSize.s16,
+                          color: ColorManager.white,
+                          fontWeight: FontWeightManager.medium)),
                 ),
               ),
-
-              // CustomButton(text: "login", onPressed: (){}, width: 100, height: 10),
-             /* CustomButton(
-                text: 'Login',
-                width: 327.w,
-                height: 56.h,
-                onPressed: () => showDialog(
-                  context: context,
-                  builder: (BuildContext context) => Container(
-                    width: 327.h,
-                    height: 401.w,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        AlertDialog(
-                          title: Container(
-                              width: 60.w,
-                              height: 60.h,
-                              decoration: BoxDecoration(
-                                  color: ColorManager.white3,
-                                  shape: BoxShape.circle),
-                              child: Image.asset(
-                                  "assets/images/img_icoutlinecheck.png")),
-                          content: Column(
-                            children: [
-                              SizedBox(
-                                height: 10.h,
-                              ),
-                              Text(
-                                "Welcome Back",
-                                style: TextStyle(
-                                    fontSize: FontSize.s20,
-                                    fontWeight: FontWeightManager.bold,
-                                    color: ColorManager.black),
-                              ),
-                              SizedBox(
-                                height: 10.h,
-                              ),
-                              Text(
-                                "you login successfully",
-                                style: TextStyle(
-                                  fontSize: FontSize.s16,
-                                  color: ColorManager.grey2,
-                                  fontWeight: FontWeightManager.thin,
-                                ),
-                              ),
-                              Text(
-                                "into Handicrafts app",
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  color: ColorManager.grey2,
-                                  fontWeight: FontWeightManager.thin,
-                                ),
-                              ),
-                              SizedBox(
-                                height: 10.h,
-                              ),
-                              CustomButton(
-                                text: ("Go to home"),
-                                onPressed: () {
-                                  //todo while navigate to home
-                                  context.pushReplacement("/landing");
-                                },
-                                width: 183.w,
-                                height: 56.h,
-                              ),
-                              SizedBox(
-                                height: 10.h,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),*/
               SizedBox(
                 height: 24.h,
               ),

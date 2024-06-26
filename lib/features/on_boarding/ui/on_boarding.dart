@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/core/theming/color_manager.dart';
 import 'package:flutter_application_1/core/theming/font_manager.dart';
@@ -19,7 +18,7 @@ class OnBoarding extends StatefulWidget {
 }
 
 class _OnBoardingState extends State<OnBoarding> {
-  final PageController _controller=PageController();
+  final PageController _controller = PageController();
 
   @override
   Widget build(BuildContext context) {
@@ -28,12 +27,12 @@ class _OnBoardingState extends State<OnBoarding> {
       // elevation: 0),
 
       body: Padding(
-        padding:  EdgeInsets.symmetric(horizontal: 10.w,vertical: 30.h),
+        padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 30.h),
         child: Stack(
           children: [
             Center(
-              child: PageView(controller: _controller,
-
+              child: PageView(
+                controller: _controller,
                 children: const [
                   IntroPage1(),
                   IntroPage2(),
@@ -43,24 +42,35 @@ class _OnBoardingState extends State<OnBoarding> {
                 ],
               ),
             ),
-            Container(alignment: Alignment.topRight,
-              child: TextButton(onPressed: () {
-                _controller.nextPage(duration: const Duration(milliseconds: 500), curve: Curves.ease);
-              },
-                  child:  Text("Skip",
-                  style: TextStyle(
-                      fontWeight: FontWeight.w400,
-                      fontSize: FontSize.s14,
-                      color: Colors.grey),)),
+            Container(
+              alignment: Alignment.topRight,
+              child: TextButton(
+                  onPressed: () {
+                    _controller.nextPage(
+                        duration: const Duration(milliseconds: 500),
+                        curve: Curves.ease);
+                  },
+                  child: Text(
+                    "Skip",
+                    style: TextStyle(
+                        fontWeight: FontWeight.w400,
+                        fontSize: FontSize.s14,
+                        color: Colors.grey),
+                  )),
             ),
             Container(
-                alignment: const Alignment(0,0.6),
-                child: SmoothPageIndicator(controller: _controller, count: 5,
-                effect:  JumpingDotEffect(dotHeight: 4.h,dotWidth: 12.63.w,
-                  radius: 56.r,
-
-                  activeDotColor: ColorManager.olive1,dotColor: ColorManager.olive2,
-                ),)),
+                alignment: const Alignment(0, 0.6),
+                child: SmoothPageIndicator(
+                  controller: _controller,
+                  count: 5,
+                  effect: JumpingDotEffect(
+                    dotHeight: 4.h,
+                    dotWidth: 12.63.w,
+                    radius: 56.r,
+                    activeDotColor: ColorManager.olive1,
+                    dotColor: ColorManager.olive2,
+                  ),
+                )),
           ],
         ),
       ),
