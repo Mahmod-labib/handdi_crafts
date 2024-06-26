@@ -29,8 +29,7 @@ ThemeData getApplicationTheme() {
        elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
             textStyle: getRegularStyle(
-                color: ColorManager.white, fontSize: FontSize.s16),
-            primary: ColorManager.olive1,
+                color: ColorManager.white, fontSize: FontSize.s16), backgroundColor: ColorManager.olive1,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(AppSize.s32)))),
 
