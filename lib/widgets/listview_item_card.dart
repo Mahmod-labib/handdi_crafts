@@ -1,3 +1,4 @@
+import 'package:custom_rating_bar/custom_rating_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/core/theming/color_manager.dart';
 import 'package:flutter_application_1/core/theming/font_manager.dart';
@@ -61,6 +62,35 @@ class ItemCard extends StatelessWidget {
                       fontSize: FontSize.s18,
                       color: ColorManager.olive2)),
               SizedBox(height: 11.h),
+              Row(children: [
+                Text(" 4.7",
+                    style: TextStyle(
+                      color: ColorManager.black,
+                      fontSize: FontSize.s12,
+                      fontWeight: FontWeightManager.regular,
+                    )),
+                SizedBox(
+                  width: 14.w,
+                ),
+                RatingBar.readOnly(
+                    size: 20,
+                    maxRating: 5,
+                    initialRating: 4.5,
+                    halfFilledColor:ColorManager.yellow ,
+                    direction: Axis.horizontal,
+                    filledColor: ColorManager.yellow,
+                    filledIcon: Icons.star, emptyIcon: Icons.star
+                ),
+                Text("(812)",
+                    style: TextStyle(
+                      color: ColorManager.black,
+                      fontSize: FontSize.s12,
+                      fontWeight: FontWeightManager.regular,
+                    )),
+              ]),
+
+              SizedBox(height: 11.h),
+
               Row(children: [
                 Icon(Icons.calendar_month, color: ColorManager.olive2),
                 SizedBox(

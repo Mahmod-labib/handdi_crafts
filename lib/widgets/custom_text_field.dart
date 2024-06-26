@@ -29,6 +29,7 @@ class CustomTextFormField extends StatelessWidget {
     this.fillColor,
     this.filled = true,
     this.validator,
+    this.expands=false,
   }) : super(
     key: key,
   );
@@ -41,6 +42,8 @@ class CustomTextFormField extends StatelessWidget {
   final TextEditingController? scrollPadding;
 
   final TextEditingController? controller;
+
+  final bool ? expands;
 
   final FocusNode? focusNode;
 
@@ -95,6 +98,7 @@ class CustomTextFormField extends StatelessWidget {
       scrollPadding:
       EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
       controller: controller,
+      expands: expands?? false,
       focusNode: focusNode ?? FocusNode(),
       autofocus: autofocus!,
       obscureText: obscureText!,

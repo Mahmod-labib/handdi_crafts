@@ -17,6 +17,7 @@ class CustomSearchField extends StatelessWidget {
         alignment: Alignment.topLeft,
         child: CustomTextFormField(
           prefixIcon: Icon(Icons.search , size:16,color: ColorManager.grey2 ),
+          textStyle: TextStyle(fontSize: FontSize.s12 , fontWeight: FontWeightManager.thin , color: ColorManager.black2),
           hintText: 'Search for crafts, products, courses...',
           hintStyle: TextStyle(fontSize: FontSize.s12 , fontWeight: FontWeightManager.thin , color: ColorManager.grey2),
           suffixIcon: Padding(

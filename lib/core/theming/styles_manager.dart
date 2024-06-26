@@ -12,33 +12,28 @@ TextStyle _getTextStyle(double fontSize, FontWeight fontWeight, Color color) {
 
 // regular style
 
-TextStyle getRegularStyle(
-    {required fontSize, required Color color}) {
+TextStyle getRegularStyle({required fontSize, required Color color}) {
   return _getTextStyle(fontSize, FontWeightManager.regular, color);
 }
 
 // medium style
 
-TextStyle getMediumStyle(
-    {required fontSize, required Color color}) {
+TextStyle getMediumStyle({required fontSize, required Color color}) {
   return _getTextStyle(fontSize, FontWeightManager.medium, color);
 }
 
 // medium style
 
-TextStyle getThinStyle(
-    {required fontSize, required Color color}) {
+TextStyle getThinStyle({required fontSize, required Color color}) {
   return _getTextStyle(fontSize, FontWeightManager.thin, color);
 }
 
 // bold style
 
-TextStyle getBoldtStyle(
-    { required fontSize , required Color color}) {
+TextStyle getBoldtStyle({required fontSize, required Color color}) {
   return _getTextStyle(fontSize, FontWeightManager.bold, color);
 }
 
-TextStyle getSemiBoldtStyle(
-    { required double fontSize , required Color color}) {
+TextStyle getSemiBoldtStyle({required double fontSize, required Color color}) {
   return _getTextStyle(fontSize, FontWeightManager.bold, color);
 }

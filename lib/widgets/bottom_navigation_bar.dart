@@ -30,7 +30,7 @@ class AnimatedBottomNavigationBar extends StatelessWidget {
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.email),
-          label: '',
+          label: 'message',
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.person),

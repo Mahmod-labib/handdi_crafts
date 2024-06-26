@@ -26,12 +26,16 @@ class SalaryDetailSection extends StatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              text1,
-              style:  TextStyle(
-                  fontWeight: FontWeightManager.medium,
-                  fontSize: 18,
-                  color: ColorManager.black),
+            Column(
+              children: [
+                Text(
+                  text1,
+                  style:  TextStyle(
+                      fontWeight: FontWeightManager.medium,
+                      fontSize: FontSize.s18,
+                      color: ColorManager.black),
+                ),
+              ],
             ),
              SizedBox(
               height: 1.h,
