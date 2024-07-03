@@ -21,7 +21,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       emit(AuthLoading());
       try {
         await _authRepository.verifyEmail(event.code);
-        emit(AuthSuccess());s
+        emit(AuthSuccess());
       } catch (e) {
         emit(AuthFailure(e.toString()));
       }

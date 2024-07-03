@@ -1,25 +1,55 @@
 import 'package:flutter_application_1/features/crafter/Intro/ui/intro.dart';
+import 'package:flutter_application_1/features/crafter/Search/ui/crafter_search.dart';
+import 'package:flutter_application_1/features/crafter/crafterprofile&reviews/ui/crafter_profile_crafter.dart';
+import 'package:flutter_application_1/features/crafter/crafterprofile&reviews/ui/crafter_review.dart';
+import 'package:flutter_application_1/features/crafter/crafterprofile&reviews/ui/crafters_crafter.dart';
+import 'package:flutter_application_1/features/crafter/home/ui/add.dart';
+import 'package:flutter_application_1/features/crafter/home/ui/crafter_material.dart';
+import 'package:flutter_application_1/features/crafter/home/ui/crafter_mycourses.dart';
+import 'package:flutter_application_1/features/crafter/home/ui/crafter_product_details.dart';
+import 'package:flutter_application_1/features/crafter/home/ui/crochet_supplies.dart';
+import 'package:flutter_application_1/features/crafter/home/ui/home.dart';
+import 'package:flutter_application_1/features/crafter/home/ui/my_collection.dart';
+import 'package:flutter_application_1/features/crafter/home/ui/update_course.dart';
 import 'package:flutter_application_1/features/crafter/login/ui/forgot_password.dart';
 import 'package:flutter_application_1/features/crafter/login/ui/login.dart';
 import 'package:flutter_application_1/features/crafter/login/ui/reset_password.dart';
+import 'package:flutter_application_1/features/crafter/publishproducts,course,lessons/ui/add_coupon.dart';
+import 'package:flutter_application_1/features/crafter/publishproducts,course,lessons/ui/first_time_to_publish_products.dart';
+import 'package:flutter_application_1/features/crafter/publishproducts,course,lessons/ui/my_product.dart';
+import 'package:flutter_application_1/features/crafter/publishproducts,course,lessons/ui/publish_course.dart';
+import 'package:flutter_application_1/features/crafter/publishproducts,course,lessons/ui/publish_products_1.dart';
+import 'package:flutter_application_1/features/crafter/publishproducts,course,lessons/ui/publish_products_2.dart';
+import 'package:flutter_application_1/features/crafter/publishproducts,course,lessons/ui/upload_lectures.dart';
 import 'package:flutter_application_1/features/crafter/signup/ui/signup.dart';
+import 'package:flutter_application_1/features/customer/home/ui/address.dart';
 import 'package:flutter_application_1/features/customer/home/ui/checkout.dart';
+import 'package:flutter_application_1/features/customer/home/ui/coupons.dart';
 import 'package:flutter_application_1/features/customer/home/ui/courses_lessons.dart';
 import 'package:flutter_application_1/features/customer/home/ui/crafter_profile.dart';
 import 'package:flutter_application_1/features/customer/home/ui/crafts.dart';
 import 'package:flutter_application_1/features/customer/home/ui/empty_cart.dart';
+import 'package:flutter_application_1/features/customer/home/ui/empty_notifications.dart';
 import 'package:flutter_application_1/features/customer/home/ui/home.dart';
 import 'package:flutter_application_1/features/customer/home/ui/materials.dart';
+import 'package:flutter_application_1/features/customer/home/ui/my_credit.dart';
+import 'package:flutter_application_1/features/customer/home/ui/my_orders.dart';
 import 'package:flutter_application_1/features/customer/home/ui/mycourses.dart';
+import 'package:flutter_application_1/features/customer/home/ui/notifications.dart';
+import 'package:flutter_application_1/features/customer/home/ui/package_delivered.dart';
 import 'package:flutter_application_1/features/customer/home/ui/payment.dart';
 import 'package:flutter_application_1/features/customer/home/ui/payment_order_done.dart';
 import 'package:flutter_application_1/features/customer/home/ui/product_details.dart';
+import 'package:flutter_application_1/features/customer/home/ui/product_review.dart';
 import 'package:flutter_application_1/features/customer/home/ui/products.dart';
 import 'package:flutter_application_1/features/customer/home/ui/profile.dart';
+import 'package:flutter_application_1/features/customer/home/ui/request_product_return.dart';
+import 'package:flutter_application_1/features/customer/home/ui/returns.dart';
 import 'package:flutter_application_1/features/customer/home/ui/review.dart';
 import 'package:flutter_application_1/features/customer/home/widget/custom_bnb.dart';
+import 'package:flutter_application_1/features/customer/login/ui/customer_forgot_password.dart';
+import 'package:flutter_application_1/features/customer/login/ui/customer_verifiy_email_forgot_password.dart';
 import 'package:flutter_application_1/features/customer/signup/ui/signup.dart';
-import 'package:flutter_application_1/features/customer/signup/ui/verify_email_sign_up.dart';
 import 'package:flutter_application_1/features/delivery/Intro/ui/intro.dart';
 import 'package:flutter_application_1/features/delivery/login/ui/login.dart';
 import 'package:flutter_application_1/features/delivery/signup/ui/signup.dart';
@@ -27,6 +57,8 @@ import 'package:flutter_application_1/features/on_boarding/ui/intro_page_1.dart'
 import 'package:flutter_application_1/features/on_boarding/ui/intro_page_3.dart';
 import 'package:go_router/go_router.dart';
 
+
+import '../../features/crafter/My Customers Reviews/ui/my_customers_reviews.dart';
 import '../../features/crafter/login/ui/verify_email_forgot_password.dart';
 import '../../features/crafter/signup/ui/verify_email_sign_up.dart';
 import '../../features/customer/home/ui/cart.dart';
@@ -38,10 +70,8 @@ import '../../features/customer/home/ui/landing.dart';
 import '../../features/customer/home/ui/play_lessons.dart';
 import '../../features/customer/home/ui/products_of_category.dart';
 import '../../features/customer/home/ui/wishlist.dart';
-import '../../features/customer/login/ui/forgot_password.dart';
 import '../../features/customer/login/ui/login.dart';
 import '../../features/customer/login/ui/reset_password.dart';
-import '../../features/customer/login/ui/verify_email_forgot_password.dart';
 import '../../features/delivery/login/ui/forgot_password.dart';
 import '../../features/delivery/login/ui/reset_password.dart';
 import '../../features/delivery/login/ui/verify_email_forgot_password.dart';
@@ -114,6 +144,36 @@ class AppRouter {
   static const courseslessonspath ="/courseslessonspath";
   static const  playlessonpath="/playlessonpath";
   static const profilepath="/profilepath";
+  static const crafterhomepath = "/crafterhomepath";
+  static const addpath="/addpath";
+  static const mycollection="/mycollection";
+  static const craftermaterialpath="/craftermaterialpath";
+  static const crochetsuppliespath="/crochetsuppliespath";
+  static const crafterproductdetailspath="/crafterproductdetailspath";
+  static const craftermycoursespath="/craftermycoursespath";
+  static const crafterupdatecoursepath="/crafterupdatecoursepath";
+  static const publishproducts1path="/publishproducts1path";
+  static const publishproducts2path="/publishproducts2path";
+  static const firstpublishproductpath="/firstpublishproductpath";
+  static const publishcoursepath="/publishcoursepath";
+  static const uploadlecturespath="/uploadlecturespath";
+  static const addcouponpath="/addcouponpath";
+  static const myproductpath="/myproductpath";
+  static const crafterreviewpath="/crafterreviewpath";
+  static const crafterprofilecrafterpath="/crafterprofilecrafterpath";
+  static const crafterscrafterpath="/crafterscrafterpath";
+  static const craftersearchpath="/craftersearchpath";
+  static const mycustomersreviewspath="/mycustomersreviewspath";
+  static  const emptynotficationpath="/emptynotficationpath";
+  static const requestproductreturnpath="/requestproductreturnpath";
+  static const productreviewpath="/productreviewpath";
+  static const packegedeliveredpath="/packegedeliveredpath";
+  static const my_orderspath="/my_orderspath";
+  static const returnspath="/returnspath";
+  static  const notficationpath="/notficationpath";
+  static const  mycreditpath="/mycreditpath";
+  static const couponspath="/couponspath";
+  static const addresspath="/addresspath";
 
 }
 
@@ -148,7 +208,7 @@ GoRouter router() {
         builder: ((context, state) => const OnBoarding())),
     GoRoute(
         path: AppRouter.customerloginPath,
-        builder: ((context, state) => const LoginScreen())),
+        builder: ((context, state) =>  LoginScreen())),
     GoRoute(
         path: AppRouter.crafterintropagepath,
         builder: ((context, state) => const CrafterIntroPage())),
@@ -176,7 +236,7 @@ GoRouter router() {
     GoRoute(
         path: AppRouter.crafterverifiyemailforgotpasswordpath,
         builder: ((context, state) =>
-            const CrafterVerifiyEmailForgotPassword())),
+        const CrafterVerifiyEmailForgotPassword())),
     GoRoute(
         path: AppRouter.crafterverifiyemailsignuppath,
         builder: ((context, state) => const CrafterVerifiyEmailSignUp())),
@@ -185,17 +245,20 @@ GoRouter router() {
         builder: ((context, state) => const CrafterResetPassword())),
     GoRoute(
         path: AppRouter.customerverifiyemailsignuppath,
-        builder: ((context, state) => const CustomerVerifiyEmailSignUp())),
+        builder: ((context, state) =>  const CustomerVerifiyEmailForgotPassword())),
     GoRoute(
         path: AppRouter.customerforgotpasswordpath,
-        builder: ((context, state) => const CustomerForgotPassword())),
+        builder: ((context, state) {
+          final text = state.extra as String;
+          return CustomerForgotPassword(text: text,);
+        }  )),
     GoRoute(
         path: AppRouter.customerverifiyemailforgotpasswordpath,
         builder: ((context, state) =>
-            const CustomerVerifiyEmailForgotPassword())),
+         const CustomerVerifiyEmailForgotPassword())),
     GoRoute(
         path: AppRouter.customerresetpasswordpath,
-        builder: ((context, state) => const CustomerResetPassword())),
+        builder: ((context, state) =>  CustomerResetPassword())),
     GoRoute(
         path: AppRouter.deliveryverifiyemailsignuppath,
         builder: ((context, state) => const DeliveryVerifiyEmailSignUp())),
@@ -205,7 +268,7 @@ GoRouter router() {
     GoRoute(
         path: AppRouter.deliveryverifiyemailforgotpasswordpath,
         builder: ((context, state) =>
-            const DeliveryVerifiyEmailForgotPassword())),
+        const DeliveryVerifiyEmailForgotPassword())),
     GoRoute(
         path: AppRouter.deliveryresetpasswordpath,
         builder: ((context, state) => const DeliveryResetPassword())),
@@ -293,6 +356,106 @@ GoRouter router() {
     GoRoute(
         path: AppRouter.profilepath,
         builder: ((context, state) => const Profile())),
+    GoRoute(
+        path: AppRouter.crafterhomepath,
+        builder: ((context, state) => const CrafterHome())),
+    GoRoute(
+        path: AppRouter.addpath,
+        builder: ((context, state) => const Add())),
+    GoRoute(
+        path: AppRouter.mycollection,
+        builder: ((context, state) => const MyCollection())),
+    GoRoute(
+        path: AppRouter.craftermaterialpath,
+        builder: ((context, state) =>  CrafterMaterial())),
+    GoRoute(
+        path: AppRouter.crochetsuppliespath,
+        builder: ((context, state) =>  const CrochetSupplies())),
+    GoRoute(
+        path: AppRouter.crafterproductdetailspath,
+        builder: ((context, state) =>  const CrafterProductDetails())),
+    GoRoute(
+        path: AppRouter.craftermycoursespath,
+        builder: ((context, state) =>  const CrafterMyCourses())),
+    GoRoute(
+        path: AppRouter.crafterupdatecoursepath,
+        builder: ((context, state) =>  const CrafterUpdateCourse())),
+    GoRoute(
+        path: AppRouter.publishproducts1path,
+        builder: ((context, state) =>   PublishProducts1())),
+    GoRoute(
+        path: AppRouter.publishproducts2path,
+        builder: ((context, state) =>   PublishProducts2())),
+    GoRoute(
+        path: AppRouter.firstpublishproductpath,
+        builder: ((context, state) =>   FirstPublishProduct())),
+    GoRoute(
+        path: AppRouter.publishcoursepath,
+        builder: ((context, state) =>   PublishCourse())),
+    GoRoute(
+        path: AppRouter.uploadlecturespath,
+        builder: ((context, state) =>   UploadLectures())),
+    GoRoute(
+        path: AppRouter.addcouponpath,
+        builder: ((context, state) =>   AddCoupon())),
+    GoRoute(
+        path: AppRouter.myproductpath,
+        builder: ((context, state) =>   const MyProduct())),
+    GoRoute(
+        path: AppRouter.crafterreviewpath,
+        builder: ((context, state) =>   const CrafterReview())),
+    GoRoute(
+        path: AppRouter.crafterprofilecrafterpath,
+        builder: ((context, state) =>   const CrafterProfileCrafter())),
+    GoRoute(
+        path: AppRouter.crafterscrafterpath,
+        builder: ((context, state) =>   const CraftersCrafter())),
+    GoRoute(
+        path: AppRouter.craftersearchpath,
+        builder: ((context, state) =>   const CrafterSearch())),
+    GoRoute(
+        path: AppRouter.mycustomersreviewspath,
+        builder: ((context, state) =>   const MyCustomersReviews())),
+
+    GoRoute(
+        path: AppRouter.emptynotficationpath,
+        builder: ((context, state) =>   const EmptyNotifications())),
+
+    GoRoute(
+        path: AppRouter.requestproductreturnpath,
+        builder: ((context, state) =>   const RequestProductReturn())),
+
+    GoRoute(
+        path: AppRouter.productreviewpath,
+        builder: ((context, state) =>   const ProductReview())),
+
+    GoRoute(
+        path: AppRouter.packegedeliveredpath,
+        builder: ((context, state) =>   const PackageDelivered())),
+
+    GoRoute(
+        path: AppRouter.my_orderspath,
+        builder: ((context, state) =>   const MyOrders())),
+
+    GoRoute(
+        path: AppRouter.returnspath,
+        builder: ((context, state) =>   const Returns())),
+
+    GoRoute(
+        path: AppRouter.notficationpath,
+        builder: ((context, state) =>   const Notifications())),
+
+    GoRoute(
+        path: AppRouter.mycreditpath,
+        builder: ((context, state) =>   const MyCredit())),
+
+    GoRoute(
+        path: AppRouter.couponspath,
+        builder: ((context, state) =>   const Coupons())),
+
+    GoRoute(
+        path: AppRouter.addresspath,
+        builder: ((context, state) =>   const Address())),
     // GoRoute(path: '/signUpDelivery' ,  builder:((context , state)=> SignUpDelivery()) ),
     //GoRoute(path: '/signUpCrafter' ,  builder:((context , state)=> SignUpCrafter()) ),
     //GoRoute(path: '/signUp' ,  builder:((context , state)=> SignUpCustomer()) ),

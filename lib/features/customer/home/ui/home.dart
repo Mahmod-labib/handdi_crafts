@@ -73,7 +73,7 @@ class _CustomerHomeState extends State<CustomerHome> {
                       children: [
                         InkWell(
                           onTap: (){
-                            context.pushReplacement(AppRouter.emptynotificationpath);
+                            context.pushReplacement(AppRouter.emptynotficationpath);
                           },
                           child: SvgPicture.asset(
                             "assets/images/notification.svg",

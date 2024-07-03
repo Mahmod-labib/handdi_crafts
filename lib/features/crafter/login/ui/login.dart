@@ -124,10 +124,10 @@ class _CrafterLoginScreenState extends State<CrafterLoginScreen> {
                     if(_formKey.currentState!.validate()){
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(content: Text('Processing Data')),
+
                       );
 
-                      // context.pushReplacement(AppRouter.crafterloginPath);
-
+                 context.pushReplacement(AppRouter.crafterhomepath);
                     }
                   },
                   child:  Text("Login",

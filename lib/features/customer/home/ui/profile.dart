@@ -145,7 +145,7 @@ class _ProfileState extends State<Profile> {
                             )
                         ),
                         onTap: (){
-                          context.pushReplacement(AppRouter.notificationpath);
+                          context.pushReplacement(AppRouter.notficationpath);
                         },
                       ),
                       Divider(color: ColorManager.white),
