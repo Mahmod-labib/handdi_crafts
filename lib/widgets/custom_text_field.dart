@@ -81,6 +81,7 @@ class CustomTextFormField extends StatelessWidget {
 
   final FormFieldValidator<String>? validator;
 
+
   @override
   Widget build(BuildContext context) {
     return alignment != null
@@ -107,7 +108,6 @@ class CustomTextFormField extends StatelessWidget {
       maxLines: maxLines ?? 1,
       decoration: decoration,
       validator: validator,
-
     ),
   );
   InputDecoration get decoration => InputDecoration(

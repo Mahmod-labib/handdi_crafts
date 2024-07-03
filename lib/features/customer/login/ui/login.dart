@@ -1,23 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/core/theming/color_manager.dart';
-import 'package:flutter_application_1/core/theming/routes_manager.dart';
+import 'package:flutter_application_1/features/customer/login/bloc/auth/auth_bloc.dart';
+import 'package:flutter_application_1/features/customer/login/bloc/auth/auth_event.dart';
+import 'package:flutter_application_1/features/customer/login/bloc/auth/auth_state.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../../core/theming/color_manager.dart';
+import '../../../../core/theming/routes_manager.dart';
 import '../../../../core/theming/font_manager.dart';
 import '../../../../widgets/custom_button.dart';
 import '../../../../widgets/custom_text_field.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
 
-  @override
-  State<LoginScreen> createState() => _LoginScreenState();
-}
+class LoginScreen extends StatelessWidget {
+   LoginScreen({super.key});
 
-class _LoginScreenState extends State<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
+
+  final TextEditingController _emailController = TextEditingController();
+
+  final TextEditingController _passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,14 +66,14 @@ class _LoginScreenState extends State<LoginScreen> {
                   Icons.email,
                   color: ColorManager.grey2,
                 ),
-                controller: TextEditingController(),
-                hintText: '  Enter Your Email ',
+
+                controller: _emailController,
+                hintText: 'Enter Your Email',
                 obscureText: false,
                 textInputType: TextInputType.emailAddress,
+
               ),
-              SizedBox(
-                height: 16.h,
-              ),
+              SizedBox(height: 16.h),
               CustomTextFormField(
                 validator: (value) {
                   if (value == null || value.isEmpty) {
@@ -78,21 +83,21 @@ class _LoginScreenState extends State<LoginScreen> {
                 },
                 prefixIcon: Icon(Icons.lock, color: ColorManager.grey2),
                 suffixIcon: Icon(Icons.visibility, color: ColorManager.grey2),
-                controller: TextEditingController(),
-                hintText: '  Enter Your Password ',
+                controller: _passwordController,
+                hintText: 'Enter Your Password',
                 obscureText: true,
                 textInputAction: TextInputAction.done,
                 textInputType: TextInputType.visiblePassword,
               ),
-              SizedBox(
-                height: 8.h,
-              ),
+              SizedBox(height: 8.h),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   InkWell(
-                    onTap: () => context
-                        .pushReplacement(AppRouter.customerforgotpasswordpath),
+                    onTap: (){
+                  context.pushReplacement(AppRouter.customerforgotpasswordpath ,extra: _emailController);
+                    } ,
+
                     child: Text(
                       "Forgot Password?",
                       style: TextStyle(
@@ -104,41 +109,54 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ],
               ),
-              SizedBox(
-                height: 14.h,
-              ),
+              SizedBox(height: 14.h),
               Container(
-                // alignment: Alignment.bottomCenter,
                 decoration: BoxDecoration(
-                    color: ColorManager.olive2,
-                    borderRadius: BorderRadiusDirectional.circular(32.r)),
+                  color: ColorManager.olive2,
+                  borderRadius: BorderRadiusDirectional.circular(32.r),
+                ),
                 width: 327.w,
                 height: 56.h,
-
-                child: MaterialButton(
-                  onPressed: () {
-                    if (_formKey.currentState!.validate()) {
+                child: BlocConsumer<AuthBloc, AuthState>(
+                  listener: (context, state) {
+                    if (state is AuthSuccess) {
+                      context.pushReplacement(AppRouter.customerhomepath);
+                    } else if (state is AuthFailure) {
                       ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text('Processing Data')),
+                        SnackBar(content: Text(state.error)),
                       );
-                      context.pushReplacement(AppRouter.customerloginPath);
                     }
                   },
-                  child: Text("Login",
-                      style: TextStyle(
+                  builder: (context, state) {
+                    if (state is AuthLoading) {
+                      return const Center(child: CircularProgressIndicator());
+                    }
+                    return MaterialButton(
+                      onPressed: () {
+                        if (_formKey.currentState!.validate()) {
+                          context.read<AuthBloc>().add(
+                            LoginEvent(_emailController.text, _passwordController.text),
+                          );
+                        }
+                      },
+                      child: Text(
+                        "Login",
+                        style: TextStyle(
                           fontSize: FontSize.s16,
                           color: ColorManager.white,
-                          fontWeight: FontWeightManager.medium)),
+                          fontWeight: FontWeightManager.medium,
+                        ),
+                      ),
+                    );
+                  },
                 ),
               ),
-              SizedBox(
-                height: 24.h,
-              ),
+              SizedBox(height: 24.h),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "Don't have an Account ?  ",
+                    "Don't have an Account?",
                     style: TextStyle(
                       fontWeight: FontWeightManager.thin,
                       fontSize: FontSize.s15,
@@ -152,37 +170,36 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: Text(
                       "SignUp",
                       style: TextStyle(
-                          fontWeight: FontWeightManager.thin,
-                          fontSize: FontSize.s15,
-                          color: ColorManager.olive2),
+                        fontWeight: FontWeightManager.thin,
+                        fontSize: FontSize.s15,
+                        color: ColorManager.olive2,
+                      ),
                     ),
                   ),
                 ],
               ),
-              SizedBox(
-                height: 15.h,
-              ),
-              Row(children: <Widget>[
-                const Expanded(child: Divider()),
-                Text(
-                  "  OR  ",
-                  style: TextStyle(
-                    fontWeight: FontWeightManager.regular,
-                    fontSize: FontSize.s16,
-                    color: ColorManager.grey4,
+              SizedBox(height: 15.h),
+              Row(
+                children: <Widget>[
+                  const Expanded(child: Divider()),
+                  Text(
+                    "  OR  ",
+                    style: TextStyle(
+                      fontWeight: FontWeightManager.regular,
+                      fontSize: FontSize.s16,
+                      color: ColorManager.grey4,
+                    ),
                   ),
-                ),
-                const Expanded(child: Divider()),
-              ]),
-              SizedBox(
-                height: 15.h,
+                  const Expanded(child: Divider()),
+                ],
               ),
+              SizedBox(height: 15.h),
               CustomButtonOutlined(
-                label: "Sign in with Google ",
+                label: "Sign in with Google",
                 leftIcon: SvgPicture.asset('assets/images/img_google.svg'),
               ),
               CustomButtonOutlined(
-                label: " Sign in with Facebook ",
+                label: "Sign in with Facebook",
                 leftIcon: SvgPicture.asset('assets/images/img_facebook.svg'),
               ),
               CustomButtonOutlined(

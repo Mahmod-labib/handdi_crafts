@@ -71,8 +71,13 @@ class _CustomerHomeState extends State<CustomerHome> {
                     ),
                     Row(
                       children: [
-                        SvgPicture.asset(
-                          "assets/images/notification.svg",
+                        InkWell(
+                          onTap: (){
+                            context.pushReplacement(AppRouter.emptynotificationpath);
+                          },
+                          child: SvgPicture.asset(
+                            "assets/images/notification.svg",
+                          ),
                         ),
                         SizedBox(
                           width: 15.w,

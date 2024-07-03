@@ -1,22 +1,25 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_verification_code/flutter_verification_code.dart';
 import 'package:go_router/go_router.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/theming/color_manager.dart';
 import '../../../../core/theming/font_manager.dart';
 import '../../../../core/theming/routes_manager.dart';
 
-class CustomerVerifiyEmailSignUp extends StatefulWidget {
-  const CustomerVerifiyEmailSignUp({super.key});
+import 'package:flutter_application_1/features/customer/signup/bloc/auth_bloc.dart';
+import 'package:flutter_application_1/features/customer/signup/bloc/auth_event.dart';
+import 'package:flutter_application_1/features/customer/signup/bloc/auth_state.dart';
+
+class CustomerVerifyEmailSignUp extends StatefulWidget {
+  const CustomerVerifyEmailSignUp({super.key});
 
   @override
-  State<CustomerVerifiyEmailSignUp> createState() => _CustomerVerifiyEmailSignUpState();
+  State<CustomerVerifyEmailSignUp> createState() => _CustomerVerifyEmailSignUpState();
 }
 
-class _CustomerVerifiyEmailSignUpState extends State<CustomerVerifiyEmailSignUp> {
+class _CustomerVerifyEmailSignUpState extends State<CustomerVerifyEmailSignUp> {
   bool _onEditing = true;
   String? _code;
 
@@ -43,38 +46,35 @@ class _CustomerVerifiyEmailSignUpState extends State<CustomerVerifiyEmailSignUp>
           padding: EdgeInsets.all(24.0.r),
           child: Column(
             children: [
-               Column(
+              Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Enter Verification Code ",
+                    "Enter Verification Code",
                     style: TextStyle(
-                        fontSize: FontSize.s24,
-                        fontWeight: FontWeightManager.medium,
-                        color: ColorManager.black),
+                      fontSize: FontSize.s24,
+                      fontWeight: FontWeightManager.medium,
+                      color: ColorManager.black,
+                    ),
                   ),
-                  SizedBox(
-                    height: 8.h,
-                  ),
+                  SizedBox(height: 8.h),
                   Text(
-                    "Please enter code that we have sent to your email salma*******@gmail.com",
+                    "Please enter the code that we have sent to your email",
                     style: TextStyle(
                       fontWeight: FontWeightManager.thin,
                       fontSize: FontSize.s14,
                       color: ColorManager.grey4,
                     ),
                   ),
-
                 ],
               ),
-
-              SizedBox(height: 32.h,),
+              SizedBox(height: 32.h),
               VerificationCode(
                 keyboardType: TextInputType.number,
                 underlineColor: ColorManager.grey,
                 cursorColor: ColorManager.olive2,
                 fullBorder: true,
-                textStyle:  TextStyle(
+                textStyle: TextStyle(
                   color: ColorManager.black,
                   fontWeight: FontWeightManager.bold,
                 ),
@@ -90,107 +90,52 @@ class _CustomerVerifiyEmailSignUpState extends State<CustomerVerifiyEmailSignUp>
                   if (!_onEditing) FocusScope.of(context).unfocus();
                 },
               ),
-             /* CustomButton(
-                text: 'Verify',
-                width: 327,
-                height: 56,
-                onPressed: () => showDialog(
-                  context: context,
-                  builder: (BuildContext context) => Container(
-                    width: 401,
-                    height: 327,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        AlertDialog(
-                          title: Container(
-                              width: 60,
-                              height: 60,
-                              decoration: const BoxDecoration(
-                                  color: Color(0xffFAF8ED),
-                                  shape: BoxShape.circle),
-                              child: Image.asset(
-                                  "assets/images/img_icoutlinecheck.png")),
-                          content: Column(
-                            children: [
-                              const SizedBox(
-                                height: 10,
-                              ),
-                              const Text(
-                                "Success",
-                                style: TextStyle(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.w700,
-                                    color: Color(0xff101623)),
-                              ),
-                              const SizedBox(
-                                height: 10,
-                              ),
-                              const Text(
-                                "your Account has been",
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  color: Color(0xffA1A8B0),
-                                  fontWeight: FontWeight.w400,
-                                ),
-                              ),
-                              const Text(
-                                "Successfully registered",
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  color: Color(0xffA1A8B0),
-                                  fontWeight: FontWeight.w400,
-                                ),
-                              ),
-                              const SizedBox(
-                                height: 10,
-                              ),
-                              CustomButton(
-                                text: ("Go to home"),
-                                onPressed: () {
-                                  context.pushReplacement("/customerHomePage");
-                                },
-                                width: 183,
-                                height: 56,
-                              ),
-                              const SizedBox(
-                                height: 10,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
+              SizedBox(height: 40.h),
+              BlocConsumer<AuthBloc, AuthState>(
+                listener: (context, state) {
+                  if (state is AuthSuccess) {
+                    context.pushReplacement(AppRouter.customerhomepath);
+                  } else if (state is AuthFailure) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text(state.error)),
+                    );
+                  }
+                },
+                builder: (context, state) {
+                  if (state is AuthLoading) {
+                    return CircularProgressIndicator();
+                  }
+                  return Container(
+                    decoration: BoxDecoration(
+                      color: ColorManager.olive2,
+                      borderRadius: BorderRadiusDirectional.circular(32.r),
                     ),
-                  ),
-                ),
+                    width: 327.w,
+                    height: 56.h,
+                    child: MaterialButton(
+                      onPressed: () {
+                        if (_code != null) {
+                          context.read<AuthBloc>().add(VerifyEmailEvent(_code!));
+                        } else {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(content: Text('Please enter the verification code')),
+                          );
+                        }
+                      },
+                      child: Text(
+                        "Verify",
+                        style: TextStyle(
+                          fontSize: FontSize.s16,
+                          color: ColorManager.white,
+                          fontWeight: FontWeightManager.medium,
+                        ),
+                      ),
+                    ),
+                  );
+                },
               ),
-              */
-              SizedBox(height: 40.h,),
-              Container(
-                // alignment: Alignment.bottomCenter,
-                decoration: BoxDecoration(
-                    color:  ColorManager.olive2,
-                    borderRadius: BorderRadiusDirectional.circular(32.r)),
-                width: 327.w,
-                height: 56.h,
-
-                child: MaterialButton(
-                  onPressed: () {
-
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text('Processing Data')),
-                      );
-
-                    },
-
-
-                  child:  Text("Verifiy",
-                      style: TextStyle(fontSize: FontSize.s16, color: ColorManager.white,fontWeight: FontWeightManager.medium)),
-                ),
-              ),
-
-              SizedBox(height: 24.h,),
-               Row(
+              SizedBox(height: 24.h),
+              Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
@@ -200,11 +145,11 @@ class _CustomerVerifiyEmailSignUpState extends State<CustomerVerifiyEmailSignUp>
                       fontSize: FontSize.s14,
                     ),
                   ),
-                  SizedBox(
-                    width: 5.w,
-                  ),
+                  SizedBox(width: 5.w),
                   InkWell(
-                    onTap:()=> context.pushReplacement(AppRouter.customerverifiyemailsignuppath),
+                    onTap: () {
+                      // Resend logic
+                    },
                     child: Text(
                       "Resend",
                       style: TextStyle(
@@ -222,3 +167,4 @@ class _CustomerVerifiyEmailSignUpState extends State<CustomerVerifiyEmailSignUp>
     );
   }
 }
+

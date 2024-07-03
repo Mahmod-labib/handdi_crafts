@@ -120,141 +120,201 @@ class _ProfileState extends State<Profile> {
                   ),
                   child: Column(
                     children: [
-                      ListTile(
-                          contentPadding: EdgeInsets.all(13.r),
+                      InkWell(
+                        child: ListTile(
+                            contentPadding: EdgeInsets.all(13.r),
+                            leading: CircleAvatar(
+                              backgroundColor: ColorManager.olive2,
+                              child: SizedBox(
+                                child: SvgPicture.asset(
+                                    "assets/images/Notification-light.svg"),
+                              ),
+                            ),
+                            title: Text(
+                              "Notifications",
+                              style: TextStyle(
+                                color: ColorManager.black,
+                                fontSize: FontSize.s16,
+                                fontWeight: FontWeightManager.medium,
+                              ),
+                            ),
+                            trailing: Switch(
+                              onChanged: toggleSwitch, value: isSwitched,
+                              activeColor: ColorManager.beige,
+                              inactiveThumbColor: ColorManager.white4,
+                            )
+                        ),
+                        onTap: (){
+                          context.pushReplacement(AppRouter.notificationpath);
+                        },
+                      ),
+                      Divider(color: ColorManager.white),
+                      InkWell(
+                        child: ListTile(
                           leading: CircleAvatar(
                             backgroundColor: ColorManager.olive2,
                             child: SizedBox(
                               child: SvgPicture.asset(
-                                  "assets/images/Notification-light.svg"),
+                                  "assets/images/Document.svg"),
                             ),
                           ),
                           title: Text(
-                            "Notifications",
+                            "My Orders",
                             style: TextStyle(
                               color: ColorManager.black,
                               fontSize: FontSize.s16,
                               fontWeight: FontWeightManager.medium,
                             ),
                           ),
-                          trailing: Switch(
-                            onChanged: toggleSwitch, value: isSwitched,
-                            activeColor: ColorManager.beige,
-                            inactiveThumbColor: ColorManager.white4,
-                          )
+                          trailing: IconButton(
+                            icon: Icon(Icons.arrow_forward_ios,
+                              color: ColorManager.black,),
+                            onPressed: () {},
+                          ),
+                        ),
+                        onTap: (){
+                          context.pushReplacement(AppRouter.my_orderspath);
+                        },
                       ),
                       Divider(color: ColorManager.white),
-                      ListTile(
-                        leading: CircleAvatar(
-                          backgroundColor: ColorManager.olive2,
-                          child: SizedBox(
-                            child: SvgPicture.asset(
-                                "assets/images/Document.svg"),
+                      InkWell(
+                        child: ListTile(
+                          leading: CircleAvatar(
+                            backgroundColor: ColorManager.olive2,
+                            child: SizedBox(
+                              child: SvgPicture.asset(
+                                  "assets/images/icon-park-outline_return.svg"),
+                            ),
+                          ),
+                          title: Text(
+                            "Returns",
+                            style: TextStyle(
+                              color: ColorManager.black,
+                              fontSize: FontSize.s16,
+                              fontWeight: FontWeightManager.medium,
+                            ),
+                          ),
+                          trailing: IconButton(
+                            icon: Icon(Icons.arrow_forward_ios,
+                              color: ColorManager.black,),
+                            onPressed: () {
+                            },
                           ),
                         ),
-                        title: Text(
-                          "My Orders",
-                          style: TextStyle(
-                            color: ColorManager.black,
-                            fontSize: FontSize.s16,
-                            fontWeight: FontWeightManager.medium,
-                          ),
-                        ),
-                        trailing: IconButton(
-                          icon: Icon(Icons.arrow_forward_ios,
-                            color: ColorManager.black,),
-                          onPressed: () {},
-                        ),
+                        onTap: (){
+                          context.pushReplacement(AppRouter.returnspath);
+                        },
                       ),
                       Divider(color: ColorManager.white),
-                      ListTile(
-                        leading: CircleAvatar(
-                          backgroundColor: ColorManager.olive2,
-                          child: SizedBox(
-                            child: SvgPicture.asset(
-                                "assets/images/Location.svg"),
+                      InkWell(
+                        child: ListTile(
+                          leading: CircleAvatar(
+                            backgroundColor: ColorManager.olive2,
+                            child: SizedBox(
+                              child: SvgPicture.asset(
+                                  "assets/images/mage_credit-card.svg"),
+                            ),
+                          ),
+                          title: Text(
+                            "Credits",
+                            style: TextStyle(
+                              color: ColorManager.black,
+                              fontSize: FontSize.s16,
+                              fontWeight: FontWeightManager.medium,
+                            ),
+                          ),
+                          trailing: IconButton(
+                            icon: Icon(Icons.arrow_forward_ios,
+                              color: ColorManager.black,),
+                            onPressed: () {},
                           ),
                         ),
-                        title: Text(
-                          "Address",
-                          style: TextStyle(
-                            color: ColorManager.black,
-                            fontSize: FontSize.s16,
-                            fontWeight: FontWeightManager.medium,
-                          ),
-                        ),
-                        trailing: IconButton(
-                          icon: Icon(Icons.arrow_forward_ios,
-                            color: ColorManager.black,),
-                          onPressed: () {},
-                        ),
+                        onTap: (){
+                          context.pushReplacement(AppRouter.mycreditpath);
+                        },
                       ),
                       Divider(color: ColorManager.white),
-                      ListTile(
-                        leading: CircleAvatar(
-                          backgroundColor: ColorManager.olive2,
-                          child: SizedBox(
-                            child: SvgPicture.asset(
-                                "assets/images/mage_credit-card.svg"),
+                      InkWell(
+                        child: ListTile(
+                          leading: CircleAvatar(
+                            backgroundColor: ColorManager.olive2,
+                            child: SizedBox(
+                              child: SvgPicture.asset("assets/images/Ticket.svg"),
+                            ),
+                          ),
+                          title: Text(
+                            "Coupons",
+                            style: TextStyle(
+                              color: ColorManager.black,
+                              fontSize: FontSize.s16,
+                              fontWeight: FontWeightManager.medium,
+                            ),
+                          ),
+                          trailing: IconButton(
+                            icon: Icon(Icons.arrow_forward_ios,
+                              color: ColorManager.black,),
+                            onPressed: () {},
                           ),
                         ),
-                        title: Text(
-                          "Credits & Points",
-                          style: TextStyle(
-                            color: ColorManager.black,
-                            fontSize: FontSize.s16,
-                            fontWeight: FontWeightManager.medium,
-                          ),
-                        ),
-                        trailing: IconButton(
-                          icon: Icon(Icons.arrow_forward_ios,
-                            color: ColorManager.black,),
-                          onPressed: () {},
-                        ),
+                        onTap: (){
+                          context.pushReplacement(AppRouter.couponspath);
+                        },
                       ),
                       Divider(color: ColorManager.white),
-                      ListTile(
-                        leading: CircleAvatar(
-                          backgroundColor: ColorManager.olive2,
-                          child: SizedBox(
-                            child: SvgPicture.asset("assets/images/Ticket.svg"),
+                      InkWell(
+                        child: ListTile(
+                          leading: CircleAvatar(
+                            backgroundColor: ColorManager.olive2,
+                            child: SizedBox(
+                              child: SvgPicture.asset(
+                                  "assets/images/Location.svg"),
+                            ),
+                          ),
+                          title: Text(
+                            "Address",
+                            style: TextStyle(
+                              color: ColorManager.black,
+                              fontSize: FontSize.s16,
+                              fontWeight: FontWeightManager.medium,
+                            ),
+                          ),
+                          trailing: IconButton(
+                            icon: Icon(Icons.arrow_forward_ios,
+                              color: ColorManager.black,),
+                            onPressed: () {},
                           ),
                         ),
-                        title: Text(
-                          "Coupons",
-                          style: TextStyle(
-                            color: ColorManager.black,
-                            fontSize: FontSize.s16,
-                            fontWeight: FontWeightManager.medium,
-                          ),
-                        ),
-                        trailing: IconButton(
-                          icon: Icon(Icons.arrow_forward_ios,
-                            color: ColorManager.black,),
-                          onPressed: () {},
-                        ),
+                        onTap: (){
+                          context.pushReplacement(AppRouter.addresspath);
+                        },
                       ),
                       Divider(color: ColorManager.white),
-                      ListTile(
-                        leading: CircleAvatar(
-                          backgroundColor: ColorManager.olive2,
-                          child: SizedBox(
-                            child: SvgPicture.asset("assets/images/Wallet.svg"),
+                      InkWell(
+
+                        child: ListTile(
+                          leading: CircleAvatar(
+                            backgroundColor: ColorManager.olive2,
+                            child: SizedBox(
+                              child: SvgPicture.asset("assets/images/Wallet.svg"),
+                            ),
+                          ),
+                          title: Text(
+                            "Payment Methods",
+                            style: TextStyle(
+                              color: ColorManager.black,
+                              fontSize: FontSize.s16,
+                              fontWeight: FontWeightManager.medium,
+                            ),
+                          ),
+                          trailing: IconButton(
+                            icon: Icon(Icons.arrow_forward_ios,
+                              color: ColorManager.black,),
+                            onPressed: () {},
                           ),
                         ),
-                        title: Text(
-                          "Payment Methods",
-                          style: TextStyle(
-                            color: ColorManager.black,
-                            fontSize: FontSize.s16,
-                            fontWeight: FontWeightManager.medium,
-                          ),
-                        ),
-                        trailing: IconButton(
-                          icon: Icon(Icons.arrow_forward_ios,
-                            color: ColorManager.black,),
-                          onPressed: () {},
-                        ),
+                        onTap: (){
+                          context.pushReplacement(AppRouter.paymentpath);
+                        },
                       ),
                       Divider(color: ColorManager.white),
                       ListTile(

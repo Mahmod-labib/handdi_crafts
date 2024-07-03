@@ -20,6 +20,8 @@ class Payment extends StatefulWidget {
 class _PaymentState extends State<Payment> {
   @override
   Widget build(BuildContext context) {
+    bool isChecked=false;
+
     return Scaffold(      backgroundColor: Colors.white,
 
 
@@ -88,11 +90,11 @@ class _PaymentState extends State<Payment> {
                     fontWeight: FontWeightManager.regular , color: ColorManager.black,
                   ),),
                 ),
-              Padding(
+            /*  Padding(
                 padding:  EdgeInsets.only(right: 24.w),
                 child: SvgPicture.asset("assets/images/visa_logo.svg" , width: 50.w , height: 16.5.h,),
               ),
-              
+              */
               ],
             ),
           ),
@@ -169,7 +171,11 @@ class _PaymentState extends State<Payment> {
             padding:  EdgeInsets.all(15.0.r),
             child: Row(
               children: [
-                CustomCheckbox(isChecked: true, onChanged:ischanged),
+                CustomCheckbox(isChecked: isChecked, onChanged:(x){
+               setState(() {
+                 x=isChecked;
+               });
+                }),
                 SizedBox(width: 8.w,),
                 Text("Save this payment card",style: TextStyle(fontSize: FontSize.s13 ,
                   fontWeight: FontWeightManager.thin , color: ColorManager.grey2,
@@ -197,7 +203,7 @@ class _PaymentState extends State<Payment> {
                   Text("Master Card",style: TextStyle(fontSize: FontSize.s16 ,
                     fontWeight: FontWeightManager.regular , color: ColorManager.black,
                   ),),
-                  SvgPicture.asset("assets/images/master_card_symbol.svg" , width: 50.w , height: 16.5.h,),
+                 // SvgPicture.asset("assets/images/master_card_symbol.svg" , width: 50.w , height: 16.5.h,),
 
                 ],
               ),
@@ -250,6 +256,5 @@ class _PaymentState extends State<Payment> {
     );
   }
 
-  ischanged(bool p1) {
-  }
+
 }
