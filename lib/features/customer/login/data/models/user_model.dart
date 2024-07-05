@@ -20,3 +20,14 @@ class UserModel {
     );
   }
 }
+class VerifyEmailModel {
+  final String code;
+
+  VerifyEmailModel({required this.code});
+
+  Map<String, dynamic> toJson() {
+    return {
+      'otp': code,
+    };
+  }
+}

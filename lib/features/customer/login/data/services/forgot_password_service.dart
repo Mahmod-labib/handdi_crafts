@@ -7,26 +7,26 @@ class ForgotPasswordService {
 
   Future<void> sendResetCode(String email) async {
     await _dio.post(
-      'http://localhost:8000/accounts/password-reset/',
+      'http://10.0.2.2:8000/accounts/password-reset/',
       data: {'email': email},
     );
   }
 
   Future<void> verifyCode(String code) async {
     final response = await _dio.post(
-      'http://localhost:8000/accounts/password-reset-confirm/',
-      data: {'code': code},
+      'http://10.0.2.2:8000/accounts/verify_email/',
+      data: {'otp': code},
     );
     final data = response.data;
     await _secureStorage.write(key: 'reset_token', value: data['token']);
     await _secureStorage.write(key: 'uidb64', value: data['uidb64']);
   }
 
-  Future<void> resetPassword(String password, String confirmPassword) async {
+  Future<void> setNewPassword(String password, String confirmPassword) async {
     final token = await _secureStorage.read(key: 'reset_token');
     final uidb64 = await _secureStorage.read(key: 'uidb64');
     await _dio.post(
-      'http://localhost:8000/accounts/set-new-password/$uidb64/$token/',
+      'http://10.0.2.2:8000/accounts/set-new-password/$uidb64/$token/',
       data: {
         'password': password,
         'confirm_password': confirmPassword,

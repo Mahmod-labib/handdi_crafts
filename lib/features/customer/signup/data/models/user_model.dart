@@ -33,7 +33,7 @@ class VerifyEmailModel {
 
   Map<String, dynamic> toJson() {
     return {
-      'code': code,
+      'otp': code,
     };
   }
 }

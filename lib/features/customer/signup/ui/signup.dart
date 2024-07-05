@@ -56,6 +56,7 @@ class _CustomerSignUpState extends State<CustomerSignUp> {
       );
 
       try {
+        debugPrint(_phoneNumberController.text);
         await _signupRepository.signup(signupModel);
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text('Signup successful')),
@@ -155,55 +156,21 @@ class _CustomerSignUpState extends State<CustomerSignUp> {
                     textInputType: TextInputType.name,
                   ),
                   SizedBox(height: 16.h),
-                  SizedBox(
-                    height: 56.h,
-                    width: 327.w,
-                    child: IntlPhoneField(
-                      validator: (value) {
-                        if (value == null || value.completeNumber.isEmpty) {
-                          return 'Please enter valid Number';
-                        }
-                        return null;
-                      },
-                      controller: _phoneNumberController,
-                      initialCountryCode: "EG",
-                      cursorColor: ColorManager.grey2,
-                      keyboardType: TextInputType.phone,
-                      decoration: InputDecoration(
-                        filled: true,
-                        contentPadding:
-                        EdgeInsets.only(top: 16.r, bottom: 16.r, right: 16.r),
-                        fillColor: ColorManager.white,
-                        hintText: "Enter your number",
-                        hintStyle: TextStyle(
-                          fontSize: FontSize.s16,
-                          fontWeight: FontWeightManager.regular,
-                          color: ColorManager.grey2,
-                        ),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(24.r),
-                          borderSide: BorderSide(
-                            color: ColorManager.black2,
-                            width: 1.r,
-                          ),
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(24.r),
-                          borderSide: BorderSide(
-                            color: ColorManager.white,
-                            width: 1.r,
-                          ),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(24.r),
-                          borderSide: BorderSide(
-                            color: ColorManager.grey4,
-                            width: 1,
-                          ),
-                        ),
-                        counterText: "",
-                      ),
+                  CustomTextFormField(
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Number is not valid try start with 011,015,010,012';
+                      }
+                      return null;
+                    },
+                    prefixIcon: Icon(
+                      Icons.phone,
+                      color: ColorManager.grey2,
                     ),
+                    controller: _phoneNumberController,
+                    hintText: 'Enter your phone number',
+                    obscureText: false,
+                    textInputType: TextInputType.phone,
                   ),
                   SizedBox(height: 16.h),
                   CustomTextFormField(
@@ -371,3 +338,56 @@ class _CustomerSignUpState extends State<CustomerSignUp> {
     );
   }
 }
+/*
+SizedBox(
+                    height: 56.h,
+                    width: 327.w,
+                    child: IntlPhoneField(
+                      validator: (value) {
+                        if (value == null || value.completeNumber.isEmpty) {
+                          return 'Please enter valid Number';
+                       }
+                        return null;
+                      },
+                      controller: _phoneNumberController,
+
+                      initialCountryCode: "EG",
+                      cursorColor: ColorManager.grey2,
+                      keyboardType: TextInputType.phone,
+                      decoration: InputDecoration(
+                        filled: true,
+                        contentPadding:
+                        EdgeInsets.only(top: 16.r, bottom: 16.r, right: 16.r),
+                        fillColor: ColorManager.white,
+                        hintText: "Enter your number",
+                        hintStyle: TextStyle(
+                          fontSize: FontSize.s16,
+                          fontWeight: FontWeightManager.regular,
+                          color: ColorManager.grey2,
+                        ),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(24.r),
+                          borderSide: BorderSide(
+                            color: ColorManager.black2,
+                            width: 1.r,
+                          ),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(24.r),
+                          borderSide: BorderSide(
+                            color: ColorManager.white,
+                            width: 1.r,
+                          ),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(24.r),
+                          borderSide: BorderSide(
+                            color: ColorManager.grey4,
+                            width: 1,
+                          ),
+                        ),
+                        counterText: "",
+                      ),
+                    ),
+                  ),
+ */

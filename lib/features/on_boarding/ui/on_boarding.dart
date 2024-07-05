@@ -23,9 +23,6 @@ class _OnBoardingState extends State<OnBoarding> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(backgroundColor: Colors.white,
-      // elevation: 0),
-
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 30.h),
         child: Stack(

@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_application_1/features/crafter/Intro/ui/intro.dart';
 import 'package:flutter_application_1/features/crafter/Search/ui/crafter_search.dart';
 import 'package:flutter_application_1/features/crafter/crafterprofile&reviews/ui/crafter_profile_crafter.dart';
@@ -260,8 +261,8 @@ GoRouter router() {
     GoRoute(
         path: AppRouter.customerforgotpasswordpath,
         builder: ((context, state) {
-          final text = state.extra as String;
-          return CustomerForgotPassword(text: text,);
+          TextEditingController text=TextEditingController();
+          return CustomerForgotPassword(text: text.text,);
         }  )),
 
     GoRoute(

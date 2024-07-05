@@ -115,21 +115,24 @@ class _CustomerForgotPasswordState extends State<CustomerForgotPassword> {
                 ),
                 width: 327.w,
                 height: 56.h,
-                child: MaterialButton(
-                  onPressed: () {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text('Processing Data')),
-                    );
-                    context.pushReplacement(
-                      AppRouter.customerverifiyemailforgotpasswordpath,
-                    );
-                  },
-                  child: Text(
-                    "Continue",
-                    style: TextStyle(
-                      fontSize: FontSize.s16,
-                      color: ColorManager.white,
-                      fontWeight: FontWeightManager.medium,
+                child: InkWell(
+                  onTap:_sendResetCode,
+                  child: MaterialButton(
+                    onPressed: () {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text('Processing Data')),
+                      );
+                      context.pushReplacement(
+                        AppRouter.customerverifiyemailforgotpasswordpath,
+                      );
+                    },
+                    child: Text(
+                      "Continue",
+                      style: TextStyle(
+                        fontSize: FontSize.s16,
+                        color: ColorManager.white,
+                        fontWeight: FontWeightManager.medium,
+                      ),
                     ),
                   ),
                 ),

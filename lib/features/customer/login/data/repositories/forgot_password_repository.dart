@@ -12,6 +12,6 @@ class ForgotPasswordRepository {
   }
 
   Future<void> resetPassword(String password, String confirmPassword) async {
-    await _forgotPasswordService.resetPassword(password, confirmPassword);
+    await _forgotPasswordService.setNewPassword(password, confirmPassword);
   }
 }
