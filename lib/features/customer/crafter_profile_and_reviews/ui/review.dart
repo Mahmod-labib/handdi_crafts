@@ -7,7 +7,7 @@ import '../../../../core/theming/color_manager.dart';
 import '../../../../core/theming/font_manager.dart';
 import '../../../../core/theming/routes_manager.dart';
 import '../../../../widgets/custom_text_field.dart';
-import '../widget/verified_reviews_courses.dart';
+import '../../instore_and_online_workshop/widget/verified_reviews_courses.dart';
 
 class Review extends StatefulWidget {
   const Review({super.key});

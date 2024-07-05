@@ -5,9 +5,10 @@ class AuthService {
   final Dio _dio = Dio();
   final FlutterSecureStorage _secureStorage = const FlutterSecureStorage();
 
+
   Future<Map<String, dynamic>> login(String email, String password) async {
     final response = await _dio.post(
-      'http://localhost:8000/accounts/login/',
+      'http://10.0.2.2:8000/accounts/login/',
       data: {'email': email, 'password': password},
     );
     final data = response.data;

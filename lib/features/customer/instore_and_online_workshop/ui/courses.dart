@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/core/theming/color_manager.dart';
 import 'package:flutter_application_1/core/theming/font_manager.dart';
 import 'package:flutter_application_1/core/theming/routes_manager.dart';
+import 'package:flutter_application_1/features/customer/instore_and_online_workshop/widget/listview_item_card.dart';
 import 'package:flutter_application_1/widgets/custom_text_field.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../widgets/listview_item_card.dart';
 
 class CoursesAndWorkshop extends StatefulWidget {
   const CoursesAndWorkshop({super.key});

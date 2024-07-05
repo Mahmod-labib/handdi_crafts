@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/core/theming/font_manager.dart';
 import 'package:flutter_application_1/core/theming/routes_manager.dart';
-import 'package:flutter_application_1/features/customer/home/widget/custom_button.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../core/theming/color_manager.dart';
+import '../../../crafter/My Customers Reviews/widget/button.dart';
 
 class Cart extends StatefulWidget {
   const Cart({super.key});
@@ -203,25 +203,25 @@ class _CartState extends State<Cart> {
                                   children: [
                                     CustomButton(
                                         text: "Cancel",
-                                        fun: (){
+                                        onPressed: (){
                                           context.pop();
                                         },
                                         height: 46.h,
                                         width: 145.w,
-                                        btncolor: ColorManager.white2,
-                                        textcolor: ColorManager.olive2),
+                                        backgroundColor: ColorManager.white2,
+                                        textColor: ColorManager.olive2, fontWeight: FontWeightManager.thin, fontSize: FontSize.s16,),
                                     SizedBox(width: 13.w,),
                                     CustomButton(
                                         text: "Remove",
-                                        fun: (){
+                                        onPressed: (){
                                           //quantities.removeAt(1);
 
                                           context.pop();
                                         },
                                         height: 46.h,
                                         width: 145.w,
-                                        btncolor: ColorManager.olive2,
-                                        textcolor: ColorManager.white2),
+                                        backgroundColor: ColorManager.olive2,
+                                        textColor: ColorManager.white2,  fontWeight: FontWeightManager.thin, fontSize: FontSize.s16,),
                                   ],
                                 ),
                               )
@@ -434,13 +434,13 @@ class _CartState extends State<Cart> {
             SizedBox(height: 59.h),
             CustomButton(
               text: "Checkout",
-              fun: () {
+              onPressed: () {
                 context.pushReplacement(AppRouter.checkoutpath);
               },
               height: 56.h,
               width: 327.w,
-              btncolor: ColorManager.olive2,
-              textcolor: ColorManager.white2,
+              backgroundColor: ColorManager.olive2,
+              textColor: ColorManager.white2, fontSize: FontSize.s16 ,  fontWeight: FontWeightManager.medium,
             ),
           ],
         ),

@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/core/theming/color_manager.dart';
 import 'package:flutter_application_1/core/theming/font_manager.dart';
 import 'package:flutter_application_1/core/theming/routes_manager.dart';
-import 'package:flutter_application_1/features/customer/home/widget/custom_button.dart';
 import 'package:flutter_application_1/features/customer/signup/widget/custom_checkbox.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../widgets/custom_text_field.dart';
+import '../../../crafter/My Customers Reviews/widget/button.dart';
 
 class RequestProductReturn extends StatelessWidget {
   const RequestProductReturn({super.key});
@@ -98,10 +98,12 @@ class RequestProductReturn extends StatelessWidget {
           ),
 
         CustomButton(text: "Sent Request",
-            fun: (){},
+            onPressed: (){},
             height: 56.h,
-            width: 327.w, btncolor: ColorManager.olive2,
-            textcolor: ColorManager.white2)
+            width: 327.w, backgroundColor: ColorManager.olive2,
+            textColor: ColorManager.white2, fontSize: FontSize.s16,
+            fontWeight: FontWeightManager.medium,
+        )
 
 
 

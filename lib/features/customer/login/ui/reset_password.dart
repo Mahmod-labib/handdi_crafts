@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/features/customer/login/bloc/forgot_password/forgot_password_bloc.dart';
-import 'package:flutter_application_1/features/customer/login/bloc/forgot_password/forgot_password_event.dart';
-import 'package:flutter_application_1/features/customer/login/bloc/forgot_password/forgot_password_state.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_application_1/features/customer/login/data/repositories/forgot_password_repository.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
@@ -11,15 +8,47 @@ import '../../../../core/theming/font_manager.dart';
 import '../../../../core/theming/routes_manager.dart';
 import '../../../../widgets/custom_text_field.dart';
 
+class CustomerResetPassword extends StatefulWidget {
+  const CustomerResetPassword({super.key});
 
-class CustomerResetPassword extends StatelessWidget {
-   CustomerResetPassword({super.key});
+  @override
+  State<CustomerResetPassword> createState() => _CustomerResetPasswordState();
+}
 
+class _CustomerResetPasswordState extends State<CustomerResetPassword> {
   final _formKey = GlobalKey<FormState>();
-
   final TextEditingController _passwordController = TextEditingController();
-
   final TextEditingController _confirmPasswordController = TextEditingController();
+  final ForgotPasswordRepository _forgotPasswordRepository = ForgotPasswordRepository();
+
+  bool _isLoading = false;
+
+  void _resetPassword() async {
+    if (_formKey.currentState!.validate()) {
+      setState(() {
+        _isLoading = true;
+      });
+
+      try {
+        await _forgotPasswordRepository.resetPassword(
+          _passwordController.text,
+          _confirmPasswordController.text,
+        );
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Password reset successfully')),
+        );
+        context.pushReplacement(AppRouter.customerloginPath);
+      } catch (e) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Error: ${e.toString()}')),
+        );
+      } finally {
+        setState(() {
+          _isLoading = false;
+        });
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -85,53 +114,28 @@ class CustomerResetPassword extends StatelessWidget {
                 textInputType: TextInputType.visiblePassword,
               ),
               SizedBox(height: 55.h),
-              BlocConsumer<ForgotPasswordBloc, ForgotPasswordState>(
-                listener: (context, state) {
-                  if (state is ForgotPasswordSuccess) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text('Password reset successfully')),
-                    );
-                    context.pushReplacement(AppRouter.customerloginPath);
-                  } else if (state is ForgotPasswordFailure) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text(state.error)),
-                    );
-                  }
-                },
-                builder: (context, state) {
-                  if (state is ForgotPasswordLoading) {
-                    return Center(child: CircularProgressIndicator());
-                  }
-                  return Container(
-                    decoration: BoxDecoration(
-                      color: ColorManager.olive2,
-                      borderRadius: BorderRadiusDirectional.circular(32.r),
-                    ),
-                    width: 327.w,
-                    height: 56.h,
-                    child: MaterialButton(
-                      onPressed: () {
-                        if (_formKey.currentState!.validate()) {
-                          context.read<ForgotPasswordBloc>().add(
-                            ResetPasswordEvent(
-                              _passwordController.text,
-                              _confirmPasswordController.text,
-                            ),
-                          );
-                        }
-                      },
-                      child: Text(
-                        "Reset Password",
-                        style: TextStyle(
-                          fontSize: FontSize.s16,
-                          color: ColorManager.white,
-                          fontWeight: FontWeightManager.medium,
-                        ),
+              if (_isLoading)
+                const Center(child: CircularProgressIndicator())
+              else
+                Container(
+                  decoration: BoxDecoration(
+                    color: ColorManager.olive2,
+                    borderRadius: BorderRadiusDirectional.circular(32.r),
+                  ),
+                  width: 327.w,
+                  height: 56.h,
+                  child: MaterialButton(
+                    onPressed: _resetPassword,
+                    child: Text(
+                      "Reset Password",
+                      style: TextStyle(
+                        fontSize: FontSize.s16,
+                        color: ColorManager.white,
+                        fontWeight: FontWeightManager.medium,
                       ),
                     ),
-                  );
-                },
-              ),
+                  ),
+                ),
             ],
           ),
         ),

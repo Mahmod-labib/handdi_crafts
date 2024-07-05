@@ -6,7 +6,7 @@ import 'package:go_router/go_router.dart';
 import '../../../../core/theming/color_manager.dart';
 import '../../../../core/theming/font_manager.dart';
 import '../../../../core/theming/routes_manager.dart';
-import '../../../../widgets/products_card.dart';
+import '../widget/products_card.dart';
 
 class Wishlist extends StatefulWidget {
   const Wishlist({super.key});

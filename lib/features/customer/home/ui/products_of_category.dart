@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/core/theming/font_manager.dart';
-import 'package:flutter_application_1/widgets/products_card.dart';
+import 'package:flutter_application_1/features/customer/wish_list_product/widget/products_card.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/core/theming/color_manager.dart';
 import 'package:flutter_application_1/core/theming/font_manager.dart';
-import 'package:flutter_application_1/features/customer/home/widget/custom_bnb.dart';
 import 'package:flutter_application_1/features/customer/home/widget/custom_container_2.dart';
 import 'package:flutter_application_1/features/customer/home/widget/custom_craft_product.dart';
 import 'package:flutter_application_1/features/customer/home/widget/custom_explore_section.dart';
@@ -13,10 +12,7 @@ import 'package:flutter_application_1/features/customer/home/widget/custom_trend
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
-
 import '../../../../core/theming/routes_manager.dart';
-import '../../../../widgets/custom_container_category_home1.dart';
-import '../../../../widgets/custom_text_field.dart';
 
 class CustomerHome extends StatefulWidget {
   const CustomerHome({super.key});

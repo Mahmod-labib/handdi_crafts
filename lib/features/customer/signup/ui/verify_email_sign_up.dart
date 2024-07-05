@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/features/customer/signup/data/models/user_model.dart';
+import 'package:flutter_application_1/features/customer/signup/data/repositories/auth_repository.dart';
+import 'package:flutter_application_1/features/customer/signup/data/services/api_services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_verification_code/flutter_verification_code.dart';
 import 'package:go_router/go_router.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../../../core/theming/color_manager.dart';
 import '../../../../core/theming/font_manager.dart';
 import '../../../../core/theming/routes_manager.dart';
-
-import 'package:flutter_application_1/features/customer/signup/bloc/auth_bloc.dart';
-import 'package:flutter_application_1/features/customer/signup/bloc/auth_event.dart';
-import 'package:flutter_application_1/features/customer/signup/bloc/auth_state.dart';
 
 class CustomerVerifyEmailSignUp extends StatefulWidget {
   const CustomerVerifyEmailSignUp({super.key});
@@ -22,6 +19,29 @@ class CustomerVerifyEmailSignUp extends StatefulWidget {
 class _CustomerVerifyEmailSignUpState extends State<CustomerVerifyEmailSignUp> {
   bool _onEditing = true;
   String? _code;
+  final VerifyEmailRepository _verifyEmailRepository = VerifyEmailRepository(VerifyEmailApiService());
+
+  Future<void> _handleVerifyEmail() async {
+    if (_code != null) {
+      final verifyEmailModel = VerifyEmailModel(code: _code!);
+
+      try {
+        await _verifyEmailRepository.verifyEmail(verifyEmailModel);
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Email verification successful')),
+        );
+        context.pushReplacement(AppRouter.customerhomepath);
+      } catch (e) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Email verification failed: $e')),
+        );
+      }
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Please enter the verification code')),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -91,48 +111,24 @@ class _CustomerVerifyEmailSignUpState extends State<CustomerVerifyEmailSignUp> {
                 },
               ),
               SizedBox(height: 40.h),
-              BlocConsumer<AuthBloc, AuthState>(
-                listener: (context, state) {
-                  if (state is AuthSuccess) {
-                    context.pushReplacement(AppRouter.customerhomepath);
-                  } else if (state is AuthFailure) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text(state.error)),
-                    );
-                  }
-                },
-                builder: (context, state) {
-                  if (state is AuthLoading) {
-                    return CircularProgressIndicator();
-                  }
-                  return Container(
-                    decoration: BoxDecoration(
-                      color: ColorManager.olive2,
-                      borderRadius: BorderRadiusDirectional.circular(32.r),
+              Container(
+                decoration: BoxDecoration(
+                  color: ColorManager.olive2,
+                  borderRadius: BorderRadiusDirectional.circular(32.r),
+                ),
+                width: 327.w,
+                height: 56.h,
+                child: MaterialButton(
+                  onPressed: _handleVerifyEmail,
+                  child: Text(
+                    "Verify",
+                    style: TextStyle(
+                      fontSize: FontSize.s16,
+                      color: ColorManager.white,
+                      fontWeight: FontWeightManager.medium,
                     ),
-                    width: 327.w,
-                    height: 56.h,
-                    child: MaterialButton(
-                      onPressed: () {
-                        if (_code != null) {
-                          context.read<AuthBloc>().add(VerifyEmailEvent(_code!));
-                        } else {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(content: Text('Please enter the verification code')),
-                          );
-                        }
-                      },
-                      child: Text(
-                        "Verify",
-                        style: TextStyle(
-                          fontSize: FontSize.s16,
-                          color: ColorManager.white,
-                          fontWeight: FontWeightManager.medium,
-                        ),
-                      ),
-                    ),
-                  );
-                },
+                  ),
+                ),
               ),
               SizedBox(height: 24.h),
               Row(
@@ -167,4 +163,3 @@ class _CustomerVerifyEmailSignUpState extends State<CustomerVerifyEmailSignUp> {
     );
   }
 }
-

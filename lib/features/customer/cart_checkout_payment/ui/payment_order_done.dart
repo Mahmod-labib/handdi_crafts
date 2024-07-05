@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/core/theming/color_manager.dart';
 import 'package:flutter_application_1/core/theming/font_manager.dart';
 import 'package:flutter_application_1/core/theming/routes_manager.dart';
-import 'package:flutter_application_1/features/customer/home/widget/custom_button.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
+
+import '../../../crafter/My Customers Reviews/widget/button.dart';
 
 class PaymentSuccess extends StatelessWidget {
   const PaymentSuccess({super.key});
@@ -63,23 +64,23 @@ class PaymentSuccess extends StatelessWidget {
             padding:  EdgeInsets.only(top: 30.h , bottom: 8.h , left: 24.w , right: 24.w),
             child: CustomButton(
                 text: "Track Order",
-                fun: (){},
+                onPressed: (){},
                 height: 46.h,
                 width: 327.w,
-                btncolor: ColorManager.olive2,
-                textcolor: ColorManager.white2),
+                backgroundColor: ColorManager.olive2,
+                textColor: ColorManager.white2, fontSize: FontSize.s16, fontWeight: FontWeightManager.medium,),
           ),
           Padding(
             padding:EdgeInsets.only( bottom: 20.h , left: 24.w , right: 24.w),
             child: CustomButton(
                 text: "Back to Home",
-                fun: (){
+                onPressed: (){
                   context.pushReplacement(AppRouter.customerhomepath);
                 },
                 height: 46.h,
                 width: 327.w,
-                btncolor: ColorManager.white2,
-                textcolor: ColorManager.olive2),
+                backgroundColor: ColorManager.white2,
+                textColor: ColorManager.olive2, fontSize: FontSize.s16, fontWeight: FontWeightManager.medium,),
           ),
         ],
       ),

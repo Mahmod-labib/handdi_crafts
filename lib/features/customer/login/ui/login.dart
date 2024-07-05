@@ -1,9 +1,6 @@
-
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/features/customer/login/bloc/auth/auth_bloc.dart';
-import 'package:flutter_application_1/features/customer/login/bloc/auth/auth_event.dart';
-import 'package:flutter_application_1/features/customer/login/bloc/auth/auth_state.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_application_1/features/customer/login/data/repositories/auth_repository.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
@@ -14,14 +11,88 @@ import '../../../../core/theming/font_manager.dart';
 import '../../../../widgets/custom_button.dart';
 import '../../../../widgets/custom_text_field.dart';
 
-class LoginScreen extends StatelessWidget {
-  LoginScreen({super.key});
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
 
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
-
   final TextEditingController _emailController = TextEditingController();
-
   final TextEditingController _passwordController = TextEditingController();
+  final AuthRepository _authRepository = AuthRepository();
+
+  bool _isLoading = false;
+  String? _errorMessage;
+
+  void _login() async {
+    if (_formKey.currentState!.validate()) {
+      setState(() {
+        _isLoading = true;
+        _errorMessage = null;
+      });
+
+      try {
+        await _authRepository.login(
+          _emailController.text,
+          _passwordController.text,
+        );
+        if (mounted) {
+          context.pushReplacement(AppRouter.customerhomepath);
+        }
+      } on DioError catch (e) {
+        if (e.response != null) {
+          switch (e.response!.statusCode) {
+            case 400:
+              setState(() {
+                _errorMessage = "Bad Request: Invalid input";
+              });
+              break;
+            case 401:
+              setState(() {
+                _errorMessage = "Unauthorized: Invalid email or password";
+              });
+              break;
+            case 403:
+              setState(() {
+                _errorMessage = "Forbidden: You don't have permission";
+              });
+              break;
+            case 404:
+              setState(() {
+                _errorMessage = "Not Found: The requested resource was not found";
+              });
+              break;
+            case 500:
+              setState(() {
+                _errorMessage = "Internal Server Error: Please try again later";
+              });
+              break;
+            default:
+              setState(() {
+                _errorMessage = "Error: ${e.response!.statusCode}";
+              });
+          }
+        } else {
+          // Handle Dio errors without response
+          setState(() {
+            _errorMessage = "Network Error: Please check your internet connection";
+          });
+        }
+      } catch (e) {
+        // Handle other errors
+        setState(() {
+          _errorMessage = "An unexpected error occurred: $e";
+        });
+      } finally {
+        setState(() {
+          _isLoading = false;
+        });
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -108,6 +179,14 @@ class LoginScreen extends StatelessWidget {
                   ],
                 ),
                 SizedBox(height: 14.h),
+                if (_errorMessage != null)
+                  Padding(
+                    padding:  EdgeInsets.only(bottom: 8.0.h),
+                    child: Text(
+                      _errorMessage!,
+                      style: TextStyle(color: ColorManager.red),
+                    ),
+                  ),
                 Container(
                   decoration: BoxDecoration(
                     color: ColorManager.olive2,
@@ -115,38 +194,18 @@ class LoginScreen extends StatelessWidget {
                   ),
                   width: 327.w,
                   height: 56.h,
-                  child: BlocConsumer<AuthBloc, AuthState>(
-                    listener: (context, state) {
-                      if (state is AuthSuccess) {
-                        context.pushReplacement(AppRouter.customerhomepath);
-                      } else if (state is AuthFailure) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(content: Text(state.error)),
-                        );
-                      }
-                    },
-                    builder: (context, state) {
-                      if (state is AuthLoading) {
-                        return const Center(child: CircularProgressIndicator());
-                      }
-                      return MaterialButton(
-                        onPressed: () {
-                          if (_formKey.currentState!.validate()) {
-                            context.read<AuthBloc>().add(
-                              LoginEvent(_emailController.text, _passwordController.text),
-                            );
-                          }
-                        },
-                        child: Text(
-                          "Login",
-                          style: TextStyle(
-                            fontSize: FontSize.s16,
-                            color: ColorManager.white,
-                            fontWeight: FontWeightManager.medium,
-                          ),
-                        ),
-                      );
-                    },
+                  child: _isLoading
+                      ? const Center(child: CircularProgressIndicator())
+                      : MaterialButton(
+                    onPressed: _login,
+                    child: Text(
+                      "Login",
+                      style: TextStyle(
+                        fontSize: FontSize.s16,
+                        color: ColorManager.white,
+                        fontWeight: FontWeightManager.medium,
+                      ),
+                    ),
                   ),
                 ),
                 SizedBox(height: 24.h),

@@ -5,7 +5,6 @@ import 'package:flutter_application_1/core/theming/routes_manager.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../widgets/products_card.dart';
 import '../widget/custom_button.dart';
 import '../widget/custom_product_card.dart';
 

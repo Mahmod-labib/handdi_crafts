@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/core/theming/color_manager.dart';
+import 'package:flutter_application_1/core/theming/routes_manager.dart';
+import 'package:flutter_application_1/features/customer/home/ui/crafts.dart';
 import 'package:flutter_application_1/features/customer/home/ui/home.dart';
-import 'package:flutter_application_1/features/customer/home/ui/payment_order_done.dart';
+import 'package:flutter_application_1/features/customer/instore_and_online_workshop/ui/mycourses.dart';
+import 'package:flutter_application_1/features/customer/profile/ui/profile.dart';
+import 'package:go_router/go_router.dart';
 
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({super.key});
@@ -21,22 +25,23 @@ class _BottomNavBarState extends State<BottomNavBar> {
   }
 
   final List<Widget> pages = [
-CustomerHome(),
-    Center(child: Text("Page 2")),
-    Center(child: Text("Page 3")),
-    Center(child: Text("Page 4")),
+    CustomerHome(),
+    Crafts(),
+    MyCourses(),
+    CustomerHome(),
+    Profile(),
   ];
 
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
-    return Scaffold(
-      //body: pages[currentIndex], // Ensure this is the correct widget list
-      bottomNavigationBar: Stack(
+    return Column(
+    mainAxisAlignment: MainAxisAlignment.end,
         children: [
           Positioned(
             bottom: 0,
-            left: 0,
+
+            left: 10,
             child: Container(
               width: size.width,
               height: 80,
@@ -52,7 +57,9 @@ CustomerHome(),
                       backgroundColor: ColorManager.beige,
                       child: const Icon(Icons.play_arrow),
                       elevation: 0.1,
-                      onPressed: () {},
+                      onPressed: () {
+                        context.pushReplacement(AppRouter.mycoursespath);
+                      },
                     ),
                   ),
                   Container(
@@ -69,7 +76,9 @@ CustomerHome(),
                                 : ColorManager.white2,
                           ),
                           onPressed: () {
-                            setBottomBarIndex(0);
+                            context.pushReplacement(AppRouter.customerhomepath);
+
+                                setBottomBarIndex(0);
                           },
                           splashColor: Colors.white,
                         ),
@@ -81,6 +90,7 @@ CustomerHome(),
                                 : ColorManager.white2,
                           ),
                           onPressed: () {
+                            context.pushReplacement(AppRouter.categoryproductsspath);
                             setBottomBarIndex(1);
                           },
                         ),
@@ -95,6 +105,8 @@ CustomerHome(),
                                 : ColorManager.white2,
                           ),
                           onPressed: () {
+                            context.pushReplacement(AppRouter.categoryproductsspath);
+
                             setBottomBarIndex(2);
                           },
                         ),
@@ -106,6 +118,8 @@ CustomerHome(),
                                 : ColorManager.white2,
                           ),
                           onPressed: () {
+                            context.pushReplacement(AppRouter.profilepath);
+
                             setBottomBarIndex(3);
                           },
                         ),
@@ -117,7 +131,7 @@ CustomerHome(),
             ),
           ),
         ],
-      ),
+
      // backgroundColor: Colors.white.withAlpha(55),
     );
   }

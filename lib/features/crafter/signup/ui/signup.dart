@@ -303,8 +303,7 @@ class _CustomerSignUpState extends State<CrafterSignUp> {
 
                     child: MaterialButton(
                       onPressed: () {
-                        //todo while navigate
-                        // context.pushReplacement("/verify");
+                        context.pushReplacement("/verify");
                         if (_formKey.currentState!.validate()) {
                           ScaffoldMessenger.of(context).showSnackBar(
                             const SnackBar(content: Text('Processing Data')),

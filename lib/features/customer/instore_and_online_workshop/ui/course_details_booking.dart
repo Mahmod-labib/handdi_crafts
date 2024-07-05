@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/core/theming/color_manager.dart';
 import 'package:flutter_application_1/core/theming/font_manager.dart';
 import 'package:flutter_application_1/core/theming/routes_manager.dart';
-import 'package:flutter_application_1/features/customer/home/widget/verified_reviews_courses.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:iconsax/iconsax.dart';
 
-import '../widget/custom_button.dart';
+import '../../crafter_profile_and_reviews/widget/custom_button.dart';
+import '../widget/verified_reviews_courses.dart';
 
 class BookingCourse extends StatelessWidget {
   const BookingCourse({super.key});
@@ -400,7 +400,7 @@ class BookingCourse extends StatelessWidget {
                         ),
                         ListView.builder(
                             shrinkWrap: true,
-                            physics: NeverScrollableScrollPhysics(),
+                            //physics: NeverScrollableScrollPhysics(),
                             scrollDirection: Axis.vertical,
                             itemCount: 8,
                             itemBuilder: (context, index) {

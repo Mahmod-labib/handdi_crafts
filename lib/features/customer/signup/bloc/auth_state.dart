@@ -1,4 +1,7 @@
-import 'package:equatable/equatable.dart';
+
+
+
+/*  import 'package:equatable/equatable.dart';
 
 abstract class AuthState extends Equatable {
   @override
@@ -17,5 +20,7 @@ class AuthFailure extends AuthState {
   AuthFailure(this.error);
 
   @override
-  List<Object> get props => [error];
-}
+  List<Object> get props => [error];}
+
+ 
+ */

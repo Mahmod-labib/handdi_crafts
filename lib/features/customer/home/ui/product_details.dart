@@ -10,7 +10,7 @@ import 'package:go_router/go_router.dart';
 import '../../../../widgets/add_to_cart_button.dart';
 import '../../../../widgets/input_quity.dart';
 import '../../../../widgets/product_details_detailsalary_section.dart';
-import '../widget/select_size.dart';
+import '../../profile/widget/select_size.dart';
 
 class ProductDetails extends StatefulWidget {
   const ProductDetails({Key? key}) : super(key: key);

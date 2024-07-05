@@ -8,7 +8,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../../../core/theming/font_manager.dart';
 import '../../../../core/theming/routes_manager.dart';
-import '../widget/custom_button.dart';
+import '../../crafter_profile_and_reviews/widget/custom_button.dart';
 
 class Checkout extends StatelessWidget {
   const Checkout({super.key});

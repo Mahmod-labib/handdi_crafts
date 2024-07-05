@@ -6,7 +6,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../core/theming/font_manager.dart';
-import '../../../../widgets/listview_item_container.dart';
+import '../../../customer/instore_and_online_workshop/widget/listview_item_container.dart';
 
 class CrafterUpdateCourse extends StatefulWidget {
   const CrafterUpdateCourse({super.key});

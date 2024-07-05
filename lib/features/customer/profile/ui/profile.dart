@@ -350,7 +350,7 @@ class _ProfileState extends State<Profile> {
                           ),
                         ),
                         title: Text(
-                          "App Language",
+                          "LogOut",
                           style: TextStyle(
                             color: ColorManager.black,
                             fontSize: FontSize.s16,

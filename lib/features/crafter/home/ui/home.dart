@@ -136,7 +136,7 @@ class _CrafterHomeState extends State<CrafterHome> {
                         child: Row(
                           children: [
                             SvgPicture.asset(
-                              "assets/images/Document.svg",
+                              "assets/images/svg",
                             ),
                             SizedBox(
                               width: 16.w,

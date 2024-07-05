@@ -3,7 +3,8 @@ import 'package:flutter_application_1/core/theming/color_manager.dart';
 import 'package:flutter_application_1/core/theming/font_manager.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'custom_button.dart';
+import '../../../crafter/My Customers Reviews/widget/button.dart';
+
 
 
 class CustomShopContainer extends StatelessWidget {
@@ -46,7 +47,9 @@ class CustomShopContainer extends StatelessWidget {
                         fontSize: FontSize.s13,
                         fontWeight: FontWeightManager.thin,
                       ),),
-                      CustomButton(text: "Book Now", fun: (){}, width: 86.w, height: 28.h, btncolor: ColorManager.olive2, textcolor: ColorManager.white2,),
+                      CustomButton(text: "Book Now", onPressed: (){}, width: 86.w, height: 28.h, backgroundColor: ColorManager.olive2, textColor: ColorManager.white2, fontSize: FontSize.s10,
+                      fontWeight: FontWeightManager.regular,
+                      ),
                     ],
                   )
                 ],

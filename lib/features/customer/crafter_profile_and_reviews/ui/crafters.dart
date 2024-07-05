@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/features/customer/home/widget/custom_button.dart';
 import 'package:flutter_application_1/features/customer/home/widget/custom_search_text_field.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -8,6 +7,7 @@ import 'package:go_router/go_router.dart';
 import '../../../../core/theming/color_manager.dart';
 import '../../../../core/theming/font_manager.dart';
 import '../../../../core/theming/routes_manager.dart';
+import '../../../crafter/crafterprofile&reviews/widget/button.dart';
 
 class Crafters extends StatelessWidget {
   const Crafters({super.key});
@@ -75,7 +75,7 @@ class Crafters extends StatelessWidget {
                    children: [
                      Row(
 
-                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
 
                        children: [
                          InkWell(
@@ -109,9 +109,14 @@ class Crafters extends StatelessWidget {
                      Row(
                        mainAxisAlignment: MainAxisAlignment.center,
                        children: [
-                         CustomButton(text: "Message", fun: (){}, height: 46.h, width: 145.w, btncolor: ColorManager.olive2, textcolor: ColorManager.white2),
+                         CustomButton(
+                             
+                             text: "Message", onPressed: (){}, height: 46.h, width: 125.w, backgroundColor: ColorManager.olive2, textColor: ColorManager.white2,
+                           fontSize:FontSize.s14,fontWeight: FontWeightManager.medium ,),
                          SizedBox(width: 13.w,),
-                         CustomButton(text: "Follow", fun: (){}, height: 46.h, width: 145.w, btncolor: ColorManager.white2, textcolor: ColorManager.olive2),
+                         CustomButton(text: "Follow", onPressed: (){}, height: 46.h, width: 125.w, backgroundColor: ColorManager.white2, textColor: ColorManager.olive2,
+                           
+                           fontSize: FontSize.s14, fontWeight: FontWeightManager.medium,),
                        ],
                      ),
                    ],

@@ -24,7 +24,7 @@ class _IntroPage1State extends State<IntroPage1> {
               width: 245.w,
               height: 360.h,
             ),
-            const SizedBox(height: 45),
+             SizedBox(height: 45.h),
              Center(
               child: Text(
                 "Join Our Community of Handicrafts !",

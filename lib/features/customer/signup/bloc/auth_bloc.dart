@@ -3,10 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'auth_event.dart';
 import 'auth_state.dart';
 
-class AuthBloc extends Bloc<AuthEvent, AuthState> {
+/* class AuthBlocRegister extends Bloc<AuthEvent, AuthState> {
   final AuthRepository _authRepository;
 
-  AuthBloc(this._authRepository) : super(AuthInitial()) {
+  AuthBlocRegister(this._authRepository) : super(AuthInitial()) {
     on<SignUpEvent>((event, emit) async {
       emit(AuthLoading());
       try {
@@ -28,3 +28,4 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     });
   }
 }
+*/

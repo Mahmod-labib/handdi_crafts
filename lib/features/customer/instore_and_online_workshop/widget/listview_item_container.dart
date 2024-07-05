@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/core/theming/color_manager.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../core/theming/font_manager.dart';
+import '../../../../core/theming/font_manager.dart';
 class ItemContainer extends StatelessWidget {
   const ItemContainer({super.key});
 

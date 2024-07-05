@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/core/theming/color_manager.dart';
-import 'package:flutter_application_1/core/theming/font_manager.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class CustomTextFormField extends StatelessWidget {
-   const CustomTextFormField({
+class CustomTextFormField extends StatefulWidget {
+  const CustomTextFormField({
     Key? key,
     this.alignment,
     this.width,
@@ -12,143 +9,109 @@ class CustomTextFormField extends StatelessWidget {
     this.scrollPadding,
     this.controller,
     this.focusNode,
-    this.autofocus = true,
-    this.textStyle,
+    this.autofocus = false,
     this.obscureText = false,
     this.textInputAction = TextInputAction.next,
     this.textInputType = TextInputType.text,
-    this.maxLines,
+    this.maxLines = 1,
     this.hintText,
     this.hintStyle,
     this.prefixIcon,
-    this.prefixConstraints,
     this.suffixIcon,
-    this.suffixConstraints,
     this.contentPadding,
     this.borderDecoration,
     this.fillColor,
     this.filled = true,
     this.validator,
-    this.expands=false,
-  }) : super(
-    key: key,
-  );
+    this.expands = false,
+  }) : super(key: key);
 
   final Alignment? alignment;
-
   final double? width;
   final double? height;
-
-  final TextEditingController? scrollPadding;
-
+  final EdgeInsets? scrollPadding;
   final TextEditingController? controller;
-
-  final bool ? expands;
-
   final FocusNode? focusNode;
-
-  final bool? autofocus;
-
-  final TextStyle? textStyle;
-
-  final bool? obscureText;
-
-  final TextInputAction? textInputAction;
-
-  final TextInputType? textInputType;
-
-  final int? maxLines;
-
+  final bool autofocus;
+  final bool obscureText;
+  final TextInputAction textInputAction;
+  final TextInputType textInputType;
+  final int maxLines;
   final String? hintText;
-
   final TextStyle? hintStyle;
-
   final Widget? prefixIcon;
-
-  final BoxConstraints? prefixConstraints;
-
   final Widget? suffixIcon;
-
-  final BoxConstraints? suffixConstraints;
-
   final EdgeInsets? contentPadding;
-
   final InputBorder? borderDecoration;
-
   final Color? fillColor;
-
-  final bool? filled;
-
+  final bool filled;
   final FormFieldValidator<String>? validator;
+  final bool expands;
 
+  @override
+  _CustomTextFormFieldState createState() => _CustomTextFormFieldState();
+}
+
+class _CustomTextFormFieldState extends State<CustomTextFormField> {
+  late TextEditingController _controller;
+  late FocusNode _focusNode;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = widget.controller ?? TextEditingController();
+    _focusNode = widget.focusNode ?? FocusNode();
+  }
+
+  @override
+  void dispose() {
+    if (widget.controller == null) {
+      _controller.dispose();
+    }
+    if (widget.focusNode == null) {
+      _focusNode.dispose();
+    }
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return alignment != null
+    return widget.alignment != null
         ? Align(
-      alignment: alignment ?? Alignment.center,
+      alignment: widget.alignment!,
       child: textFormFieldWidget(context),
     )
         : textFormFieldWidget(context);
   }
 
   Widget textFormFieldWidget(BuildContext context) => SizedBox(
-    width: width ?? 327.w,
-    height: 56.h,
+    width: widget.width ?? double.infinity,
+    height: widget.height,
     child: TextFormField(
-      scrollPadding:
-      EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
-      controller: controller,
-      expands: expands?? false,
-      focusNode: focusNode ?? FocusNode(),
-      autofocus: autofocus!,
-      obscureText: obscureText!,
-      textInputAction: textInputAction,
-      keyboardType: textInputType,
-      maxLines: maxLines ?? 1,
-      decoration: decoration,
-      validator: validator,
+      scrollPadding: widget.scrollPadding ??
+          EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
+      controller: _controller,
+      expands: widget.expands,
+      focusNode: _focusNode,
+      autofocus: widget.autofocus,
+      obscureText: widget.obscureText,
+      textInputAction: widget.textInputAction,
+      keyboardType: widget.textInputType,
+      maxLines: widget.maxLines,
+      decoration: InputDecoration(
+        hintText: widget.hintText ?? "",
+        hintStyle: widget.hintStyle,
+        prefixIcon: widget.prefixIcon,
+        suffixIcon: widget.suffixIcon,
+        isDense: true,
+        contentPadding: widget.contentPadding,
+        fillColor: widget.fillColor,
+        filled: widget.filled,
+        border: widget.borderDecoration,
+        enabledBorder: widget.borderDecoration,
+        focusedBorder: widget.borderDecoration,
+      ),
+      validator: widget.validator,
     ),
-  );
-  InputDecoration get decoration => InputDecoration(
-    hintText: hintText ?? "",
-    hintStyle: hintStyle??  TextStyle(fontSize: FontSize.s16 , fontWeight: FontWeightManager.regular , color:ColorManager.grey2) ,
-    prefixIcon: prefixIcon,
-    prefixIconConstraints: prefixConstraints,
-    suffixIcon: suffixIcon,
-    suffixIconConstraints: suffixConstraints,
-    isDense: true,
-    contentPadding: contentPadding ??
-         EdgeInsets.only(
-          top: 16.h,
-          right: 16.w,
-          bottom: 16.h,
-        ),
-    fillColor: fillColor ?? ColorManager.white,
-    filled: filled,
-    border: borderDecoration ??
-        OutlineInputBorder(
-          borderRadius: BorderRadius.circular(24.r),
-          borderSide:  BorderSide(
-            color: ColorManager.white,
-            width: 1,
-          ),
-        ),
-    enabledBorder: borderDecoration ??
-        OutlineInputBorder(
-          borderRadius: BorderRadius.circular(24.r),
-          borderSide: BorderSide(
-            color: ColorManager.white,
-            width: 1,
-          ),
-        ),
-    focusedBorder: borderDecoration ??
-        OutlineInputBorder(
-          borderRadius: BorderRadius.circular(24.r),
-          borderSide:  BorderSide(
-            color: ColorManager.grey4,
-            width: 1,
-          ),
-        ),
   );
 }

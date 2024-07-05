@@ -1,14 +1,10 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/features/customer/home/ui/crafts.dart';
-import 'package:flutter_application_1/features/customer/home/ui/mycourses.dart';
-import 'package:flutter_application_1/features/customer/home/ui/products_of_category.dart';
-import 'package:flutter_application_1/features/customer/home/ui/profile.dart';
 import 'package:flutter_application_1/features/customer/home/widget/custom_bnb.dart';
+import 'package:flutter_application_1/features/customer/profile/ui/profile.dart';
 import 'package:flutter_application_1/widgets/bottom_navigation_bar.dart';
-import 'package:stylish_bottom_bar/stylish_bottom_bar.dart';
-
-import 'home.dart';
+import '../../home/ui/home.dart';
+import '../../instore_and_online_workshop/ui/mycourses.dart';
 
 class Landing extends StatefulWidget {
   const Landing({super.key});
@@ -36,6 +32,8 @@ class _LandingState extends State<Landing> {
     ];
     return  Scaffold(
      bottomNavigationBar: AnimatedBottomNavigationBar(currentIndex: _selectedIndex, onTap: _onItemTapped,),
+      //floatingActionButton: BottomNavBar(),
+    //body: CustomerHome(),
 body:_screens[_selectedIndex],
     );
   }

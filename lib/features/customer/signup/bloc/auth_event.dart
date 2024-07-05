@@ -1,3 +1,5 @@
+
+/*
 import 'package:equatable/equatable.dart';
 import 'package:flutter_application_1/features/customer/signup/data/models/user_model.dart';
 
@@ -23,3 +25,5 @@ class VerifyEmailEvent extends AuthEvent {
   @override
   List<Object> get props => [code];
 }
+
+ */

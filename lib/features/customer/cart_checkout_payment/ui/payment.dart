@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/features/customer/home/widget/custom_button.dart';
 import 'package:flutter_application_1/features/customer/signup/widget/custom_checkbox.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -9,6 +8,7 @@ import '../../../../core/theming/color_manager.dart';
 import '../../../../core/theming/font_manager.dart';
 import '../../../../core/theming/routes_manager.dart';
 import '../../../../widgets/custom_text_field.dart';
+import '../../../crafter/My Customers Reviews/widget/button.dart';
 
 class Payment extends StatefulWidget {
   const Payment({super.key});
@@ -241,11 +241,12 @@ class _PaymentState extends State<Payment> {
 
           Padding(
             padding:  EdgeInsets.only(top: 76.h , bottom: 45.h , left: 24.w , right: 24.w),
-            child: CustomButton(text: 'Pay Now', fun: () {
+            child: CustomButton(text: 'Pay Now', onPressed: () {
               context.pushReplacement(AppRouter.paymentsuccesspath);
 
             }, height: 56.h,width: 327.w,
-              btncolor: ColorManager.olive2, textcolor: ColorManager.white2,
+              backgroundColor: ColorManager.olive2, textColor: ColorManager.white2, fontSize: FontSize.s16 ,
+                fontWeight: FontWeightManager.medium,
 
             ),
           ),

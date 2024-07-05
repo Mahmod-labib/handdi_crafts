@@ -1,18 +1,24 @@
-
-
 import 'package:flutter_application_1/features/customer/signup/data/models/user_model.dart';
-import 'package:flutter_application_1/features/customer/signup/data/services/api_services.dart';
 
-class AuthRepository {
-  final ApiService _apiService;
+import '../services/api_services.dart';
 
-  AuthRepository(this._apiService);
+class SignupRepository {
+  final SignupApiService _apiService;
 
-  Future<void> signUp(UserModel user) async {
-    await _apiService.signUp(user.toJson());
+  SignupRepository(this._apiService);
+
+  Future<void> signup(SignupModel signupModel) async {
+    final data = signupModel.toJson();
+    await _apiService.signup(data);
   }
+}
+class VerifyEmailRepository {
+  final VerifyEmailApiService _apiService;
 
-  Future<void> verifyEmail(String code) async {
-    await _apiService.verifyEmail(code);
+  VerifyEmailRepository(this._apiService);
+
+  Future<void> verifyEmail(VerifyEmailModel verifyEmailModel) async {
+    final data = verifyEmailModel.toJson();
+    await _apiService.verifyEmail(data);
   }
 }

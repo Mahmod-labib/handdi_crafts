@@ -22,56 +22,62 @@ import 'package:flutter_application_1/features/crafter/publishproducts,course,le
 import 'package:flutter_application_1/features/crafter/publishproducts,course,lessons/ui/publish_products_2.dart';
 import 'package:flutter_application_1/features/crafter/publishproducts,course,lessons/ui/upload_lectures.dart';
 import 'package:flutter_application_1/features/crafter/signup/ui/signup.dart';
-import 'package:flutter_application_1/features/customer/home/ui/address.dart';
-import 'package:flutter_application_1/features/customer/home/ui/checkout.dart';
-import 'package:flutter_application_1/features/customer/home/ui/coupons.dart';
-import 'package:flutter_application_1/features/customer/home/ui/courses_lessons.dart';
-import 'package:flutter_application_1/features/customer/home/ui/crafter_profile.dart';
+import 'package:flutter_application_1/features/customer/Search/ui/customer_search.dart';
+import 'package:flutter_application_1/features/customer/cart_checkout_payment/ui/cart.dart';
+import 'package:flutter_application_1/features/customer/cart_checkout_payment/ui/checkout.dart';
+import 'package:flutter_application_1/features/customer/cart_checkout_payment/ui/empty_cart.dart';
+import 'package:flutter_application_1/features/customer/cart_checkout_payment/ui/my_orders.dart';
+import 'package:flutter_application_1/features/customer/cart_checkout_payment/ui/package_delivered.dart';
+import 'package:flutter_application_1/features/customer/cart_checkout_payment/ui/payment.dart';
+import 'package:flutter_application_1/features/customer/cart_checkout_payment/ui/payment_order_done.dart';
+import 'package:flutter_application_1/features/customer/cart_checkout_payment/ui/product_review.dart';
+import 'package:flutter_application_1/features/customer/cart_checkout_payment/ui/request_product_return.dart';
+import 'package:flutter_application_1/features/customer/crafter_profile_and_reviews/ui/crafter_profile.dart';
+import 'package:flutter_application_1/features/customer/crafter_profile_and_reviews/ui/crafters.dart';
+import 'package:flutter_application_1/features/customer/crafter_profile_and_reviews/ui/review.dart';
+
 import 'package:flutter_application_1/features/customer/home/ui/crafts.dart';
-import 'package:flutter_application_1/features/customer/home/ui/empty_cart.dart';
-import 'package:flutter_application_1/features/customer/home/ui/empty_notifications.dart';
 import 'package:flutter_application_1/features/customer/home/ui/home.dart';
 import 'package:flutter_application_1/features/customer/home/ui/materials.dart';
-import 'package:flutter_application_1/features/customer/home/ui/my_credit.dart';
-import 'package:flutter_application_1/features/customer/home/ui/my_orders.dart';
-import 'package:flutter_application_1/features/customer/home/ui/mycourses.dart';
-import 'package:flutter_application_1/features/customer/home/ui/notifications.dart';
-import 'package:flutter_application_1/features/customer/home/ui/package_delivered.dart';
-import 'package:flutter_application_1/features/customer/home/ui/payment.dart';
-import 'package:flutter_application_1/features/customer/home/ui/payment_order_done.dart';
 import 'package:flutter_application_1/features/customer/home/ui/product_details.dart';
-import 'package:flutter_application_1/features/customer/home/ui/product_review.dart';
 import 'package:flutter_application_1/features/customer/home/ui/products.dart';
-import 'package:flutter_application_1/features/customer/home/ui/profile.dart';
-import 'package:flutter_application_1/features/customer/home/ui/request_product_return.dart';
-import 'package:flutter_application_1/features/customer/home/ui/returns.dart';
-import 'package:flutter_application_1/features/customer/home/ui/review.dart';
+
 import 'package:flutter_application_1/features/customer/home/widget/custom_bnb.dart';
+import 'package:flutter_application_1/features/customer/instore_and_online_workshop/ui/course_details_booking.dart';
+import 'package:flutter_application_1/features/customer/instore_and_online_workshop/ui/courses.dart';
+import 'package:flutter_application_1/features/customer/instore_and_online_workshop/ui/courses_lessons.dart';
+import 'package:flutter_application_1/features/customer/instore_and_online_workshop/ui/mycourses.dart';
+import 'package:flutter_application_1/features/customer/instore_and_online_workshop/ui/play_lessons.dart';
+import 'package:flutter_application_1/features/customer/intro/ui/customer_intrpage.dart';
 import 'package:flutter_application_1/features/customer/login/ui/customer_forgot_password.dart';
 import 'package:flutter_application_1/features/customer/login/ui/customer_verifiy_email_forgot_password.dart';
 import 'package:flutter_application_1/features/customer/signup/ui/signup.dart';
+import 'package:flutter_application_1/features/customer/wish_list_product/ui/empty_wishlist.dart';
+import 'package:flutter_application_1/features/customer/wish_list_product/ui/wishlist.dart';
 import 'package:flutter_application_1/features/delivery/Intro/ui/intro.dart';
 import 'package:flutter_application_1/features/delivery/login/ui/login.dart';
 import 'package:flutter_application_1/features/delivery/signup/ui/signup.dart';
 import 'package:flutter_application_1/features/on_boarding/ui/intro_page_1.dart';
 import 'package:flutter_application_1/features/on_boarding/ui/intro_page_3.dart';
+import 'package:flutter_application_1/features/customer/profile/ui/address.dart';
+import 'package:flutter_application_1/features/customer/profile/ui/coupons.dart';
+import 'package:flutter_application_1/features/customer/profile/ui/empty_notifications.dart';
+import 'package:flutter_application_1/features/customer/profile/ui/landing.dart';
+import 'package:flutter_application_1/features/customer/profile/ui/my_credit.dart';
+import 'package:flutter_application_1/features/customer/profile/ui/notifications.dart';
+import 'package:flutter_application_1/features/customer/profile/ui/profile.dart';
+import 'package:flutter_application_1/features/customer/profile/ui/returns.dart';
 import 'package:go_router/go_router.dart';
 
 
 import '../../features/crafter/My Customers Reviews/ui/my_customers_reviews.dart';
 import '../../features/crafter/login/ui/verify_email_forgot_password.dart';
 import '../../features/crafter/signup/ui/verify_email_sign_up.dart';
-import '../../features/customer/home/ui/cart.dart';
-import '../../features/customer/home/ui/course_details_booking.dart';
-import '../../features/customer/home/ui/courses.dart';
-import '../../features/customer/home/ui/crafters.dart';
-import '../../features/customer/home/ui/empty_wishlist.dart';
-import '../../features/customer/home/ui/landing.dart';
-import '../../features/customer/home/ui/play_lessons.dart';
+
 import '../../features/customer/home/ui/products_of_category.dart';
-import '../../features/customer/home/ui/wishlist.dart';
 import '../../features/customer/login/ui/login.dart';
 import '../../features/customer/login/ui/reset_password.dart';
+import '../../features/customer/signup/ui/verify_email_sign_up.dart';
 import '../../features/delivery/login/ui/forgot_password.dart';
 import '../../features/delivery/login/ui/reset_password.dart';
 import '../../features/delivery/login/ui/verify_email_forgot_password.dart';
@@ -174,14 +180,14 @@ class AppRouter {
   static const  mycreditpath="/mycreditpath";
   static const couponspath="/couponspath";
   static const addresspath="/addresspath";
-
+  static const   customerintropagepath="/customerintropagepath";
 }
 
 GoRouter router() {
   return GoRouter(routes: [
     GoRoute(
         path: AppRouter.initialPath,
-        builder: ((context, state) => const SplashScreen())),
+        builder: ((context, state) => const OnBoarding())),
     GoRoute(
         path: AppRouter.introPage1Path,
         builder: ((context, state) => const IntroPage1())),
@@ -212,6 +218,11 @@ GoRouter router() {
     GoRoute(
         path: AppRouter.crafterintropagepath,
         builder: ((context, state) => const CrafterIntroPage())),
+
+    GoRoute(
+        path: AppRouter.customerintropagepath,
+        builder: ((context, state) => const CustomerIntroPage())),
+
     GoRoute(
         path: AppRouter.crafterloginPath,
         builder: ((context, state) => const CrafterLoginScreen())),
@@ -245,17 +256,14 @@ GoRouter router() {
         builder: ((context, state) => const CrafterResetPassword())),
     GoRoute(
         path: AppRouter.customerverifiyemailsignuppath,
-        builder: ((context, state) =>  const CustomerVerifiyEmailForgotPassword())),
+        builder: ((context, state) =>  const CustomerVerifyEmailSignUp())),
     GoRoute(
         path: AppRouter.customerforgotpasswordpath,
         builder: ((context, state) {
           final text = state.extra as String;
           return CustomerForgotPassword(text: text,);
         }  )),
-    GoRoute(
-        path: AppRouter.customerverifiyemailforgotpasswordpath,
-        builder: ((context, state) =>
-         const CustomerVerifiyEmailForgotPassword())),
+
     GoRoute(
         path: AppRouter.customerresetpasswordpath,
         builder: ((context, state) =>  CustomerResetPassword())),
@@ -413,6 +421,11 @@ GoRouter router() {
     GoRoute(
         path: AppRouter.craftersearchpath,
         builder: ((context, state) =>   const CrafterSearch())),
+
+    GoRoute(
+        path: AppRouter.craftersearchpath,
+        builder: ((context, state) =>   const CustomerSearch())),
+
     GoRoute(
         path: AppRouter.mycustomersreviewspath,
         builder: ((context, state) =>   const MyCustomersReviews())),

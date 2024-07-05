@@ -71,7 +71,7 @@ class _IntroPage6State extends State<IntroPage6> {
                       onChanged: (value) {
                         setState(() {
                           customer = value;
-                          context.pushReplacement(AppRouter.landingpath);
+                          context.pushReplacement(AppRouter.customerintropagepath);
 
                         });
                       },
