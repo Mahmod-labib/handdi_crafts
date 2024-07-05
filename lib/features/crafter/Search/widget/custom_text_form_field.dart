@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomTextFormField extends StatelessWidget {
    const CustomTextFormField({
-    Key? key,
+    super.key,
     this.alignment,
     this.width,
     this.height,
@@ -30,9 +30,7 @@ class CustomTextFormField extends StatelessWidget {
     this.filled = true,
     this.validator,
     this.expands=false,
-  }) : super(
-    key: key,
-  );
+  });
 
   final Alignment? alignment;
 

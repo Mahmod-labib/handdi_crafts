@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/core/theming/color_manager.dart';
 import 'package:flutter_application_1/core/theming/font_manager.dart';
-import 'package:flutter_application_1/features/crafter/publishproducts,course,lessons/widget/custom_drop_down_field.dart';
-import 'package:flutter_application_1/features/crafter/publishproducts,course,lessons/widget/custom_text_form_field.dart';
 import 'package:flutter_application_1/features/crafter/home/widget/button.dart';
 
 
@@ -16,7 +14,7 @@ import 'package:go_router/go_router.dart';
 import '../../../../core/theming/routes_manager.dart';
 
 class FirstPublishProduct extends StatefulWidget {
-  FirstPublishProduct({super.key});
+  const FirstPublishProduct({super.key});
 
   @override
   State<FirstPublishProduct> createState() => _FirstPublishProductState();
@@ -71,13 +69,13 @@ class _FirstPublishProductState extends State<FirstPublishProduct> {
             ),
           ),
           Container(
-            padding: EdgeInsets.all(28),
+            padding: const EdgeInsets.all(28),
             margin: EdgeInsets.only(left: 20.w, top: 12.h,),
             width: 80.w,
             height: 80.h,
             decoration: BoxDecoration(
                 color: ColorManager.white2,
-                borderRadius: BorderRadius.all(Radius.circular(10)),
+                borderRadius: const BorderRadius.all(Radius.circular(10)),
                 border: Border.all(color: ColorManager.olive2, width: 1.w)),
             child: SvgPicture.asset(
               width: 24.w,

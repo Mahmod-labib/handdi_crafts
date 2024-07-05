@@ -20,7 +20,7 @@ class BookingCourse extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Container(
+            SizedBox(
               width: 375.w,
               height: 393.h,
               child: Column(children: [
@@ -404,7 +404,7 @@ class BookingCourse extends StatelessWidget {
                             scrollDirection: Axis.vertical,
                             itemCount: 8,
                             itemBuilder: (context, index) {
-                              return VerifiedReviewsCourses();
+                              return const VerifiedReviewsCourses();
                             }),
                         CustomButton(
                             text: "Load More",

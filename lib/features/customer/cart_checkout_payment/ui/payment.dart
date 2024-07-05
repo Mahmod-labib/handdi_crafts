@@ -79,7 +79,7 @@ class _PaymentState extends State<Payment> {
           color: ColorManager.grey2.withOpacity(0.5),
         spreadRadius: 2,
         blurRadius: 3,
-        offset: Offset(1, 1), // changes position of shadow
+        offset: const Offset(1, 1), // changes position of shadow
       )]),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -110,7 +110,7 @@ class _PaymentState extends State<Payment> {
                     color: ColorManager.grey2.withOpacity(0.5),
                     spreadRadius: 5,
                     blurRadius: 7,
-                    offset: Offset(0, 3), // changes position of shadow
+                    offset: const Offset(0, 3), // changes position of shadow
                   )]),
             child: Padding(
               padding:  EdgeInsets.all(15.0.r),
@@ -193,7 +193,7 @@ class _PaymentState extends State<Payment> {
                     color: ColorManager.grey2.withOpacity(0.5),
                     spreadRadius: 5,
                     blurRadius: 7,
-                    offset: Offset(0, 3), // changes position of shadow
+                    offset: const Offset(0, 3), // changes position of shadow
                   )]),
             child: Padding(
               padding:  EdgeInsets.only(right: 12.w , left: 24.w),
@@ -221,7 +221,7 @@ class _PaymentState extends State<Payment> {
                     color: ColorManager.grey2.withOpacity(0.5),
                     spreadRadius: 5,
                     blurRadius: 7,
-                    offset: Offset(0, 3), // changes position of shadow
+                    offset: const Offset(0, 3), // changes position of shadow
                   )]),
 
             child: Center(

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class CustomTextFormField extends StatefulWidget {
   const CustomTextFormField({
-    Key? key,
+    super.key,
     this.alignment,
     this.width,
     this.height,
@@ -24,7 +24,7 @@ class CustomTextFormField extends StatefulWidget {
     this.filled = true,
     this.validator,
     this.expands = false,
-  }) : super(key: key);
+  });
 
   final Alignment? alignment;
   final double? width;

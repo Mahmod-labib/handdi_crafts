@@ -4,7 +4,6 @@ import 'package:flutter_application_1/core/theming/font_manager.dart';
 
 import 'package:flutter_application_1/features/crafter/home/widget/button.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class CustomMadeByContainer extends StatelessWidget {
   const CustomMadeByContainer({super.key});

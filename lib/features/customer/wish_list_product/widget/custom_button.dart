@@ -32,7 +32,7 @@ class CustomButton extends StatelessWidget {
         minWidth: width,
         height: height,
         onPressed: fun,
-        child: Text("$text",
+        child: Text(text,
             style: TextStyle(
                 fontSize: FontSize.s16,
                 color: textcolor,

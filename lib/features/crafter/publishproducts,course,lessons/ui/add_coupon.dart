@@ -6,10 +6,9 @@ import 'package:flutter_application_1/features/crafter/publishproducts,course,le
 import 'package:flutter_application_1/features/crafter/home/widget/button.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class AddCoupon extends StatefulWidget {
-  AddCoupon({super.key});
+  const AddCoupon({super.key});
 
   @override
   State<AddCoupon> createState() => _AddCouponState();
@@ -122,7 +121,7 @@ class _AddCouponState extends State<AddCoupon> {
 
 
 
-            CustomDropDownField(
+            const CustomDropDownField(
 
 
               hintText: "Course name",

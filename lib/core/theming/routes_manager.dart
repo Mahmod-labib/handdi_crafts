@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_application_1/features/crafter/Intro/ui/intro.dart';
 import 'package:flutter_application_1/features/crafter/Search/ui/crafter_search.dart';
 import 'package:flutter_application_1/features/crafter/crafterprofile&reviews/ui/crafter_profile_crafter.dart';
@@ -49,13 +50,20 @@ import 'package:flutter_application_1/features/customer/instore_and_online_works
 import 'package:flutter_application_1/features/customer/instore_and_online_workshop/ui/mycourses.dart';
 import 'package:flutter_application_1/features/customer/instore_and_online_workshop/ui/play_lessons.dart';
 import 'package:flutter_application_1/features/customer/intro/ui/customer_intrpage.dart';
-import 'package:flutter_application_1/features/customer/login/ui/customer_forgot_password.dart';
 import 'package:flutter_application_1/features/customer/login/ui/customer_verifiy_email_forgot_password.dart';
 import 'package:flutter_application_1/features/customer/signup/ui/signup.dart';
 import 'package:flutter_application_1/features/customer/wish_list_product/ui/empty_wishlist.dart';
 import 'package:flutter_application_1/features/customer/wish_list_product/ui/wishlist.dart';
 import 'package:flutter_application_1/features/delivery/Intro/ui/intro.dart';
+
+import 'package:flutter_application_1/features/delivery/home/ui/delivery_home.dart';
+import 'package:flutter_application_1/features/delivery/home/ui/delivery_status.dart';
 import 'package:flutter_application_1/features/delivery/login/ui/login.dart';
+import 'package:flutter_application_1/features/delivery/orders/ui/delivery_order.dart';
+import 'package:flutter_application_1/features/delivery/orders/ui/delivery_order2.dart';
+import 'package:flutter_application_1/features/delivery/orders/ui/first_time_to_deliver_an_products.dart';
+import 'package:flutter_application_1/features/delivery/orders/ui/pickup.dart';
+import 'package:flutter_application_1/features/delivery/orders_history/ui/delivery_history.dart';
 import 'package:flutter_application_1/features/delivery/signup/ui/signup.dart';
 import 'package:flutter_application_1/features/on_boarding/ui/intro_page_1.dart';
 import 'package:flutter_application_1/features/on_boarding/ui/intro_page_3.dart';
@@ -67,6 +75,7 @@ import 'package:flutter_application_1/features/customer/profile/ui/my_credit.dar
 import 'package:flutter_application_1/features/customer/profile/ui/notifications.dart';
 import 'package:flutter_application_1/features/customer/profile/ui/profile.dart';
 import 'package:flutter_application_1/features/customer/profile/ui/returns.dart';
+import 'package:flutter_application_1/features/on_boarding/ui/splash.dart';
 import 'package:go_router/go_router.dart';
 
 
@@ -88,7 +97,6 @@ import '../../features/on_boarding/ui/intro_page_5.dart';
 import '../../features/on_boarding/ui/intro_page_6.dart';
 import '../../features/on_boarding/ui/intro_page_7.dart';
 import '../../features/on_boarding/ui/on_boarding.dart';
-import '../../features/on_boarding/ui/splash.dart';
 
 class AppRouter {
   static const initialPath = "/";
@@ -181,13 +189,20 @@ class AppRouter {
   static const couponspath="/couponspath";
   static const addresspath="/addresspath";
   static const   customerintropagepath="/customerintropagepath";
+  static const   deliveryhomepath="/deliveryhomepath";
+  static const   deliverystatuspath="/deliverystatuspath";
+  static const   firstDeliverproductpath="/firstDeliverproductpath";
+  static const   deliveryorderpath="/deliveryorderpath";
+  static const   deliveryorder2path="/deliveryorder2path";
+  static const   deliveryhistorypath="/deliveryhistorypath";
+  static const   pickuppath="/pickuppath";
 }
 
 GoRouter router() {
   return GoRouter(routes: [
     GoRoute(
         path: AppRouter.initialPath,
-        builder: ((context, state) => const OnBoarding())),
+        builder: ((context, state) => const SplashScreen())),
     GoRoute(
         path: AppRouter.introPage1Path,
         builder: ((context, state) => const IntroPage1())),
@@ -214,7 +229,7 @@ GoRouter router() {
         builder: ((context, state) => const OnBoarding())),
     GoRoute(
         path: AppRouter.customerloginPath,
-        builder: ((context, state) =>  LoginScreen())),
+        builder: ((context, state) =>  const LoginScreen())),
     GoRoute(
         path: AppRouter.crafterintropagepath,
         builder: ((context, state) => const CrafterIntroPage())),
@@ -260,13 +275,13 @@ GoRouter router() {
     GoRoute(
         path: AppRouter.customerforgotpasswordpath,
         builder: ((context, state) {
-          final text = state.extra as String;
-          return CustomerForgotPassword(text: text,);
+          TextEditingController text=TextEditingController();
+          return CustomerForgotPassword(text: text.text,);
         }  )),
 
     GoRoute(
         path: AppRouter.customerresetpasswordpath,
-        builder: ((context, state) =>  CustomerResetPassword())),
+        builder: ((context, state) =>  const CustomerResetPassword())),
     GoRoute(
         path: AppRouter.deliveryverifiyemailsignuppath,
         builder: ((context, state) => const DeliveryVerifiyEmailSignUp())),
@@ -375,7 +390,7 @@ GoRouter router() {
         builder: ((context, state) => const MyCollection())),
     GoRoute(
         path: AppRouter.craftermaterialpath,
-        builder: ((context, state) =>  CrafterMaterial())),
+        builder: ((context, state) =>  const CrafterMaterial())),
     GoRoute(
         path: AppRouter.crochetsuppliespath,
         builder: ((context, state) =>  const CrochetSupplies())),
@@ -390,22 +405,22 @@ GoRouter router() {
         builder: ((context, state) =>  const CrafterUpdateCourse())),
     GoRoute(
         path: AppRouter.publishproducts1path,
-        builder: ((context, state) =>   PublishProducts1())),
+        builder: ((context, state) =>   const PublishProducts1())),
     GoRoute(
         path: AppRouter.publishproducts2path,
-        builder: ((context, state) =>   PublishProducts2())),
+        builder: ((context, state) =>   const PublishProducts2())),
     GoRoute(
         path: AppRouter.firstpublishproductpath,
-        builder: ((context, state) =>   FirstPublishProduct())),
+        builder: ((context, state) =>   const FirstPublishProduct())),
     GoRoute(
         path: AppRouter.publishcoursepath,
-        builder: ((context, state) =>   PublishCourse())),
+        builder: ((context, state) =>   const PublishCourse())),
     GoRoute(
         path: AppRouter.uploadlecturespath,
-        builder: ((context, state) =>   UploadLectures())),
+        builder: ((context, state) =>   const UploadLectures())),
     GoRoute(
         path: AppRouter.addcouponpath,
-        builder: ((context, state) =>   AddCoupon())),
+        builder: ((context, state) =>   const AddCoupon())),
     GoRoute(
         path: AppRouter.myproductpath,
         builder: ((context, state) =>   const MyProduct())),
@@ -469,6 +484,27 @@ GoRouter router() {
     GoRoute(
         path: AppRouter.addresspath,
         builder: ((context, state) =>   const Address())),
+    GoRoute(
+        path: AppRouter.deliveryhomepath,
+        builder: ((context, state) =>   const DeliveryHome())),
+    GoRoute(
+        path: AppRouter.deliverystatuspath,
+        builder: ((context, state) =>   const DeliveryStatus())),
+    GoRoute(
+        path: AppRouter.firstDeliverproductpath,
+        builder: ((context, state) =>   const FirstDeliverProduct())),
+    GoRoute(
+        path: AppRouter.deliveryorderpath,
+        builder: ((context, state) =>    const DeliveryOrder())),
+    GoRoute(
+        path: AppRouter.deliveryorder2path,
+        builder: ((context, state) =>    const DeliveryOrder2())),
+    GoRoute(
+        path: AppRouter.deliveryhistorypath,
+        builder: ((context, state) =>    const DeliveryHistory())),
+    GoRoute(
+        path: AppRouter.pickuppath,
+        builder: ((context, state) =>    const Pickup())),
     // GoRoute(path: '/signUpDelivery' ,  builder:((context , state)=> SignUpDelivery()) ),
     //GoRoute(path: '/signUpCrafter' ,  builder:((context , state)=> SignUpCrafter()) ),
     //GoRoute(path: '/signUp' ,  builder:((context , state)=> SignUpCustomer()) ),

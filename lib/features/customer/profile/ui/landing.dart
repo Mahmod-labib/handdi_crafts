@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/features/customer/home/ui/crafts.dart';
-import 'package:flutter_application_1/features/customer/home/widget/custom_bnb.dart';
 import 'package:flutter_application_1/features/customer/profile/ui/profile.dart';
 import 'package:flutter_application_1/widgets/bottom_navigation_bar.dart';
 import '../../home/ui/home.dart';
@@ -23,18 +22,18 @@ class _LandingState extends State<Landing> {
 
   @override
   Widget build(BuildContext context) {
-    final List<Widget> _screens = [
-      CustomerHome(),
-      Crafts(),
-      MyCourses(),
-      CustomerHome(),
-      Profile(),
+    final List<Widget> screens = [
+      const CustomerHome(),
+      const Crafts(),
+      const MyCourses(),
+      const CustomerHome(),
+      const Profile(),
     ];
     return  Scaffold(
      bottomNavigationBar: AnimatedBottomNavigationBar(currentIndex: _selectedIndex, onTap: _onItemTapped,),
       //floatingActionButton: BottomNavBar(),
     //body: CustomerHome(),
-body:_screens[_selectedIndex],
+body:screens[_selectedIndex],
     );
   }
 }

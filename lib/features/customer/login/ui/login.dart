@@ -42,7 +42,7 @@ class _LoginScreenState extends State<LoginScreen> {
         if (mounted) {
           context.pushReplacement(AppRouter.customerhomepath);
         }
-      } on DioError catch (e) {
+      } on DioException catch (e) {
         if (e.response != null) {
           switch (e.response!.statusCode) {
             case 400:

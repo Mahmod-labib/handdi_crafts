@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/core/theming/color_manager.dart';
 import 'package:flutter_application_1/core/theming/font_manager.dart';
@@ -9,17 +8,17 @@ class CollectionGridItem extends StatelessWidget {
   final String title;
 
   const CollectionGridItem({
-    Key? key,
+    super.key,
     required this.imagePaths,
     required this.title,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         Container(
-          margin: EdgeInsets.all(8.0),
+          margin: const EdgeInsets.all(8.0),
           width: 157,
           height: 160.0,
           decoration: BoxDecoration(
@@ -37,7 +36,7 @@ class CollectionGridItem extends StatelessWidget {
           child: Center(
             child: Wrap(
               spacing: 13.w,
-              runSpacing: 10,
+              runSpacing: 10.h,
               children: imagePaths.map((path) {
                 return ClipRRect(
                   borderRadius: BorderRadius.circular(10),

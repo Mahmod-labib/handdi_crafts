@@ -27,7 +27,7 @@ class CustomReviewButton extends StatelessWidget {
         minWidth: 89.w,
         height: 34.h,
         onPressed: fun,
-        child: Text("$text",
+        child: Text(text,
             style: TextStyle(
                 fontSize: FontSize.s12,
                 color: ColorManager.olive2,

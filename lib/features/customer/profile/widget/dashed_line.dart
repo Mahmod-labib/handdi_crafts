@@ -5,6 +5,8 @@ import '../../../../core/theming/color_manager.dart';
 
 
 class DashedLine extends StatelessWidget {
+  const DashedLine({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,7 +30,7 @@ class DashedVerticalLine extends StatelessWidget {
   final double dashHeight;
   final double dashSpacing;
 
-  const DashedVerticalLine({
+  const DashedVerticalLine({super.key, 
     required this.height,
     required this.color,
     required this.dashHeight,
@@ -37,7 +39,7 @@ class DashedVerticalLine extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: height,
       width: 1,
       child: CustomPaint(

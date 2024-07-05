@@ -6,7 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 class CourseLessons extends StatefulWidget {
-  const CourseLessons({Key? key}) : super(key: key);
+  const CourseLessons({super.key});
 
   @override
   State<CourseLessons> createState() => _CourseLessonsState();

@@ -18,7 +18,7 @@ class DioClient {
         // You can manipulate the response data
         return handler.next(response); // continue
       },
-      onError: (DioError e, handler) {
+      onError: (DioException e, handler) {
         // Handle errors globally
         final errorMessage = _handleError(e);
         // Optionally, you can show a dialog/toast or log the error
@@ -27,23 +27,23 @@ class DioClient {
     ));
   }
 
-  String _handleError(DioError error) {
+  String _handleError(DioException error) {
     String errorDescription = '';
 
     switch (error.type) {
-      case DioErrorType.cancel:
+      case DioExceptionType.cancel:
         errorDescription = 'Request to API server was cancelled';
         break;
-      case DioErrorType.connectionTimeout:
+      case DioExceptionType.connectionTimeout:
         errorDescription = 'Connection timeout with API server';
         break;
-      case DioErrorType.receiveTimeout:
+      case DioExceptionType.receiveTimeout:
         errorDescription = 'Receive timeout in connection with API server';
         break;
-      case DioErrorType.sendTimeout:
+      case DioExceptionType.sendTimeout:
         errorDescription = 'Send timeout in connection with API server';
         break;
-      case DioErrorType.badResponse:
+      case DioExceptionType.badResponse:
         if (error.response != null) {
           switch (error.response!.statusCode) {
             case 400:
@@ -69,13 +69,13 @@ class DioClient {
           errorDescription = 'Unknown response error';
         }
         break;
-      case DioErrorType.badCertificate:
+      case DioExceptionType.badCertificate:
         errorDescription = 'Bad Certificate';
         break;
-      case DioErrorType.connectionError:
+      case DioExceptionType.connectionError:
         errorDescription = 'Connection Error';
         break;
-      case DioErrorType.unknown:
+      case DioExceptionType.unknown:
         errorDescription = 'Unexpected error occurred';
         break;
     }
@@ -87,7 +87,7 @@ class DioClient {
     try {
       final response = await _dio.get(path);
       return response;
-    } on DioError catch (e) {
+    } on DioException catch (e) {
       final errorMessage = _handleError(e);
       throw Exception(errorMessage);
     }
@@ -97,7 +97,7 @@ class DioClient {
     try {
       final response = await _dio.post(path, data: data);
       return response;
-    } on DioError catch (e) {
+    } on DioException catch (e) {
       final errorMessage = _handleError(e);
       throw Exception(errorMessage);
     }
@@ -107,7 +107,7 @@ class DioClient {
     try {
       final response = await _dio.put(path, data: data);
       return response;
-    } on DioError catch (e) {
+    } on DioException catch (e) {
       final errorMessage = _handleError(e);
       throw Exception(errorMessage);
     }
@@ -117,7 +117,7 @@ class DioClient {
     try {
       final response = await _dio.delete(path);
       return response;
-    } on DioError catch (e) {
+    } on DioException catch (e) {
       final errorMessage = _handleError(e);
       throw Exception(errorMessage);
     }
@@ -127,7 +127,7 @@ class DioClient {
     try {
       final response = await _dio.patch(path, data: data);
       return response;
-    } on DioError catch (e) {
+    } on DioException catch (e) {
       final errorMessage = _handleError(e);
       throw Exception(errorMessage);
     }

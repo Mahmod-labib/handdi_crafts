@@ -4,11 +4,9 @@ import 'package:flutter_application_1/features/crafter/crafterprofile&reviews/wi
 import 'package:flutter_application_1/features/crafter/crafterprofile&reviews/widget/verified_reviews_courses.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:go_router/go_router.dart';
 
 import '../../../../core/theming/color_manager.dart';
 import '../../../../core/theming/font_manager.dart';
-import '../../../../core/theming/routes_manager.dart';
 
 
 
@@ -117,7 +115,7 @@ class _CrafterReviewState extends State<CrafterReview> {
                  scrollDirection: Axis.vertical,
                  itemCount: 8,
                  itemBuilder: (context, index) {
-                   return VerifiedReviewsCourses();
+                   return const VerifiedReviewsCourses();
                  }),
            ),
 

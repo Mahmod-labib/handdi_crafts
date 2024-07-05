@@ -14,7 +14,7 @@ import '../../../../widgets/input_quity.dart';
 
 
 class MyProduct extends StatefulWidget {
-  const MyProduct({Key? key}) : super(key: key);
+  const MyProduct({super.key});
 
   @override
   State<MyProduct> createState() => _MyProductState();
@@ -34,7 +34,7 @@ class _MyProductState extends State<MyProduct> {
                 topLeft: Radius.circular(30.r),
               ),
               child: Image(
-                image: AssetImage("assets/images/Product.png"),
+                image: const AssetImage("assets/images/Product.png"),
                 width: 375.w,
                 height: 413.h,
               ),

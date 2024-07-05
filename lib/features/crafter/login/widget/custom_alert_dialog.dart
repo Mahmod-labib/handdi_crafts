@@ -9,7 +9,7 @@ class CustomAlertDialog extends StatelessWidget {
   void showCustomDialog(BuildContext context){
     showDialog(
         context: context,
-        builder: (BuildContext context) => Container(
+        builder: (BuildContext context) => SizedBox(
       width: 327.h,
       height: 401.w,
       child: Column(
@@ -64,7 +64,7 @@ class CustomAlertDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-   return CustomAlertDialog();
+   return const CustomAlertDialog();
 
   }
 }

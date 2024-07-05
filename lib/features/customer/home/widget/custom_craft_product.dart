@@ -37,7 +37,7 @@ class CustomCraftProduct extends StatelessWidget {
                 ),
                 child:   Column(
                   children: [
-                    Image(image: AssetImage("assets/images/Rectangle1008.png") , width: 157.w,height: 152.h,),
+                    Image(image: const AssetImage("assets/images/Rectangle1008.png") , width: 157.w,height: 152.h,),
                     SizedBox(height: 8.h,),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -72,7 +72,7 @@ class CustomCraftProduct extends StatelessWidget {
                 ),
                 child:   Column(
                   children: [
-                    Image(image: AssetImage("assets/images/Rectangle1009.png") , width: 157.w,height: 152.h,),
+                    Image(image: const AssetImage("assets/images/Rectangle1009.png") , width: 157.w,height: 152.h,),
                     SizedBox(height: 8.h,),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,

@@ -4,7 +4,6 @@ import 'package:flutter_application_1/core/theming/font_manager.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../widgets/custom_child_scroll_for-you.dart';
-import '../../../../widgets/custom_child_scroll_trending.dart';
 
 class CustomForYouSection extends StatelessWidget {
   const CustomForYouSection({super.key});

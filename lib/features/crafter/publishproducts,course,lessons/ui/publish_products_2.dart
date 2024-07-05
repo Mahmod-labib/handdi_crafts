@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/core/theming/color_manager.dart';
 import 'package:flutter_application_1/core/theming/font_manager.dart';
@@ -8,11 +7,10 @@ import 'package:flutter_application_1/features/crafter/publishproducts,course,le
 import 'package:flutter_application_1/features/crafter/home/widget/button.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 
 class PublishProducts2 extends StatefulWidget {
-  PublishProducts2({super.key});
+  const PublishProducts2({super.key});
 
   @override
   State<PublishProducts2> createState() => _PublishProducts2State();
@@ -83,13 +81,13 @@ class _PublishProducts2State extends State<PublishProducts2> {
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 24.w),
               child: Column(children: [
-                CustomDropDownField(
+                const CustomDropDownField(
                   hintText: "Add available sizes",
                 ),
                 SizedBox(
                   height: 16.h,
                 ),
-                CustomDropDownField(
+                const CustomDropDownField(
                   hintText: "Add available colors",
                 ),
                 SizedBox(

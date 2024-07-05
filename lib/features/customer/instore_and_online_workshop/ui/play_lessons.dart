@@ -54,7 +54,7 @@ class _PlayLessonState extends State<PlayLesson> {
           aspectRatio: _controller.value.aspectRatio,
           child: VideoPlayer(_controller),
         )
-            : CircularProgressIndicator(),
+            : const CircularProgressIndicator(),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {

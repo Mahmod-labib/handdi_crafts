@@ -32,15 +32,15 @@ class MyCustomersReviews extends StatelessWidget {
           ),
         ),
       ),
-      body:    ListView(physics: BouncingScrollPhysics(),
+      body:    ListView(physics: const BouncingScrollPhysics(),
         children: [
           ListView.builder(
               shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
+              physics: const NeverScrollableScrollPhysics(),
               scrollDirection: Axis.vertical,
               itemCount: 8,
               itemBuilder: (context, index) {
-                return VerifiedReviewsCourses();
+                return const VerifiedReviewsCourses();
               }),
           Padding(
             padding:  EdgeInsets.symmetric(horizontal: 6.w),

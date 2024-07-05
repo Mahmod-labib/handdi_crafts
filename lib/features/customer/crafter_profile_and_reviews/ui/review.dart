@@ -114,7 +114,7 @@ class _ReviewState extends State<Review> {
                  scrollDirection: Axis.vertical,
                  itemCount: 8,
                  itemBuilder: (context, index) {
-                   return VerifiedReviewsCourses();
+                   return const VerifiedReviewsCourses();
                  }),
            ),
 

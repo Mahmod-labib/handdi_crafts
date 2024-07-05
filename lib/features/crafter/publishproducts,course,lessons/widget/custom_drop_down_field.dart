@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomDropDownField extends StatelessWidget {
   const CustomDropDownField({
-    Key? key,
+    super.key,
     this.alignment,
     this.width,
     this.height,
@@ -23,7 +23,7 @@ class CustomDropDownField extends StatelessWidget {
     this.fillColor,
     this.filled = true,
     this.validator,
-  }) : super(key: key);
+  });
 
   final Alignment? alignment;
   final double? width;

@@ -7,7 +7,7 @@ class AuthService {
 
   Future<Map<String, dynamic>> login(String email, String password) async {
     final response = await _dio.post(
-      'http://127.0.0.1/accounts/login',
+      'http://10.0.2.2/accounts/login/',
       data: {'email': email, 'password': password},
     );
     final data = response.data;

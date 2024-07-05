@@ -5,9 +5,9 @@ class SignupApiService {
 
   Future<Response> signup(Map<String, dynamic> data) async {
     try {
-      final response = await _dio.post('accounts/register-customer/', data: data);
+      final response = await _dio.post('accounts/register_customer/', data: data);
       return response;
-    } on DioError catch (e) {
+    } on DioException catch (e) {
       throw Exception('Failed to signup: ${e.response?.data ?? e.message}');
     }
   }
@@ -18,9 +18,9 @@ class VerifyEmailApiService {
 
   Future<Response> verifyEmail(Map<String, dynamic> data) async {
     try {
-      final response = await _dio.post('accounts/verify-email', data: data);
+      final response = await _dio.post('accounts/verify_email/', data: data);
       return response;
-    } on DioError catch (e) {
+    } on DioException catch (e) {
       throw Exception('Failed to verify email: ${e.response?.data ?? e.message}');
     }
   }

@@ -129,7 +129,7 @@ class _CrafterHomeState extends State<CrafterHome> {
                               spreadRadius: 0,
                               blurRadius: 4,
                               offset:
-                              Offset(0, 3), // changes position of shadow
+                              const Offset(0, 3), // changes position of shadow
                             ),
                           ],
                         ),
@@ -179,7 +179,7 @@ class _CrafterHomeState extends State<CrafterHome> {
                               spreadRadius: 0,
                               blurRadius: 4,
                               offset:
-                              Offset(0, 3), // changes position of shadow
+                              const Offset(0, 3), // changes position of shadow
                             ),
                           ],
                         ),

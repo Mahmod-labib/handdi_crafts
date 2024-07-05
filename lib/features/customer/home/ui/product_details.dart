@@ -9,11 +9,10 @@ import 'package:go_router/go_router.dart';
 
 import '../../../../widgets/add_to_cart_button.dart';
 import '../../../../widgets/input_quity.dart';
-import '../../../../widgets/product_details_detailsalary_section.dart';
 import '../../profile/widget/select_size.dart';
 
 class ProductDetails extends StatefulWidget {
-  const ProductDetails({Key? key}) : super(key: key);
+  const ProductDetails({super.key});
 
   @override
   State<ProductDetails> createState() => _ProductDetailsState();
@@ -33,7 +32,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                 topLeft: Radius.circular(30.r),
               ),
               child: Image(
-                image: AssetImage("assets/images/Product.png"),
+                image: const AssetImage("assets/images/Product.png"),
                 width: 375.w,
                 height: 413.h,
               ),

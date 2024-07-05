@@ -15,7 +15,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 
 class PublishProducts1 extends StatefulWidget {
-  PublishProducts1({super.key});
+  const PublishProducts1({super.key});
 
   @override
   State<PublishProducts1> createState() => _PublishProducts1State();
@@ -70,13 +70,13 @@ class _PublishProducts1State extends State<PublishProducts1> {
             ),
           ),
           Container(
-            padding: EdgeInsets.all(28),
+            padding: const EdgeInsets.all(28),
             margin: EdgeInsets.only(left: 20.w, top: 12.h, bottom: 24.h),
             width: 80.w,
             height: 80.h,
             decoration: BoxDecoration(
                 color: ColorManager.white2,
-                borderRadius: BorderRadius.all(Radius.circular(10)),
+                borderRadius: const BorderRadius.all(Radius.circular(10)),
                 border: Border.all(color: ColorManager.olive2, width: 1.w)),
             child: SvgPicture.asset(
               width: 24.w,
@@ -87,7 +87,7 @@ class _PublishProducts1State extends State<PublishProducts1> {
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 24.w),
             child: Column(children: [
-              CustomDropDownField(hintText: "Product type",),
+              const CustomDropDownField(hintText: "Product type",),
               SizedBox(
                 height: 16.h,
               ),
@@ -123,7 +123,7 @@ class _PublishProducts1State extends State<PublishProducts1> {
               SizedBox(
                 height: 16.h,
               ),
-              CustomDropDownField(hintText: "Percentage discount",),
+              const CustomDropDownField(hintText: "Percentage discount",),
               SizedBox(height: 30.h,),
               CustomButton(
 

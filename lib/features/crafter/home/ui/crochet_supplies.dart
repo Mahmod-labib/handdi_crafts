@@ -5,10 +5,8 @@ import 'package:flutter_application_1/features/crafter/home/widget/products_card
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:go_router/go_router.dart';
 
 import '../../../../core/theming/color_manager.dart';
-import '../../../../core/theming/routes_manager.dart';
 
 class CrochetSupplies extends StatelessWidget {
   const CrochetSupplies({super.key});

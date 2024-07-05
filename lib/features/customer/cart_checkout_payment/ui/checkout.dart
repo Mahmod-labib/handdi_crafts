@@ -217,7 +217,7 @@ class Checkout extends StatelessWidget {
                         color: ColorManager.grey2.withOpacity(0.5),
                         spreadRadius: 5,
                         blurRadius: 7,
-                        offset: Offset(0, 3), // changes position of shadow
+                        offset: const Offset(0, 3), // changes position of shadow
                       )]),
                 child: Padding(
                   padding:  EdgeInsets.only(bottom: 55.h ,top: 20.h),

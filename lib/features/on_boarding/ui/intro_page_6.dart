@@ -4,12 +4,10 @@ import 'package:flutter_application_1/core/theming/color_manager.dart';
 import 'package:flutter_application_1/core/theming/font_manager.dart';
 import 'package:flutter_application_1/core/theming/routes_manager.dart';
 import 'package:flutter_application_1/core/theming/values_manager.dart';
-import 'package:flutter_application_1/features/crafter/Intro/ui/intro.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 import '../widget/custom_checkbox.dart';
-import 'intro_page_7.dart';
 
 class IntroPage6 extends StatefulWidget {
   const IntroPage6({super.key});

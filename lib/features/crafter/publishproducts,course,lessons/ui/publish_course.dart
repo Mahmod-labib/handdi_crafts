@@ -11,7 +11,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 
 class PublishCourse extends StatefulWidget {
-  PublishCourse({super.key});
+  const PublishCourse({super.key});
 
   @override
   State<PublishCourse> createState() => _PublishCourseState();
@@ -57,7 +57,7 @@ class _PublishCourseState extends State<PublishCourse> {
             ),
           ),
           Container(
-            padding: EdgeInsets.all(28),
+            padding: const EdgeInsets.all(28),
             margin: EdgeInsets.only(
               left: 20.w,
               top: 12.h,
@@ -66,7 +66,7 @@ class _PublishCourseState extends State<PublishCourse> {
             height: 80.h,
             decoration: BoxDecoration(
                 color: ColorManager.white2,
-                borderRadius: BorderRadius.all(Radius.circular(10)),
+                borderRadius: const BorderRadius.all(Radius.circular(10)),
                 border: Border.all(color: ColorManager.olive2, width: 1.w)),
             child: SvgPicture.asset(
               width: 24.w,

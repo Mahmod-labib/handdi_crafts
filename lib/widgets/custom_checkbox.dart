@@ -9,11 +9,11 @@ class CustomCheckbox extends StatefulWidget {
   final Color? borderColor; // Make borderColor nullable
 
   const CustomCheckbox({
-    Key? key,
+    super.key,
     required this.isChecked,
     required this.onChanged,
     this.borderColor,
-  }) : super(key: key);
+  });
 
   @override
   CustomCheckboxState createState() => CustomCheckboxState();

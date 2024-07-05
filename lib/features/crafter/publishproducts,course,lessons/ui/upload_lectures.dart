@@ -12,7 +12,7 @@ import 'package:go_router/go_router.dart';
 import '../../../../core/theming/routes_manager.dart';
 
 class UploadLectures extends StatefulWidget {
-  UploadLectures({super.key});
+  const UploadLectures({super.key});
 
   @override
   State<UploadLectures> createState() => _UploadLecturesState();
@@ -58,7 +58,7 @@ class _UploadLecturesState extends State<UploadLectures> {
             ),
           ),
           Container(
-            padding: EdgeInsets.all(28),
+            padding: const EdgeInsets.all(28),
             margin: EdgeInsets.only(
               left: 20.w,
               top: 12.h,
@@ -67,7 +67,7 @@ class _UploadLecturesState extends State<UploadLectures> {
             height: 80.h,
             decoration: BoxDecoration(
                 color: ColorManager.white2,
-                borderRadius: BorderRadius.all(Radius.circular(10)),
+                borderRadius: const BorderRadius.all(Radius.circular(10)),
                 border: Border.all(color: ColorManager.olive2, width: 1.w)),
             child: SvgPicture.asset(
               width: 24.w,
@@ -82,7 +82,7 @@ class _UploadLecturesState extends State<UploadLectures> {
             padding: EdgeInsets.symmetric(horizontal: 24.w),
             child: Column(children: [
 
-              CustomDropDownField(
+              const CustomDropDownField(
 
 
                 hintText: "Course name",

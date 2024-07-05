@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton({
-    Key? key,
+    super.key,
     required this.text,
     this.backgroundColor,
     this.textColor,
@@ -13,7 +13,7 @@ class CustomButton extends StatelessWidget {
     required this.onPressed,
     required this.width,
     required this.height,
-  }) : super(key: key);
+  });
 
   final String text;
   final Color? backgroundColor;

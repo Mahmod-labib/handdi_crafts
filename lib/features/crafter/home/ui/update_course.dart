@@ -6,7 +6,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../core/theming/font_manager.dart';
-import '../../../customer/instore_and_online_workshop/widget/listview_item_container.dart';
 
 class CrafterUpdateCourse extends StatefulWidget {
   const CrafterUpdateCourse({super.key});
@@ -56,7 +55,7 @@ class _CrafterUpdateCourseState extends State<CrafterUpdateCourse> {
         ],
       ),
       floatingActionButton: ClipRRect(
-        borderRadius: BorderRadius.all(Radius.circular(30)), // Radius circular=5
+        borderRadius: const BorderRadius.all(Radius.circular(30)), // Radius circular=5
         child: FloatingActionButton(
           onPressed: () {
             // Your onPressed code here
@@ -128,7 +127,7 @@ class _CrafterUpdateCourseState extends State<CrafterUpdateCourse> {
               height: 16.h,
             ),
             ListView.separated(shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
+              physics: const NeverScrollableScrollPhysics(),
               itemBuilder: (context, index) => InkWell(
                 onTap: () {
                   setState(() {});

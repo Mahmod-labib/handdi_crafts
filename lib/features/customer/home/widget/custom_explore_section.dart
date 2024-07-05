@@ -38,7 +38,7 @@ class CustomExploreContainer extends StatelessWidget {
               child:  Stack(
                 alignment: Alignment.bottomLeft,
                 children: [
-                  Image(image: AssetImage("assets/images/Rectangle 998.png")),
+                  const Image(image: AssetImage("assets/images/Rectangle 998.png")),
                   Positioned(
                     top: 116.h,
                     bottom: 4.h,

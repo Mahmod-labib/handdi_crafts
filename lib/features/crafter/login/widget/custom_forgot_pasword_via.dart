@@ -24,7 +24,7 @@ class CustomButtonForgotPassword extends StatelessWidget {
             blurStyle: BlurStyle.outer,
             blurRadius: 4,
             spreadRadius: 0,
-            offset: Offset(0, 1),
+            offset: const Offset(0, 1),
             color: ColorManager.grey2
         )],
       ),
