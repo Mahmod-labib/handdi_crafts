@@ -27,11 +27,18 @@ class _SplashScreenState extends State<SplashScreen>
       vsync: this,
       duration: const Duration(seconds: AppConstants.splashDelay),
     );
+
     _animationController.forward();
 
+    // Wrap the navigation logic inside a Future.delayed
     Future.delayed(const Duration(seconds: AppConstants.splashDelay), () {
+      // Check if the widget is still mounted before navigating
       if (mounted) {
-        context.pushReplacement(AppRouter.pickuppath);
+        // Access the navigator using GoRouter
+       // context.pushReplacement(AppRouter.onboardingPath);
+
+//context.pushReplacement(AppRouter.crafterresetpasswordpath);
+
       }
     });
   }
