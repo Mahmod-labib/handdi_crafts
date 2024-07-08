@@ -38,9 +38,18 @@ class CraftersCrafter extends StatelessWidget {
     ),
     ),
     actions: [
-    SvgPicture.asset("assets/images/Search.svg"),
+    InkWell(
+        onTap: () {
+          context.pushReplacement(AppRouter.craftersearchpath);
+        },
+
+        child: SvgPicture.asset("assets/images/Search.svg")),
     SizedBox(width: 15.w),
-    SvgPicture.asset("assets/images/Notification.svg"),
+    InkWell(
+        onTap: () {
+          context.pushReplacement(AppRouter.crafternotificationspath);
+        },
+        child: SvgPicture.asset("assets/images/Notification.svg")),
     SizedBox(width: 18.w),
     ],
   ),
