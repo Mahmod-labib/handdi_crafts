@@ -69,18 +69,50 @@ class _CrafterHomeState extends State<CrafterHome> {
                                  SizedBox(width:176.w ,
                                    height: 197.h,
                                    child: AlertDialog(alignment: Alignment.topRight,content: Column(children: [
-                                    SvgPicture.asset(
-                                      "assets/images/heart.svg",
+                                    InkWell(
+                                      onTap: () {
+                                        context.pushReplacement(AppRouter.publishproducts1path);
+                                      },
+                                      child: Row(
+                                        children: [
+                                          SvgPicture.asset(
+                                            "assets/images/Edit Square (1).svg",height: 20.h,width: 20.w,
+                                          ),
+                                          SizedBox(width: 12.w,),
+                                          Text("Product",style: TextStyle(
+                                            color: ColorManager.black,fontWeight: FontWeightManager.medium,fontSize: FontSize.s15,
+                                          ),),
+                                        ],
+                                      ),
                                     ),
-                                    SizedBox(
-                                      width: 15.w,
+                                    InkWell(   onTap: () {
+                                      context.pushReplacement(AppRouter.addpath);
+                                    },
+                                      child: Row(
+                                        children: [
+                                          SvgPicture.asset(
+                                            "assets/images/Edit Square (1).svg",height: 20.h,width: 20.w,
+                                          ),
+                                          SizedBox(width: 12.w,),
+                                          Text("Course",style: TextStyle(
+                                            color: ColorManager.black,fontWeight: FontWeightManager.medium,fontSize: FontSize.s15,
+                                          ),),
+                                        ],
+                                      ),
                                     ),
-                                    SvgPicture.asset(
-                                      "assets/images/Bag.svg",
+                                    Row(
+                                      children: [
+                                        SvgPicture.asset(
+                                          "assets/images/Ticket 2.svg",height: 20.h,width: 20.w,
+                                        ),
+                                        SizedBox(width: 12.w,),
+                                        Text("Coupon",style: TextStyle(
+                                          color: ColorManager.black,fontWeight: FontWeightManager.medium,fontSize: FontSize.s15,
+                                        ),),
+                                      ],
                                     ),
-                                    SvgPicture.asset(
-                                      "assets/images/Bag.svg",
-                                    ),
+
+
                                                                    ],),),
                                  ),);
                         },
@@ -100,8 +132,13 @@ class _CrafterHomeState extends State<CrafterHome> {
                         SizedBox(
                           width: 15.w,
                         ),
-                        SvgPicture.asset(
-                          "assets/images/Bag.svg",
+                        InkWell(    onTap:  () {
+
+                          context.pushReplacement(AppRouter.crafternotificationspath);
+                        },
+                          child: SvgPicture.asset(
+                            "assets/images/notification.svg",
+                          ),
                         ),
                         SizedBox(
                           width: 18.w,

@@ -15,6 +15,7 @@ import 'package:flutter_application_1/features/crafter/home/ui/update_course.dar
 import 'package:flutter_application_1/features/crafter/login/ui/forgot_password.dart';
 import 'package:flutter_application_1/features/crafter/login/ui/login.dart';
 import 'package:flutter_application_1/features/crafter/login/ui/reset_password.dart';
+import 'package:flutter_application_1/features/crafter/profile/ui/crafter_notifications.dart';
 import 'package:flutter_application_1/features/crafter/publishproducts,course,lessons/ui/add_coupon.dart';
 import 'package:flutter_application_1/features/crafter/publishproducts,course,lessons/ui/first_time_to_publish_products.dart';
 import 'package:flutter_application_1/features/crafter/publishproducts,course,lessons/ui/my_product.dart';
@@ -196,6 +197,7 @@ class AppRouter {
   static const   deliveryorder2path="/deliveryorder2path";
   static const   deliveryhistorypath="/deliveryhistorypath";
   static const   pickuppath="/pickuppath";
+  static const   crafternotificationspath="/crafternotificationspath";
 }
 
 GoRouter router() {
@@ -505,6 +507,37 @@ GoRouter router() {
     GoRoute(
         path: AppRouter.pickuppath,
         builder: ((context, state) =>    const Pickup())),
+    GoRoute(
+        path: AppRouter.crafternotificationspath,
+        builder: ((context, state) =>    const CrafterNotifications())),
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     // GoRoute(path: '/signUpDelivery' ,  builder:((context , state)=> SignUpDelivery()) ),
     //GoRoute(path: '/signUpCrafter' ,  builder:((context , state)=> SignUpCrafter()) ),
     //GoRoute(path: '/signUp' ,  builder:((context , state)=> SignUpCustomer()) ),

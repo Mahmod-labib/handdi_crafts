@@ -4,6 +4,9 @@ import 'package:flutter_application_1/core/theming/font_manager.dart';
 import 'package:flutter_application_1/features/crafter/home/widget/custom_category_card.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
+
+import '../../../../core/theming/routes_manager.dart';
 
 
 
@@ -23,7 +26,7 @@ class CrafterMaterial extends StatelessWidget {
             size: 24.r,
           ),
           onPressed: () {
-
+            context.pushReplacement(AppRouter.crafterhomepath);
           },
         ),
         title: Text(
@@ -35,9 +38,18 @@ class CrafterMaterial extends StatelessWidget {
           ),
         ),
         actions: [
-          SvgPicture.asset("assets/images/Search.svg"),
+          InkWell(
+              onTap: () {
+                context.pushReplacement(AppRouter.craftersearchpath);
+              },
+
+              child: SvgPicture.asset("assets/images/Search.svg")),
           SizedBox(width: 15.w),
-          SvgPicture.asset("assets/images/notification.svg"),
+          InkWell(
+              onTap: () {
+                context.pushReplacement(AppRouter.crafternotificationspath);
+              },
+              child: SvgPicture.asset("assets/images/notification.svg")),
           SizedBox(width: 18.w),
         ],
       ),

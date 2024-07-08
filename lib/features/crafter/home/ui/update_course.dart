@@ -28,7 +28,7 @@ class _CrafterUpdateCourseState extends State<CrafterUpdateCourse> {
             size: 24.r,
           ),
           onPressed: () {
-            // context.pushReplacement(AppRouter.craftspath);
+             context.pushReplacement(AppRouter.crafterhomepath);
           },
         ),
         title: Text(
@@ -40,8 +40,12 @@ class _CrafterUpdateCourseState extends State<CrafterUpdateCourse> {
           ),
         ),
         actions: [
-          SvgPicture.asset(
-            "assets/images/Search.svg",
+          InkWell(   onTap: () {
+            context.pushReplacement(AppRouter.craftersearchpath);
+          },
+            child: SvgPicture.asset(
+              "assets/images/Search.svg",
+            ),
           ),
           SizedBox(
             width: 15.w,

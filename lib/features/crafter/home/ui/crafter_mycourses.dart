@@ -42,9 +42,18 @@ class _CrafterMyCoursesState extends State<CrafterMyCourses> {
               onTap: () {
                 context.pushReplacement(AppRouter.craftersearchpath);
               },
-              child: SvgPicture.asset("assets/images/Search.svg" ,)),
+              child: InkWell(
+                  onTap: () {
+                    context.pushReplacement(AppRouter.craftersearchpath);
+                  },
+                  child: SvgPicture.asset("assets/images/Search.svg" ,))),
           SizedBox(width: 15.w,),
-          SvgPicture.asset("assets/images/notification.svg" ,),
+          InkWell(
+              onTap: () {
+
+                context.pushReplacement(AppRouter.crafternotificationspath);
+              },
+              child: SvgPicture.asset("assets/images/notification.svg" ,)),
           SizedBox(width: 18.w,),
         ],
       ),
@@ -65,7 +74,7 @@ class _CrafterMyCoursesState extends State<CrafterMyCourses> {
               child: ListView.separated(
                   itemBuilder: (context, index) => InkWell(
                       onTap: () {
-                        context.pushReplacement(AppRouter.courseslessonspath);
+                        context.pushReplacement(AppRouter.crafterupdatecoursepath);
                       },
                       child: const ItemContainer()),
                   separatorBuilder: (context, index) =>  SizedBox(

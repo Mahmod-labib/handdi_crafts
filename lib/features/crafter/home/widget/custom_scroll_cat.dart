@@ -21,29 +21,30 @@ class CustomCategory extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             child: Row(
               children: [
-                CustomContainer(imgPath: "assets/images/Rectangle999.jpg", text: "Craters"),
+                InkWell(
+                    onTap: () {
+                      context.pushReplacement(AppRouter.crafterscrafterpath);
+                    },
+                    child: CustomContainer(imgPath: "assets/images/Rectangle999.jpg", text: "Crafters")),
                 SizedBox(width: 20.w,),
                 InkWell(
                     onTap: (){
-                      context.pushReplacement(AppRouter.craftspath);
+                      context.pushReplacement(AppRouter.mycollection);
                     },
-                    child: CustomContainer(imgPath: "assets/images/Rectangle1000.jpg", text: "Crafts")),
+                    child: CustomContainer(imgPath: "assets/images/Rectangle1000.jpg", text: "Collection")),
                 SizedBox(width: 20.w,),
-                InkWell(
-                    onTap: ()=>context.pushReplacement("/customerCategory"),
-                    child: CustomContainer(
-                        imgPath: "assets/images/Rectangle1001.jpg", text: "Products")),
-                SizedBox(width: 20.w,),
+
+
                 InkWell(
                     onTap: () {
-                      context.pushReplacement('/coursesAndWorkshop');
+                      context.pushReplacement(AppRouter.craftermycoursespath);
                     },
                     child: CustomContainer(imgPath: "assets/images/courses.jpg", text: "Courses")),
                 SizedBox(width: 20.w,),
 
                 InkWell(
                     onTap: () {
-                      context.pushReplacement(AppRouter.materialspath);
+                      context.pushReplacement(AppRouter.craftermaterialpath);
                     },
                     child: CustomContainer(imgPath: "assets/images/materials.jpg", text: "Materials"))
               ],

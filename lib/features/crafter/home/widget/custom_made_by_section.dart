@@ -4,6 +4,9 @@ import 'package:flutter_application_1/core/theming/font_manager.dart';
 
 import 'package:flutter_application_1/features/crafter/home/widget/button.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
+
+import '../../../../core/theming/routes_manager.dart';
 
 class CustomMadeByContainer extends StatelessWidget {
   const CustomMadeByContainer({super.key});
@@ -83,7 +86,7 @@ class CustomMadeByContainer extends StatelessWidget {
         ),
         SizedBox(height: 12.h,),
         CustomButton(text: "View Collection", onPressed: () {
-
+          context.pushReplacement(AppRouter.mycollection);
         },
             width: 119.w,
             height: 36.h,
